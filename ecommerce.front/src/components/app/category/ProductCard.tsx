@@ -54,7 +54,6 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             src={mainImage}
             alt={product.name}
             layout="fill"
-            objectFit="cover"
             className="object-cover"
           />
         </div>
