@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.no-scrollbar {
+  overflow-y: hidden; /* Y축 스크롤 비활성화 */
+  overflow-x: auto; /* X축 스크롤 활성화 */
+  scrollbar-width: none; /* Firefox에서 스크롤바 숨김 */
+  -ms-overflow-style: none; /* Internet Explorer 10+에서 스크롤바 숨김 */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  border-radius: 15px;
+  padding: 20px;
+  color: white;
+  background: linear-gradient(160deg, #5761b2 0%, #1fc5a8 100%);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-logo {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  width: 50px;
+}
+
+.chip {
+  width: 60px;
+  height: 46px;
+  background-color: #ccc;
+  border-radius: 5px;
+  position: absolute;
+  overflow: hidden;
+  top: 40px;
+  left: 20px;
+}

@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/components/app/InfiniteVIew.tsx",
+    "src/components/app/bannerView.styles.ts",
+    "src/components/app/groupView.styles.ts",
+    "src/components/app/groupView.data.ts",
+    "src/components/app/review.data.ts",
+    "src/components/app/review.styles.ts",
+    "src/components/app/slideView.styles.ts",
+    "src/components/app/slideView.data.ts",
+    "src/components/app/slideControl.styles.ts",
+    "src/components/app/itemView.styles.ts",
+    "src/components/app/itemView.data.ts",
+    "src/components/navigations/navbar.data.ts"
+  ],
+  "exclude": ["node_modules"]
+}
