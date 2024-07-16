@@ -5,11 +5,12 @@ import SlideControl from "./SlideControl";
 import Image from "next/image";
 import Link from "next/link";
 import slideView from "./slideView.styles";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
-// test data
 import slides from "./slideView.data";
 
 const SlideView: React.FC = () => {
+  const isMobile = useMediaQuery(768);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
 
@@ -39,13 +40,17 @@ const SlideView: React.FC = () => {
     setCurrentSlide(index);
   };
 
+  const currentImage = isMobile
+    ? slides[currentSlide].mobileImage
+    : slides[currentSlide].desktopImage;
+
   return (
     <div className={slideView.container}>
       <Link href={slides[currentSlide].link}>
         <div className={slideView.slideLink}>
           <div className={slideView.slideContent}>
             <Image
-              src={slides[currentSlide].image}
+              src={currentImage}
               alt={slides[currentSlide].title}
               className={slideView.slideImage}
               fill

@@ -80,13 +80,16 @@ const Gallery: React.FC = () => {
               <ul className="flex h-40 flex-col gap-2 overflow-y-auto">
                 {data.orderList.map((item: OrderItem, idx: number) => (
                   <li key={idx} className="flex items-center">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      className="mr-2 inline-block h-10 w-10"
-                      fill
-                    />
-                    {item.name}
+                    <div className="relative h-10 w-10">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        layout="fill"
+                        objectFit="cover"
+                        className="rounded"
+                      />
+                    </div>
+                    <span className="ml-2">{item.name}</span>
                   </li>
                 ))}
               </ul>
@@ -95,13 +98,15 @@ const Gallery: React.FC = () => {
               <strong>Uploaded Images:</strong>
               <div className="flex h-40 flex-wrap overflow-y-auto">
                 {data.selectedFiles.map((src: string, idx: number) => (
-                  <Image
-                    key={idx}
-                    src={src}
-                    alt={`uploaded-${idx}`}
-                    className="m-1 h-20 w-20 object-cover"
-                    fill
-                  />
+                  <div key={idx} className="relative m-1 h-20 w-20">
+                    <Image
+                      src={src}
+                      alt={`uploaded-${idx}`}
+                      layout="fill"
+                      objectFit="cover"
+                      className="rounded"
+                    />
+                  </div>
                 ))}
               </div>
             </div>

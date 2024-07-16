@@ -80,7 +80,7 @@ const FormGallery: React.FC<FormGalleryProps> = ({
             (item) => !orderList.some((orderItem) => orderItem.id === item.id),
           ),
       );
-      setShowDropdown(true);
+      setShowDropdown(false);
     }
   };
 
@@ -117,8 +117,9 @@ const FormGallery: React.FC<FormGalleryProps> = ({
               <Image
                 src={src}
                 alt={`preview-${index}`}
-                className="h-full w-full object-cover"
+                className="object-cover"
                 fill
+                style={{ objectFit: "cover", objectPosition: "center" }}
               />
               <button
                 onClick={() => handleRemoveImage(index)}
@@ -174,13 +175,17 @@ const FormGallery: React.FC<FormGalleryProps> = ({
                 className="flex cursor-pointer items-center p-2 hover:bg-gray-100"
                 onClick={() => handleSuggestionClick(item)}
               >
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  className="mr-2 h-10 w-10 object-cover"
-                  fill
-                />
-                <span>{item.name}</span>
+                <div className="relative h-10 w-10 flex-shrink-0">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="center"
+                    className="object-cover"
+                  />
+                </div>
+                <span className="ml-2">{item.name}</span>
               </div>
             ))}
           </div>
@@ -189,14 +194,18 @@ const FormGallery: React.FC<FormGalleryProps> = ({
       <ul className="mb-4 h-28 list-disc overflow-y-auto pl-5">
         {orderList.map((item, index) => (
           <li key={index} className="mb-2 flex items-center justify-between">
-            <div className="flex items-center">
-              <Image
-                src={item.image}
-                alt={item.name}
-                className="mr-2 h-10 w-10 object-cover"
-                fill
-              />
-              <span>{item.name}</span>
+            <div className="relative flex items-center">
+              <div className="relative h-10 w-10 flex-shrink-0">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="center"
+                  className="object-cover"
+                />
+              </div>
+              <span className="ml-2">{item.name}</span>
             </div>
             <button
               onClick={() =>
