@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Order, OrderItem } from "../data/ordersData";
 import { button } from "@/components/common/styles";
+import Image from "next/image";
 
 interface FormGalleryProps {
   onClose: () => void;
@@ -113,10 +114,11 @@ const FormGallery: React.FC<FormGalleryProps> = ({
         <div className="flex h-40 flex-wrap gap-4 space-x-2 overflow-y-auto pt-10 md:h-80">
           {filePreviews.map((src, index) => (
             <div key={index} className="relative h-60 w-60">
-              <img
+              <Image
                 src={src}
                 alt={`preview-${index}`}
                 className="h-full w-full object-cover"
+                fill
               />
               <button
                 onClick={() => handleRemoveImage(index)}
@@ -172,10 +174,11 @@ const FormGallery: React.FC<FormGalleryProps> = ({
                 className="flex cursor-pointer items-center p-2 hover:bg-gray-100"
                 onClick={() => handleSuggestionClick(item)}
               >
-                <img
+                <Image
                   src={item.image}
                   alt={item.name}
                   className="mr-2 h-10 w-10 object-cover"
+                  fill
                 />
                 <span>{item.name}</span>
               </div>
@@ -187,10 +190,11 @@ const FormGallery: React.FC<FormGalleryProps> = ({
         {orderList.map((item, index) => (
           <li key={index} className="mb-2 flex items-center justify-between">
             <div className="flex items-center">
-              <img
+              <Image
                 src={item.image}
                 alt={item.name}
                 className="mr-2 h-10 w-10 object-cover"
+                fill
               />
               <span>{item.name}</span>
             </div>

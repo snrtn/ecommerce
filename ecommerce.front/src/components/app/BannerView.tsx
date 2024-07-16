@@ -2,6 +2,7 @@
 
 import React from "react";
 import banner from "./bannerView.styles";
+import Image from "next/image";
 
 const BannerView = () => {
   return (
@@ -20,12 +21,20 @@ const BannerView = () => {
           </div>
         </div>
         <div className={banner.imageContainer}>
-          <img
+          <Image
             src="/bicycle.svg"
             alt="Fashion Model"
             className={`${banner.image} !h-40`}
+            width={100}
+            height={100}
           />
-          <img src="/banner.svg" alt="Fashion Model" className={banner.image} />
+          <Image
+            src="/banner.svg"
+            alt="Fashion Model"
+            className={banner.image}
+            width={100}
+            height={100}
+          />
         </div>
       </div>
     </div>

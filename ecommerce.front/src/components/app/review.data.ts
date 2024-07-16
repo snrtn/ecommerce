@@ -5,7 +5,7 @@ const slides = [
   },
   {
     image:
-      "https://images.pexels.com/photos/12821061/pexels-photo-12821061.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/bc67c600-014b-4a1b-bc50-d0e6683faa14/sweat-a-capuche-oversize-sportswear-phoenix-fleece-pour-VsSlC5.png",
     items: ["T-shirt", "Jeans", "Jacket", "Hat", "Gloves", "Boots"],
   },
   {

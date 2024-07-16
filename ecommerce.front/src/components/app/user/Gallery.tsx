@@ -6,6 +6,7 @@ import { ordersData, OrderItem, Order } from "./data/ordersData";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Modal from "./form/Modal";
 import { button } from "@/components/common/styles";
+import Image from "next/image";
 
 const Gallery: React.FC = () => {
   const isMobile = useMediaQuery(768);
@@ -79,10 +80,11 @@ const Gallery: React.FC = () => {
               <ul className="flex h-40 flex-col gap-2 overflow-y-auto">
                 {data.orderList.map((item: OrderItem, idx: number) => (
                   <li key={idx} className="flex items-center">
-                    <img
+                    <Image
                       src={item.image}
                       alt={item.name}
                       className="mr-2 inline-block h-10 w-10"
+                      fill
                     />
                     {item.name}
                   </li>
@@ -93,11 +95,12 @@ const Gallery: React.FC = () => {
               <strong>Uploaded Images:</strong>
               <div className="flex h-40 flex-wrap overflow-y-auto">
                 {data.selectedFiles.map((src: string, idx: number) => (
-                  <img
+                  <Image
                     key={idx}
                     src={src}
                     alt={`uploaded-${idx}`}
                     className="m-1 h-20 w-20 object-cover"
+                    fill
                   />
                 ))}
               </div>

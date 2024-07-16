@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { FaCcVisa, FaCcMastercard } from "react-icons/fa";
 import { button } from "@/components/common/styles";
+import Image from "next/image";
 
 interface Card {
   firstName: string;
@@ -234,7 +235,7 @@ const FormPayment: React.FC<PaymentFormProps> = ({
         <div className="w-full md:w-1/2">
           <div className="card bordertext-white relative rounded-md">
             <div className="chip">
-              <img src="/sim.png" alt="Chip" />
+              <Image src="/sim.png" alt="Chip" fill />
             </div>
             <div className="mb-2 mt-20 text-lg">
               {cardNumber ? cardNumber : "XXXX XXXX XXXX XXXX"}

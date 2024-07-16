@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { FC, useState } from "react";
 
@@ -35,22 +36,29 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <img
-          src={mainImage}
-          alt={product.name}
-          className="mb-4 h-60 w-full object-cover md:h-96"
-        />
-        {isHovered && window.innerWidth > 884 ? ( // 태블릿 이상에서는 비활성화
+        <div className="relative mb-4 h-60 w-full md:h-96">
+          <Image
+            src={mainImage}
+            alt={product.name}
+            layout="fill"
+            objectFit="cover"
+            className="object-cover"
+          />
+        </div>
+        {isHovered && window.innerWidth > 884 ? (
           <div className="bg-white p-4">
             <div className="no-scrollbar mb-2 flex gap-2 overflow-x-auto">
               {product.images.slice(1, 5).map((image, idx) => (
-                <img
-                  key={idx}
-                  src={image}
-                  alt={`${product.name} ${idx}`}
-                  className="h-12 w-12 cursor-pointer object-cover"
-                  onMouseOver={() => setMainImage(image)}
-                />
+                <div key={idx} className="relative h-12 w-12">
+                  <Image
+                    src={image}
+                    alt={`${product.name} ${idx}`}
+                    layout="fill"
+                    objectFit="cover"
+                    className="cursor-pointer"
+                    onMouseOver={() => setMainImage(image)}
+                  />
+                </div>
               ))}
             </div>
             <p className="mt-4 text-sm font-medium">{product.price}</p>

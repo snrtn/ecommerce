@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { FaCheck } from "react-icons/fa";
 import CategorySlider from "@/components/app/slug/CategorySlider";
+import Image from "next/image";
 
 const SinglePage = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -92,7 +93,7 @@ const SinglePage = () => {
             <div className="relative w-full">
               <div className="overflow-hidden">
                 {images.map((src, index) => (
-                  <img
+                  <Image
                     key={index}
                     src={src}
                     alt={`Product Image ${index + 1}`}
@@ -101,6 +102,8 @@ const SinglePage = () => {
                         ? "translate-x-0"
                         : "translate-x-full"
                     }`}
+                    width={100}
+                    height={100}
                     style={{
                       display: index === currentSlide ? "block" : "none",
                     }}
@@ -136,20 +139,24 @@ const SinglePage = () => {
           ) : (
             <div className="grid h-full w-2/3 grid-cols-2 gap-2">
               {initialImages.map((src, index) => (
-                <img
+                <Image
                   key={index}
                   src={src}
                   alt={`Product Image ${index + 1}`}
                   className="h-auto w-full"
+                  width={100}
+                  height={100}
                 />
               ))}
               {showMoreImages &&
                 moreImages.map((src, index) => (
-                  <img
+                  <Image
                     key={index}
                     src={src}
                     alt={`Product Image ${index + 5}`}
                     className="h-auto w-full"
+                    width={100}
+                    height={100}
                   />
                 ))}
               {!showMoreImages && (

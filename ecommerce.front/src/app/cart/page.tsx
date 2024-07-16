@@ -67,6 +67,7 @@ const CartPage = () => {
                   width={100}
                   height={100}
                   className="rounded-lg"
+                  fill
                 />
                 <div className="ml-4 flex-1">
                   <h2 className="text-xl font-semibold">{item.name}</h2>

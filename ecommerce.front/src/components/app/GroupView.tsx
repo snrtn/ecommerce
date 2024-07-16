@@ -79,7 +79,9 @@ const GroupView: FC = () => {
         <div className={group.buttonContainer}>
           <button
             onClick={prevSlide}
-            className={`${group.button} ${isAtStart ? group.buttonDisabled : ""}`}
+            className={`${group.button} ${
+              isAtStart ? group.buttonDisabled : ""
+            }`}
             disabled={isAtStart}
           >
             <FaChevronLeft />
@@ -97,37 +99,48 @@ const GroupView: FC = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`${group.slide} ${index === 0 ? group.invisibleSlide : ""}`}
+            className={`${group.slide} ${
+              index === 0 ? group.invisibleSlide : ""
+            }`}
           >
             <div className={group.mainImageContainer}>
-              <img
-                src={slide.image}
-                alt={slide.image}
-                className={group.mainImage}
-              />
-              <div className={group.overlay}>
-                <FaSearchPlus className={group.overlayIcon} />
-              </div>
-            </div>
-            <div className={group.subImageContainer}>
-              <div className={group.subImage}>
-                <img
-                  src={slide.images[0]}
+              <div className="relative h-full w-full">
+                <Image
+                  src={slide.image}
                   alt={slide.image}
-                  className={group.subImageContent}
+                  className={group.mainImage}
+                  fill
                 />
                 <div className={group.overlay}>
                   <FaSearchPlus className={group.overlayIcon} />
                 </div>
               </div>
+            </div>
+            <div className={group.subImageContainer}>
               <div className={group.subImage}>
-                <img
-                  src={slide.images[1]}
-                  alt={slide.image}
-                  className={group.subImageContent}
-                />
-                <div className={group.overlay}>
-                  <FaSearchPlus className={group.overlayIcon} />
+                <div className="relative h-full w-full">
+                  <Image
+                    src={slide.images[0]}
+                    alt={slide.image}
+                    className={group.subImageContent}
+                    fill
+                  />
+                  <div className={group.overlay}>
+                    <FaSearchPlus className={group.overlayIcon} />
+                  </div>
+                </div>
+              </div>
+              <div className={group.subImage}>
+                <div className="relative h-full w-full">
+                  <Image
+                    src={slide.images[1]}
+                    alt={slide.image}
+                    className={group.subImageContent}
+                    fill
+                  />
+                  <div className={group.overlay}>
+                    <FaSearchPlus className={group.overlayIcon} />
+                  </div>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 const slideView = {
-  container: "relative h-[80vh] w-full",
+  container: "relative h-[82vh] w-full",
   slideLink: "absolute inset-0 flex items-center justify-center",
   slideContent: "relative flex h-full w-full items-center justify-center",
   slideImage: "h-full w-full object-cover",

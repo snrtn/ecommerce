@@ -7,6 +7,7 @@ import { RiDeleteBack2Fill } from "react-icons/ri";
 import navSearchBar from "./navSearchBar.styles";
 import { fetchedSuggestions } from "./navSearchBar.data";
 import { Suggestions } from "./navSearchBar.types";
+import Image from "next/image";
 
 const NavSearchBar = () => {
   const router = useRouter();
@@ -79,10 +80,11 @@ const NavSearchBar = () => {
             className={navSearchBar.suggestionItem}
             onClick={() => handleSuggestionClick(item.name)}
           >
-            <img
+            <Image
               src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/846d5a72-a372-425f-9cb3-f5e8051e4c2e/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png"
               alt={item.name}
               className={navSearchBar.suggestionImage}
+              fill
             />
 
             <div className={navSearchBar.suggestionDetails}>

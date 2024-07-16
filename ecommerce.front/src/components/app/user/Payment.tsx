@@ -6,6 +6,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import Modal from "./form/Modal";
 import PaymentForm from "./form/FormPayment";
 import { button } from "@/components/common/styles";
+import Image from "next/image";
 
 interface Card {
   firstName: string;
@@ -55,7 +56,7 @@ const Payment = () => {
               className={`card relative rounded-md border ${card.disabled ? "opacity-50" : ""}`}
             >
               <div className="chip">
-                <img src="/sim.png" alt="Chip" />
+                <Image src="/sim.png" alt="Chip" fill />
               </div>
               <div className="mb-2 mt-20 text-lg">
                 {maskCardNumber(card.cardNumber)}

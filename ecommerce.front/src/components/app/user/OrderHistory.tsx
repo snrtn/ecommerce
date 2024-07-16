@@ -5,6 +5,7 @@ import OrderDetail from "./form/OrderDetail";
 import Modal from "./form/Modal";
 import { ordersData, Order } from "./data/ordersData";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import Image from "next/image";
 
 const OrderHistory: React.FC = () => {
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
@@ -75,7 +76,7 @@ const OrderHistory: React.FC = () => {
           ))}
         </select>
       </div>
-      <div className="h-72 overflow-y-auto">
+      <div className="h-96 overflow-y-auto md:h-[70vh]">
         {Object.keys(groupedOrders)
           .map((year) => (
             <div key={year}>
@@ -83,17 +84,18 @@ const OrderHistory: React.FC = () => {
               {groupedOrders[year].map((order) => (
                 <div
                   key={order.id}
-                  className="mb-4 w-full cursor-pointer border-b"
+                  className="mb-4 w-full cursor-pointer border-b py-4"
                   onClick={() => handleOrderClick(order)}
                 >
                   <div className="flex items-center justify-between">
                     <div className="mr-2 flex flex-1 space-x-2 overflow-x-auto">
                       {order.items.map((item, idx) => (
                         <div key={idx} className="h-16 w-16 flex-shrink-0">
-                          <img
+                          <Image
                             src={item.image}
                             alt={item.name}
                             className="h-full w-full object-cover"
+                            fill
                           />
                         </div>
                       ))}

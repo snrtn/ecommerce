@@ -2,6 +2,7 @@
 
 import React from "react";
 import { button } from "@/components/common/styles";
+import Image from "next/image";
 
 type OrderItem = {
   image: string;
@@ -49,10 +50,11 @@ const OrderDetail: React.FC<OrderDetailProps> = ({ order, onClose }) => {
               item.disabled ? "relative cursor-not-allowed" : "cursor-pointer"
             }`}
           >
-            <img
+            <Image
               src={item.image}
               alt={item.name}
               className="mr-4 h-16 w-16 object-cover"
+              fill
             />
             <div className="flex flex-1">
               <div className="flex flex-1">
