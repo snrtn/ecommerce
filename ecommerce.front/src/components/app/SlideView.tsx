@@ -49,12 +49,15 @@ const SlideView: React.FC = () => {
       <Link href={slides[currentSlide].link}>
         <div className={slideView.slideLink}>
           <div className={slideView.slideContent}>
-            <Image
-              src={currentImage}
-              alt={slides[currentSlide].title}
-              className={slideView.slideImage}
-              fill
-            />
+            <div className={slideView.imageWrapper}>
+              <Image
+                src={currentImage}
+                alt={slides[currentSlide].title}
+                className={slideView.slideImage}
+                fill
+              />
+              <div className={slideView.darkOverlay}></div>
+            </div>
             <div className={slideView.slideOverlay}>
               <h2 className={slideView.slideTitle}>
                 {slides[currentSlide].title}

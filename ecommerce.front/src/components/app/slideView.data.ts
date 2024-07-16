@@ -35,9 +35,9 @@ const slides = [
   },
   {
     desktopImage:
-      "https://images.pexels.com/photos/20004887/pexels-photo-20004887/free-photo-of-smiling-woman-walking-in-purple-dress.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/23319179/pexels-photo-23319179/free-photo-of-woman-in-sunglasses-at-night.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     mobileImage:
-      "https://images.pexels.com/photos/19990819/pexels-photo-19990819/free-photo-of-brunette-in-lilac-dress-with-ruffles.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/23196481/pexels-photo-23196481/free-photo-of-a-fashionable-woman-with-sunglasses-leaning-against-a-car.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     title: "Women's Clothing",
     description:
       "Get up to 30% off women's seasonal clothing. Purchase trendy fashion at a low price.",
@@ -80,9 +80,9 @@ const slides = [
   },
   {
     desktopImage:
-      "https://images.pexels.com/photos/20004887/pexels-photo-20004887/free-photo-of-smiling-woman-walking-in-purple-dress.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/23319179/pexels-photo-23319179/free-photo-of-woman-in-sunglasses-at-night.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     mobileImage:
-      "https://images.pexels.com/photos/19990819/pexels-photo-19990819/free-photo-of-brunette-in-lilac-dress-with-ruffles.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/23196481/pexels-photo-23196481/free-photo-of-a-fashionable-woman-with-sunglasses-leaning-against-a-car.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     title: "Women's Clothing",
     description:
       "Get up to 30% off women's seasonal clothing. Purchase trendy fashion at a low price.",
