@@ -95,7 +95,7 @@ const ReviewPage = () => {
         </div>
 
         <div className="ml-0 mt-20 flex w-full flex-col md:ml-6 md:mt-0 md:w-1/2">
-          <p className="text-xl font-medium">By "User48"</p>
+          <p className="text-xl font-medium">By User48</p>
           {items.map((item, index) => (
             <div key={index}>
               <div

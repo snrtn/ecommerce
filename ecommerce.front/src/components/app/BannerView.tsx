@@ -13,7 +13,7 @@ const BannerView = () => {
           <h2 className={banner.heading}>with the best discount offers!</h2>
           <div className="mt-4">
             <p className={banner.paragraph}>
-              Don't miss the special opportunity
+              Don`t miss the special opportunity
             </p>
             <p className={banner.paragraph}>
               to enhance your fashion world at the same time.

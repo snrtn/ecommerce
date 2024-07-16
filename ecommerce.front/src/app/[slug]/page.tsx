@@ -232,7 +232,6 @@ const SinglePage = () => {
                   </button>
                 </div>
               </div>
-
               <button className="w-full bg-black p-3 text-white">
                 ADD TO CART
               </button>
@@ -250,7 +249,7 @@ const SinglePage = () => {
               <p className="text-sm font-normal">
                 Style et confort pour toutes tes tenues : découvre notre ligne
                 loungewear haut de gamme. Ce sweat classique te tient chaud
-                toute la journée, avec son tissu Fleece d'épaisseur moyenne,
+                toute la journée, avec son tissu Fleece d`épaisseur moyenne,
                 doux et structuré. Avec ses côtes hautes et sa coupe oversize,
                 ton look aura de quoi se démarquer.
               </p>
