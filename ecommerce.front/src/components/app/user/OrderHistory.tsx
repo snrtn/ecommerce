@@ -90,12 +90,19 @@ const OrderHistory: React.FC = () => {
                   <div className="flex items-center justify-between">
                     <div className="mr-2 flex flex-1 space-x-2 overflow-x-auto">
                       {order.items.map((item, idx) => (
-                        <div key={idx} className="h-16 w-16 flex-shrink-0">
+                        <div
+                          key={idx}
+                          className="relative h-16 w-16 flex-shrink-0"
+                        >
                           <Image
                             src={item.image}
                             alt={item.name}
-                            className="h-full w-full object-cover"
+                            className="object-cover"
                             fill
+                            style={{
+                              objectFit: "cover",
+                              objectPosition: "center",
+                            }}
                           />
                         </div>
                       ))}

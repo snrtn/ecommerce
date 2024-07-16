@@ -97,7 +97,7 @@ const SinglePage = () => {
                 {images.map((src, index) => (
                   <div
                     key={index}
-                    className={`relative h-[300px] w-full transition-transform ${
+                    className={`relative h-[528px] w-full transition-transform ${
                       index === currentSlide
                         ? "translate-x-0"
                         : "translate-x-full"
@@ -109,9 +109,9 @@ const SinglePage = () => {
                     <Image
                       src={src}
                       alt={`Product Image ${index + 1}`}
-                      className="h-auto w-full"
-                      width={300}
-                      height={400}
+                      className="h-full w-full"
+                      width={500}
+                      height={700}
                     />
                   </div>
                 ))}

@@ -50,12 +50,16 @@ const OrderDetail: React.FC<OrderDetailProps> = ({ order, onClose }) => {
               item.disabled ? "relative cursor-not-allowed" : "cursor-pointer"
             }`}
           >
-            <Image
-              src={item.image}
-              alt={item.name}
-              className="mr-4 h-16 w-16 object-cover"
-              fill
-            />
+            <div className="relative h-16 w-16 flex-shrink-0">
+              <Image
+                src={item.image}
+                alt={item.name}
+                layout="fill"
+                objectFit="cover"
+                objectPosition="center"
+                className="mr-4"
+              />
+            </div>
             <div className="flex flex-1">
               <div className="flex flex-1">
                 <p>{item.name}</p>
