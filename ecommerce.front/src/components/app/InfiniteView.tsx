@@ -9,22 +9,26 @@ import { initialProducts } from "./infiniteView.data";
 
 const InfiniteView: React.FC = () => {
   const loader = useRef<HTMLDivElement | null>(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth > 884);
+  const [isMobile, setIsMobile] = useState(false);
   const [items, setItems] = useState(
-    isMobile ? initialProducts.slice(0, 15) : initialProducts.slice(0, 14),
+    isMobile ? initialProducts.slice(0, 14) : initialProducts.slice(0, 15),
   );
 
   useEffect(() => {
-    const handleResize = () => {
+    if (typeof window !== "undefined") {
       setIsMobile(window.innerWidth <= 768);
-    };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+      const handleResize = () => {
+        setIsMobile(window.innerWidth <= 768);
+      };
+
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
   }, []);
 
   const loadMore = () => {
-    const itemsToLoad = isMobile ? 15 : 14;
+    const itemsToLoad = isMobile ? 14 : 15;
     setItems((prev) => [
       ...prev,
       ...initialProducts.slice(prev.length, prev.length + itemsToLoad),

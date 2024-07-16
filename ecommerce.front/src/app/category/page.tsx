@@ -15,7 +15,20 @@ const CategoryPage = () => {
 
   const [showFilters, setShowFilters] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 884);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsMobile(window.innerWidth <= 884);
+
+      const handleResize = () => {
+        setIsMobile(window.innerWidth <= 884);
+      };
+
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
 
   const handleFilterChange = (
     e: ChangeEvent<HTMLSelectElement | HTMLInputElement>,
@@ -27,15 +40,6 @@ const CategoryPage = () => {
   const toggleFilters = () => {
     setShowFilters(!showFilters);
   };
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 884);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const initialProducts = Array(100)
     .fill(null)
@@ -66,7 +70,9 @@ const CategoryPage = () => {
   };
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   }, [currentPage]);
 
   const renderPageNumbers = () => {

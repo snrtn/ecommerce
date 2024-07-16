@@ -15,13 +15,15 @@ const SinglePage = () => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 884);
-    };
+    if (typeof window !== "undefined") {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth <= 884);
+      };
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+      handleResize();
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
   }, []);
 
   const images = [
@@ -93,21 +95,25 @@ const SinglePage = () => {
             <div className="relative w-full">
               <div className="overflow-hidden">
                 {images.map((src, index) => (
-                  <Image
+                  <div
                     key={index}
-                    src={src}
-                    alt={`Product Image ${index + 1}`}
-                    className={`w-full transform transition-transform ${
+                    className={`relative h-[300px] w-full transition-transform ${
                       index === currentSlide
                         ? "translate-x-0"
                         : "translate-x-full"
                     }`}
-                    width={100}
-                    height={100}
                     style={{
                       display: index === currentSlide ? "block" : "none",
                     }}
-                  />
+                  >
+                    <Image
+                      src={src}
+                      alt={`Product Image ${index + 1}`}
+                      className="h-auto w-full"
+                      width={300}
+                      height={400}
+                    />
+                  </div>
                 ))}
               </div>
               <div className="absolute left-0 top-1/2 flex h-full w-full -translate-y-1/2 transform items-center justify-between">
@@ -139,25 +145,27 @@ const SinglePage = () => {
           ) : (
             <div className="grid h-full w-2/3 grid-cols-2 gap-2">
               {initialImages.map((src, index) => (
-                <Image
-                  key={index}
-                  src={src}
-                  alt={`Product Image ${index + 1}`}
-                  className="h-auto w-full"
-                  width={100}
-                  height={100}
-                />
+                <div key={index} className="relative h-full w-full">
+                  <Image
+                    src={src}
+                    alt={`Product Image ${index + 1}`}
+                    className="h-auto w-full"
+                    width={300}
+                    height={400}
+                  />
+                </div>
               ))}
               {showMoreImages &&
                 moreImages.map((src, index) => (
-                  <Image
-                    key={index}
-                    src={src}
-                    alt={`Product Image ${index + 5}`}
-                    className="h-auto w-full"
-                    width={100}
-                    height={100}
-                  />
+                  <div key={index} className="relative h-full w-full">
+                    <Image
+                      src={src}
+                      alt={`Product Image ${index + 5}`}
+                      className="h-auto w-full"
+                      width={300}
+                      height={400}
+                    />
+                  </div>
                 ))}
               {!showMoreImages && (
                 <button

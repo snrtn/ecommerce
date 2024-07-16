@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 
 interface Product {
   name: string;
@@ -19,6 +19,19 @@ interface ProductCardProps {
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [mainImage, setMainImage] = useState(product.images[0]);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  useEffect(() => {
+    const updateScreenSize = () => {
+      if (typeof window !== "undefined") {
+        setIsLargeScreen(window.innerWidth > 884);
+      }
+    };
+
+    updateScreenSize();
+    window.addEventListener("resize", updateScreenSize);
+    return () => window.removeEventListener("resize", updateScreenSize);
+  }, []);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -45,7 +58,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             className="object-cover"
           />
         </div>
-        {isHovered && window.innerWidth > 884 ? (
+        {isHovered && isLargeScreen ? (
           <div className="bg-white p-4">
             <div className="no-scrollbar mb-2 flex gap-2 overflow-x-auto">
               {product.images.slice(1, 5).map((image, idx) => (

@@ -5,20 +5,21 @@ import { useEffect, useState } from "react";
 const useMediaQuery = (width: number) => {
   const [targetReached, setTargetReached] = useState(false);
 
-  const updateTarget = (e: MediaQueryListEvent) => {
-    setTargetReached(e.matches);
-  };
-
   useEffect(() => {
-    const media = window.matchMedia(`(max-width: ${width}px)`);
-    media.addEventListener("change", updateTarget);
+    if (typeof window !== "undefined") {
+      const media = window.matchMedia(`(max-width: ${width}px)`);
+      const updateTarget = (e: MediaQueryListEvent) => {
+        setTargetReached(e.matches);
+      };
 
-    // Check on mount (callback is not called until a change occurs)
-    if (media.matches) {
-      setTargetReached(true);
+      media.addEventListener("change", updateTarget);
+
+      if (media.matches) {
+        setTargetReached(true);
+      }
+
+      return () => media.removeEventListener("change", updateTarget);
     }
-
-    return () => media.removeEventListener("change", updateTarget);
   }, [width]);
 
   return targetReached;

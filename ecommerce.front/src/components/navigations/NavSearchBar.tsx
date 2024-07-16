@@ -15,20 +15,22 @@ const NavSearchBar = () => {
   const [suggestions, setSuggestions] = useState<Suggestions>({
     hommes: [],
     femmes: [],
-  }); // Use the type
+  });
   const [showDropdown, setShowDropdown] = useState(false);
 
   useEffect(() => {
-    const handleEsc = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setSearchTerm("");
-        setShowDropdown(false);
-      }
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => {
-      window.removeEventListener("keydown", handleEsc);
-    };
+    if (typeof window !== "undefined") {
+      const handleEsc = (event: KeyboardEvent) => {
+        if (event.key === "Escape") {
+          setSearchTerm("");
+          setShowDropdown(false);
+        }
+      };
+      window.addEventListener("keydown", handleEsc);
+      return () => {
+        window.removeEventListener("keydown", handleEsc);
+      };
+    }
   }, []);
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
@@ -80,13 +82,14 @@ const NavSearchBar = () => {
             className={navSearchBar.suggestionItem}
             onClick={() => handleSuggestionClick(item.name)}
           >
-            <Image
-              src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/846d5a72-a372-425f-9cb3-f5e8051e4c2e/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png"
-              alt={item.name}
-              className={navSearchBar.suggestionImage}
-              fill
-            />
-
+            <div className="relative h-12 w-12">
+              <Image
+                src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/846d5a72-a372-425f-9cb3-f5e8051e4c2e/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png"
+                alt={item.name}
+                className={navSearchBar.suggestionImage}
+                layout="fill"
+              />
+            </div>
             <div className={navSearchBar.suggestionDetails}>
               <p className={navSearchBar.suggestionName}>{item.name}</p>
               <div className={navSearchBar.suggestionInfo}>
