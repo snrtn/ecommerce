@@ -18,7 +18,8 @@ const group = {
   overlay:
     "absolute inset-0 flex cursor-pointer items-center justify-center bg-white bg-opacity-10 opacity-0 transition duration-300 group-hover:opacity-100",
   overlayIcon: "text-3xl text-black",
-  subImageContainer: "flex h-[70vh] w-[50vh] md:w-[30vh] md:flex-col",
+  subImageContainer:
+    "flex h-[55vh] md:h-[70vh] w-[50vh] md:w-[30vh] md:flex-col",
   subImage: "group relative h-1/2 w-full overflow-hidden p-4",
   subImageContent:
     "h-full w-full rounded-lg object-contain transition duration-300 group-hover:opacity-70 md:object-cover",
