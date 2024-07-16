@@ -149,9 +149,9 @@ const FormPayment: React.FC<PaymentFormProps> = ({
 
   return (
     <div>
-      <h2 className="my-4 text-xl">Add New Card</h2>
+      <h2 className="my-4 hidden text-xl md:flex">Add Payment</h2>
       <div className="mb-4 flex flex-col md:flex-row">
-        <div className="w-full pr-4 md:w-1/2">
+        <div className="w-full pr-0 md:w-1/2 md:pr-4">
           <div className="mb-4">
             <label className="mb-2 block">
               First Name<span className="text-red-500">*</span>

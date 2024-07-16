@@ -133,7 +133,7 @@ const CategoryPage = () => {
   };
 
   return (
-    <div className="mt-0 flex flex-col-reverse xl:mt-20 xl:flex-row">
+    <div className="mt-20 flex flex-col-reverse xl:flex-row">
       <div
         className={`xl:block ${showFilters ? "block" : "hidden"} sticky top-20 xl:w-1/6`}
       >

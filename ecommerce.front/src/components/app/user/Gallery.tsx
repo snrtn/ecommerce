@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import FormGallery from "./form/FormGallery";
-import { ordersData, OrderItem, Order } from "./data/ordersData";
+import { ordersData, OrderItem } from "./data/ordersData";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Modal from "./form/Modal";
 import { button } from "@/components/common/styles";
@@ -41,8 +41,8 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <div className="min-h-[70vh] px-4 md:px-0">
-      <div className="flex justify-between">
+    <div className="min-h-[70vh] px-8 md:px-0">
+      <div className="mb-10 flex justify-between">
         <h1 className="text-xl font-semibold">Gallery</h1>
         <button onClick={openModal} className={button.save}>
           Add Gallery
@@ -50,7 +50,7 @@ const Gallery: React.FC = () => {
       </div>
       {isMobile ? (
         isModalOpen && (
-          <div className="relative mb-4 rounded-md bg-white p-6 shadow-md">
+          <div className="relative mb-4 rounded-md bg-white">
             <FormGallery
               onClose={closeModal}
               orders={ordersData}
@@ -68,6 +68,11 @@ const Gallery: React.FC = () => {
             initialData={editingData}
           />
         </Modal>
+      )}
+      {!isModalOpen && galleryData.length === 0 && (
+        <p className="mt-10 md:mt-0">
+          No gallery items available. Please add one.
+        </p>
       )}
       <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
         {galleryData.map((data, index) => (

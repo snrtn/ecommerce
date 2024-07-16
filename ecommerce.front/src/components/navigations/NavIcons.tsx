@@ -1,6 +1,6 @@
 "use client";
 
-import { FaUser, FaShoppingCart } from "react-icons/fa";
+import { FaUser, FaShoppingCart, FaHeart } from "react-icons/fa";
 import NavMenu from "./NavMenu";
 import Link from "next/link";
 import navIcons from "./navIcons.styles";
@@ -11,12 +11,15 @@ const NavIcons = () => {
       <Link href={"/user"}>
         <FaUser className={navIcons.icon} />
       </Link>
-      <Link href={"/cart"}>
-        <FaShoppingCart className={navIcons.icon} />
-      </Link>
-      <div className={navIcons.navMenu}>
-        <NavMenu />
+      <div className={navIcons.iconContainer}>
+        <FaHeart className={navIcons.icon} />
+        <span className={navIcons.text}>5</span>
       </div>
+
+      <Link href={"/cart"} className={navIcons.iconContainer}>
+        <FaShoppingCart className={navIcons.icon} />
+        <span className={navIcons.text}>3</span>
+      </Link>
     </div>
   );
 };

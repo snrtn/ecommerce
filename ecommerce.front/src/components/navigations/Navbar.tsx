@@ -26,12 +26,16 @@ const Navbar = () => {
   return (
     <div className={navbar.container}>
       <div className={navbar.mobileNav}>
-        <NavMenu />
-        <Link href="/" className={navbar.logoLink}>
-          <div className={navbar.logoText}>KIM</div>
-        </Link>
-        <NavSearchBar />
+        <div className="flex items-center justify-center">
+          <NavMenu />
+          <Link href="/" className={navbar.logoLink}>
+            <div className={navbar.logoText}>KIM</div>
+          </Link>
+        </div>
         <NavIcons />
+      </div>
+      <div className="md:hidden">
+        <NavSearchBar />
       </div>
       <div className={navbar.desktopNav}>
         <div className={navbar.desktopLeft}>

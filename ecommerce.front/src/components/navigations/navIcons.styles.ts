@@ -1,7 +1,9 @@
 const navIcons = {
-  container: "relative flex items-center gap-4 text-black xl:gap-6",
-  icon: "cursor-pointer text-xl",
-  navMenu: "hidden md:block lg:hidden",
+  container: "flex items-center space-x-4",
+  icon: "text-lg md:text-xl text-gray-600 hover:text-gray-800 transition",
+  iconContainer: "flex items-center space-x-1",
+  text: "ml-1 text-gray-800 text-xs md:text-sm",
+  navMenu: "md:hidden",
 };
 
 export default navIcons;

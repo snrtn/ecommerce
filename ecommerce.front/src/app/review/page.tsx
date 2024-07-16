@@ -58,7 +58,7 @@ const ReviewPage = () => {
   };
 
   return (
-    <div className="mt-8 md:mt-24 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
+    <div className="mt-24 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
       <div className="flex flex-col justify-between px-4 md:flex-row md:px-0">
         <div className="grid h-full w-full grid-cols-2 gap-2 md:w-2/3">
           {photos.slice(0, 4).map((photo, index) => (

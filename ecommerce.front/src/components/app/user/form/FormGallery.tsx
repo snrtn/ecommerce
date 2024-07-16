@@ -101,8 +101,8 @@ const FormGallery: React.FC<FormGalleryProps> = ({
   };
 
   return (
-    <div>
-      <h2 className="mb-4 text-xl">Gallery</h2>
+    <div className="mt-10 md:mt-0">
+      <h2 className="mb-4 hidden text-xl md:flex">Gallery</h2>
       <div className="mb-4">
         <label className="mb-2 block">Upload Images</label>
         <input

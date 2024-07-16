@@ -56,86 +56,89 @@ const OrderHistory: React.FC = () => {
   );
 
   return (
-    <div className="min-h-[70vh] px-4 md:px-0">
-      <h1 className="text-xl font-semibold">Order History</h1>
-      <div className="mb-4">
-        <label htmlFor="year-select" className="mr-2">
-          Filter by year:
-        </label>
-        <select
-          id="year-select"
-          value={selectedYear}
-          onChange={handleYearChange}
-          className="rounded border p-1"
-        >
-          <option value="all">All</option>
-          {getUniqueYears().map((year) => (
-            <option key={year} value={year.toString()}>
-              {year}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="h-96 overflow-y-auto md:h-[70vh]">
-        {Object.keys(groupedOrders)
-          .map((year) => (
-            <div key={year}>
-              <h3 className="mb-4 text-xl font-semibold">{year}</h3>
-              {groupedOrders[year].map((order) => (
-                <div
-                  key={order.id}
-                  className="mb-4 w-full cursor-pointer border-b py-4"
-                  onClick={() => handleOrderClick(order)}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="mr-2 flex flex-1 space-x-2 overflow-x-auto">
-                      {order.items.map((item, idx) => (
-                        <div
-                          key={idx}
-                          className="relative h-16 w-16 flex-shrink-0"
-                        >
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            className="object-cover"
-                            fill
-                            style={{
-                              objectFit: "cover",
-                              objectPosition: "center",
-                            }}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                    <div className="flex flex-1 flex-col md:flex-row">
-                      <div className="flex flex-1">
-                        <p>Order #{order.id}</p>
-                      </div>
-                      <div className="flex flex-1">
-                        <p>Status: {order.status}</p>
-                      </div>
-                      <div className="flex flex-1">
-                        <p className="text-lg font-semibold">
-                          {order.totalPrice}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+    <div className="min-h-[70vh] px-8 md:px-0">
+      {!isMobile || !selectedOrder ? (
+        <>
+          <h1 className="text-xl font-semibold">Order History</h1>
+          <div className="mb-4">
+            <label htmlFor="year-select" className="mr-2">
+              Filter by year:
+            </label>
+            <select
+              id="year-select"
+              value={selectedYear}
+              onChange={handleYearChange}
+              className="rounded border p-1"
+            >
+              <option value="all">All</option>
+              {getUniqueYears().map((year) => (
+                <option key={year} value={year.toString()}>
+                  {year}
+                </option>
               ))}
-            </div>
-          ))
-          .reverse()}
-      </div>
+            </select>
+          </div>
+          <div className="h-[70vh] overflow-y-auto md:h-[70vh]">
+            {Object.keys(groupedOrders)
+              .map((year) => (
+                <div key={year}>
+                  <h3 className="mb-4 text-xl font-semibold">{year}</h3>
+                  {groupedOrders[year].map((order) => (
+                    <div
+                      key={order.id}
+                      className="mb-4 w-full cursor-pointer border-b py-4"
+                      onClick={() => handleOrderClick(order)}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="mr-2 flex flex-1 space-x-2 overflow-x-auto">
+                          {order.items.map((item, idx) => (
+                            <div
+                              key={idx}
+                              className="relative h-16 w-16 flex-shrink-0"
+                            >
+                              <Image
+                                src={item.image}
+                                alt={item.name}
+                                className="object-cover"
+                                fill
+                                style={{
+                                  objectFit: "cover",
+                                  objectPosition: "center",
+                                }}
+                              />
+                            </div>
+                          ))}
+                        </div>
+                        <div className="flex flex-1 flex-col md:flex-row">
+                          <div className="flex flex-1">
+                            <p>Order #{order.id}</p>
+                          </div>
+                          <div className="flex flex-1">
+                            <p>Status: {order.status}</p>
+                          </div>
+                          <div className="flex flex-1">
+                            <p className="text-lg font-semibold">
+                              {order.totalPrice}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))
+              .reverse()}
+          </div>
+        </>
+      ) : (
+        <div className="relative mb-4 rounded-md bg-white">
+          <OrderDetail order={selectedOrder} onClose={handleCloseModal} />
+        </div>
+      )}
       {isModalOpen && selectedOrder && (
         <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
           <OrderDetail order={selectedOrder} onClose={handleCloseModal} />
         </Modal>
-      )}
-      {isMobile && selectedOrder && (
-        <div className="relative mb-4 rounded-md bg-white p-6 shadow-md">
-          <OrderDetail order={selectedOrder} onClose={handleCloseModal} />
-        </div>
       )}
     </div>
   );

@@ -2,21 +2,17 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { FaBars } from "react-icons/fa";
-import { IoCloseSharp } from "react-icons/io5";
+import { FaBars, FaChevronRight, FaChevronDown } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
 import menus from "./navbar.data";
 import navMenu from "./navMenu.styles";
 
 const Menu = () => {
   const [open, setOpen] = useState(false);
-  const [subMenu, setSubMenu] = useState<string | null>(null);
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
-  const handleSubMenu = (menu: string) => {
-    if (subMenu === menu) {
-      setSubMenu(null);
-    } else {
-      setSubMenu(menu);
-    }
+  const handleMenuToggle = (menu: string) => {
+    setActiveMenu(activeMenu === menu ? null : menu);
   };
 
   return (
@@ -29,65 +25,53 @@ const Menu = () => {
       </div>
       {open && (
         <div className={navMenu.menuOpen}>
-          {!subMenu && (
-            <div className="w-full">
-              <div className={navMenu.closeButtonContainer}>
-                <div></div>
-                <div
-                  className={navMenu.closeButton}
-                  onClick={() => setOpen((prev) => !prev)}
-                >
-                  <IoCloseSharp />
-                </div>
-              </div>
-
-              <button
-                onClick={() => handleSubMenu("hommes")}
-                className={navMenu.menuButton}
-              >
-                Hommes
-              </button>
-              <button
-                onClick={() => handleSubMenu("femmes")}
-                className={navMenu.menuButton}
-              >
-                Femmes
-              </button>
+          <div className={navMenu.overlay}>
+            <div className={navMenu.closeButton} onClick={() => setOpen(false)}>
+              <IoMdClose />
             </div>
-          )}
-
-          {subMenu && (
-            <div className={navMenu.subMenuContainer}>
-              <div className={navMenu.closeButtonContainer}>
-                <button
-                  onClick={() => setSubMenu(null)}
-                  className={navMenu.backButton}
-                >
-                  Back
-                </button>
-                <div
-                  className={navMenu.closeButton}
-                  onClick={() => setOpen((prev) => !prev)}
-                >
-                  <IoCloseSharp />
-                </div>
-              </div>
-              {menus[subMenu as keyof typeof menus].sections.map((section) => (
-                <div key={section.title}>
-                  <h3 className={navMenu.sectionTitle}>{section.title}</h3>
-                  {section.items.map((item) => (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      className={navMenu.sectionItem}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
+          </div>
+          <div className={navMenu.menuContent}>
+            <div className={navMenu.welcomeMessage}>Welcome, Jared Diamond</div>
+            <div className="w-full">
+              {Object.keys(menus).map((menuKey) => (
+                <div key={menuKey}>
+                  <div
+                    className={navMenu.menuButton}
+                    onClick={() => handleMenuToggle(menuKey)}
+                  >
+                    {menuKey.charAt(0).toUpperCase() + menuKey.slice(1)}
+                    {activeMenu === menuKey ? (
+                      <FaChevronDown className={navMenu.chevronIcon} />
+                    ) : (
+                      <FaChevronRight className={navMenu.chevronIcon} />
+                    )}
+                  </div>
+                  {activeMenu === menuKey && (
+                    <div className={navMenu.subMenu}>
+                      {menus[menuKey as keyof typeof menus].sections.map(
+                        (section) => (
+                          <div key={section.title}>
+                            <h3 className={navMenu.sectionTitle}>
+                              {section.title}
+                            </h3>
+                            {section.items.map((item) => (
+                              <Link
+                                key={item.label}
+                                href={item.href}
+                                className={navMenu.sectionItem}
+                              >
+                                {item.label}
+                              </Link>
+                            ))}
+                          </div>
+                        ),
+                      )}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
-          )}
+          </div>
         </div>
       )}
     </div>

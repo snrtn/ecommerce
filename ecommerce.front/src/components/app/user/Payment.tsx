@@ -37,11 +37,11 @@ const Payment = () => {
   };
 
   const maskCardNumber = (cardNumber: string) => {
-    return "XXXX XXXX XXXX " + cardNumber.slice(-5);
+    return "XXXX XXXX XXXX " + cardNumber.slice(-4);
   };
 
   return (
-    <div className="min-h-[70vh] px-4 md:px-0">
+    <div className="min-h-[70vh] px-8 md:px-0">
       <div className="mb-10 flex justify-between">
         <h1 className="text-xl font-semibold">Payment</h1>
         <button onClick={openModal} className={button.save}>
@@ -49,61 +49,61 @@ const Payment = () => {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 gap-2 md:grid-cols-3">
-        {savedCards.map((card, index) => (
-          <div key={index} className="w-full">
-            <div
-              className={`card relative rounded-md border ${card.disabled ? "opacity-50" : ""}`}
-            >
-              <div className="chip">
-                <Image src="/sim.png" alt="Chip" fill />
-              </div>
-              <div className="mb-2 mt-20 text-lg">
-                {maskCardNumber(card.cardNumber)}
-              </div>
-              <div className="card-info flex items-start justify-between">
-                <div className="flex flex-1 flex-col">
-                  <p className="text-xs text-gray-200">CARD HOLDER NAME</p>
-                  <div className="card-name text-lg">{`${card.firstName} ${card.lastName}`}</div>
+      {!isModalOpen && savedCards.length === 0 && (
+        <p>No saved payment methods available. Please add one.</p>
+      )}
+
+      {savedCards.length > 0 && (
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-3">
+          {savedCards.map((card, index) => (
+            <div key={index} className="w-full">
+              <div
+                className={`card relative rounded-md border ${card.disabled ? "opacity-50" : ""}`}
+              >
+                <div className="chip">
+                  <Image src="/sim.png" alt="Chip" fill />
                 </div>
-                <div className="flex flex-1 flex-col">
-                  <p className="text-xs text-gray-200">VALID THRU</p>
-                  <div
-                    className={`mr-3 text-lg ${card.disabled ? "text-red-500" : ""}`}
-                  >
-                    {card.expiryDate}
+                <div className="mb-2 mt-20 text-lg">
+                  {maskCardNumber(card.cardNumber)}
+                </div>
+                <div className="card-info flex items-start justify-between">
+                  <div className="flex flex-1 flex-col">
+                    <p className="text-xs text-gray-200">CARD HOLDER NAME</p>
+                    <div className="card-name text-lg">{`${card.firstName} ${card.lastName}`}</div>
+                  </div>
+                  <div className="flex flex-1 flex-col">
+                    <p className="text-xs text-gray-200">VALID THRU</p>
+                    <div
+                      className={`mr-3 text-lg ${card.disabled ? "text-red-500" : ""}`}
+                    >
+                      {card.expiryDate}
+                    </div>
                   </div>
                 </div>
+                {card.cardType && (
+                  <div className="card-logo absolute right-7 top-4">
+                    {card.cardType === "Visa" && <FaCcVisa size={60} />}
+                    {card.cardType === "MasterCard" && (
+                      <FaCcMastercard size={60} />
+                    )}
+                  </div>
+                )}
+                <button
+                  onClick={() => handleDeleteCard(index)}
+                  className="absolute right-[-10px] top-[-10px] flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-white"
+                >
+                  &times;
+                </button>
               </div>
-              {card.cardType && (
-                <div className="card-logo absolute right-7 top-4">
-                  {card.cardType === "Visa" && <FaCcVisa size={60} />}
-                  {card.cardType === "MasterCard" && (
-                    <FaCcMastercard size={60} />
-                  )}
-                </div>
-              )}
-              <button
-                onClick={() => handleDeleteCard(index)}
-                className="absolute right-[-10px] top-[-10px] flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-white"
-              >
-                &times;
-              </button>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
-      {isMobile ? (
-        isModalOpen && (
-          <div className="relative mb-4 rounded-md bg-white p-6 shadow-md">
-            <PaymentForm onClose={closeModal} onSave={handleSaveCard} />
-          </div>
-        )
-      ) : (
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
+      {isModalOpen && (
+        <div className="relative mb-4 rounded-md bg-white">
           <PaymentForm onClose={closeModal} onSave={handleSaveCard} />
-        </Modal>
+        </div>
       )}
     </div>
   );

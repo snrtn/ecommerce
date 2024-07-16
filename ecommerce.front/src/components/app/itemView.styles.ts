@@ -11,9 +11,9 @@ const itemView = {
   oddSlide: "h-[50vh] w-[35vh]",
   image: "w-full h-full object-cover transition group-hover:opacity-80",
   overlay:
-    "absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white-200 to-transparent h-[50vh] text-white p-8 flex justify-center items-end transition-all duration-400 group-hover:items-center group-hover:bg-opacity-50 group-hover:from-black cursor-pointer",
+    "from-black/30 to-transparent duration-400 absolute bottom-0 left-0 right-0 flex h-[50vh] cursor-pointer items-end justify-center bg-gradient-to-t p-8 text-white transition-all group-hover:from-black/80 group-hover:items-center",
   overlayText:
-    "text-center transition-transform duration-400 transform group-hover:translate-y-[-50%]",
+    "duration-400 transform text-center transition-transform group-hover:translate-y-[-50%]",
 };
 
 export default itemView;

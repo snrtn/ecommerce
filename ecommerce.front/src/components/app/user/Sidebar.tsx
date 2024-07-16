@@ -27,10 +27,17 @@ const Sidebar: React.FC<SidebarProps> = ({
   const SideInactiveBtn = "text-black hover:bg-gray-100";
 
   return (
-    <div className="h-full min-h-[70vh] w-full pr-4">
+    <div className="h-full w-full py-10 pr-4 pt-20 md:p-4">
       <div className="mb-6 flex w-full flex-col items-start justify-center px-3 md:items-center md:px-0">
-        <FaUser className="mb-2 mr-2 hidden text-lg md:inline-block" />
-        <p className="text-md mr-2 font-medium">Profiles</p>
+        <button
+          onClick={() => setActiveSection("default")}
+          className={
+            "w-full flex-col items-start justify-center px-3 md:items-center md:px-0"
+          }
+        >
+          <FaUser className="mb-2 mr-2 hidden text-lg md:inline-block" />
+          <p className="text-md mr-2 font-medium">Profiles</p>
+        </button>
       </div>
       <ul
         className={`grid gap-2 ${isVerySmallScreen ? "grid-cols-2" : isMobile ? "grid-cols-4" : "md:grid-cols-1"}`}

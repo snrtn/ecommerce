@@ -13,7 +13,7 @@ const review = {
   firstSlide: "mx-[-5px] w-4 md:w-8 lg:w-16 xl:w-32 2xl:w-64",
   image: "h-full w-full object-cover transition group-hover:opacity-80",
   overlay:
-    "from-white-200 duration-400 absolute bottom-0 left-0 right-0 flex h-[50vh] cursor-pointer items-end justify-center bg-gradient-to-t to-transparent p-8 text-white transition-all group-hover:items-center group-hover:bg-opacity-50 group-hover:from-black",
+    "from-black/30 to-transparent duration-400 absolute bottom-0 left-0 right-0 flex h-[50vh] cursor-pointer items-end justify-center bg-gradient-to-t p-8 text-white transition-all group-hover:from-black/80 group-hover:items-center",
   overlayText:
     "duration-400 transform text-center transition-transform group-hover:translate-y-[-50%]",
 };

@@ -76,7 +76,7 @@ const SinglePage = () => {
 
   return (
     <div>
-      <div className="mt-8 px-8 md:mt-24 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
+      <div className="mt-24 px-8 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
         <nav className="breadcrumb flex items-center">
           <div className="mr-6 flex cursor-pointer items-center">
             <IoIosArrowBack size={18} className="mr-1" />{" "}

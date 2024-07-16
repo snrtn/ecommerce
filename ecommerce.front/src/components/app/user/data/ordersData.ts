@@ -50,6 +50,16 @@ export const ordersData: Order[] = [
         selectedSize: "M",
         quantity: 1,
       },
+      {
+        id: 4,
+        image:
+          "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/846d5a72-a372-425f-9cb3-f5e8051e4c2e/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png",
+        name: "Example Product A",
+        price: "$50",
+        selectedSize: "M",
+        quantity: 1,
+        disabled: true,
+      },
     ],
     totalPrice: "$110",
   },

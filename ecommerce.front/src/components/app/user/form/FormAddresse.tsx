@@ -98,7 +98,7 @@ const FormAddresse: React.FC<FormProps> = ({
             "repeating-linear-gradient(45deg, red 0 112px, white 112px 212px, blue 212px 312px, white 312px 412px)",
         }}
       ></div>
-      <h2 className="my-6 text-2xl font-semibold">Information</h2>
+      <h2 className="my-6 text-xl font-semibold">Information</h2>
       <div className="grid grid-cols-2 gap-4">
         <div className="flex flex-col space-y-0 md:space-y-1">
           <label className="text-sm text-gray-600">First Name</label>

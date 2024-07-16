@@ -71,7 +71,7 @@ const Addresse: React.FC = () => {
   };
 
   return (
-    <div className="flex min-h-[70vh] flex-col px-4 md:px-0">
+    <div className="flex min-h-[70vh] flex-col px-8 md:px-0">
       <div className="mb-10 flex justify-between">
         <h1 className="text-xl font-semibold">Card Addresses</h1>
         <button onClick={() => handleOpenForm(null)} className={button.save}>
@@ -79,7 +79,7 @@ const Addresse: React.FC = () => {
         </button>
       </div>
       {isEditing && isMobile ? (
-        <div className="relative mb-4 rounded-md bg-white p-6 shadow-md">
+        <div className="relative mb-4 rounded-md bg-white">
           <FormAddresse
             onClose={handleCloseForm}
             onSave={handleSaveInfo}

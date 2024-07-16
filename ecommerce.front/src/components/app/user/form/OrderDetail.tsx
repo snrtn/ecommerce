@@ -29,7 +29,7 @@ type OrderDetailProps = {
 const OrderDetail: React.FC<OrderDetailProps> = ({ order, onClose }) => {
   return (
     <div className="w-full">
-      <h2 className="mb-6 text-2xl font-semibold">Order Details</h2>
+      <h1 className="mb-6 text-xl font-semibold">Order Details</h1>
       <p className="mb-4">
         <strong>Order ID:</strong> {order.id}
       </p>
@@ -50,18 +50,17 @@ const OrderDetail: React.FC<OrderDetailProps> = ({ order, onClose }) => {
               item.disabled ? "relative cursor-not-allowed" : "cursor-pointer"
             }`}
           >
-            <div className="relative h-16 w-16 flex-shrink-0">
+            <div className="relative mr-4 h-16 w-16 flex-shrink-0">
               <Image
                 src={item.image}
                 alt={item.name}
                 layout="fill"
                 objectFit="cover"
                 objectPosition="center"
-                className="mr-4"
               />
             </div>
-            <div className="flex flex-1">
-              <div className="flex flex-1">
+            <div className="flex flex-1 items-center">
+              <div className="mr-4 flex flex-1">
                 <p>{item.name}</p>
               </div>
               <div className="flex flex-1 flex-col md:flex-row">
@@ -87,7 +86,7 @@ const OrderDetail: React.FC<OrderDetailProps> = ({ order, onClose }) => {
       <p className="mt-4 text-lg font-semibold">
         Total Price: {order.totalPrice}
       </p>
-      <div className="mt-6 hidden justify-end md:flex">
+      <div className="mt-6 flex justify-end">
         <button onClick={onClose} className={button.cancel}>
           Close
         </button>

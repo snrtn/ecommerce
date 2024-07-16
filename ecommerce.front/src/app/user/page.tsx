@@ -7,42 +7,30 @@ import Gallery from "@/components/app/user/Gallery";
 import Payment from "@/components/app/user/Payment";
 import Sidebar from "@/components/app/user/Sidebar";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import Default from "@/components/app/user/Default"; // 기본 페이지 컴포넌트 import
 
 const UserPage = () => {
   const isMobile = useMediaQuery(768);
-  const [activeSection, setActiveSection] = useState("personal-info");
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+  const [activeSection, setActiveSection] = useState("default");
 
   const handleSectionClick = (section: string) => {
     setActiveSection(section);
-    if (isMobile) {
-      setIsSidebarVisible(false);
-    }
   };
 
   return (
-    <div className="mt-0 flex flex-col px-4 md:mt-24 md:flex-row md:px-8 lg:px-16 xl:px-32 2xl:px-48">
-      {(!isMobile || isSidebarVisible) && (
-        <div className="mb-10 w-full md:mb-0 md:w-1/6">
-          <Sidebar
-            setActiveSection={handleSectionClick}
-            activeSection={activeSection}
-          />
-        </div>
-      )}
-      {isMobile && !isSidebarVisible && (
-        <div className="mb-6 flex justify-start px-4">
-          <button
-            onClick={() => setIsSidebarVisible(true)}
-            className="text-md font-medium md:hidden"
-          >
-            Back
-          </button>
-        </div>
-      )}
-      <div
-        className={`h-full w-full ${isSidebarVisible && isMobile ? "hidden" : "block"} md:block md:w-5/6`}
-      >
+    <div className="mt-10 flex flex-col md:mt-24 md:flex-row md:px-8 lg:px-16 xl:px-32 2xl:px-48">
+      <div className="w-full md:w-1/6">
+        <Sidebar
+          setActiveSection={handleSectionClick}
+          activeSection={activeSection}
+        />
+      </div>
+      <div className="h-full w-full md:w-5/6">
+        {activeSection === "default" && (
+          <section id="default">
+            <Default />
+          </section>
+        )}
         {activeSection === "personal-info" && (
           <section id="personal-info">
             <Addresse />
