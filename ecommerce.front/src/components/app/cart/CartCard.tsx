@@ -2,14 +2,7 @@
 
 import Image from "next/image";
 import { FC, useState, useEffect } from "react";
-
-interface Product {
-  name: string;
-  colors: string[];
-  sizes: string[];
-  price: string;
-  images: string[];
-}
+import { Product } from "./types";
 
 interface ProductCardProps {
   product: Product;
