@@ -1,29 +1,26 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
+// "use client";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import RootLayoutClient from "./RootLayoutClient";
 
-import Navbar from '@/components/navigations/Navbar';
-import Footer from '@/components/navigations/Footer';
-
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: 'E-Commerce',
-	description: 'A complete e-commerce application with Next.js and Wix',
+  title: "E-Commerce",
+  description: "A complete e-commerce application with Next.js and Wix",
 };
 
 export default function RootLayout({
-	children,
+  children,
 }: Readonly<{
-	children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-	return (
-		<html lang='en'>
-			<body className={inter.className}>
-				<Navbar />
-				{children}
-				<Footer />
-			</body>
-		</html>
-	);
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <RootLayoutClient>{children}</RootLayoutClient>
+      </body>
+    </html>
+  );
 }

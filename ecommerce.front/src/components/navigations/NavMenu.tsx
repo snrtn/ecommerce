@@ -25,8 +25,8 @@ const Menu = () => {
       </div>
       {open && (
         <div className={navMenu.menuOpen}>
-          <div className={navMenu.overlay}>
-            <div className={navMenu.closeButton} onClick={() => setOpen(false)}>
+          <div className={navMenu.overlay} onClick={() => setOpen(false)}>
+            <div className={navMenu.closeButton}>
               <IoMdClose />
             </div>
           </div>
