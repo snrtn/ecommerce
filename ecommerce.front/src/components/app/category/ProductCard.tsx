@@ -3,14 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FC, useState, useEffect } from "react";
-
-interface Product {
-  name: string;
-  colors: string[];
-  sizes: string[];
-  price: number;
-  images: string[];
-}
+import { Product } from "@/components/app/cart/types";
 
 interface ProductCardProps {
   product: Product;

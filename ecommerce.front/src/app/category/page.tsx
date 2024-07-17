@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect, ChangeEvent } from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import FilterSection from "@/components/app/category/FilterSection";
 import ProductCard from "@/components/app/category/ProductCard";
 import { FaFilter } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
+import { Product } from "@/components/app/cart/types";
 
 const CategoryPage = () => {
   const [filters, setFilters] = useState({
@@ -41,13 +42,17 @@ const CategoryPage = () => {
     setShowFilters(!showFilters);
   };
 
-  const initialProducts = Array(100)
+  const initialProducts: Product[] = Array(100)
     .fill(null)
     .map((_, index) => ({
+      id: index + 1,
       name: `Nike Air Force 1 '07 Next Nature ${index + 1}`,
+      color: "#75A69C", // 추가된 color 속성
       colors: ["#75A69C", "#ffffff"],
-      sizes: ["36", "38", "40", "42", "44", "46", "48"],
-      price: "119,99 €",
+      sizes: [36, 38, 40, 42, 44, 46, 48],
+      price: 119.99,
+      quantity: 1,
+      category: "shoes",
       images: [
         "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/846d5a72-a372-425f-9cb3-f5e8051e4c2e/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png",
         "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/2191281b-f695-4c03-94a3-30bbf724633a/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png",
@@ -57,6 +62,7 @@ const CategoryPage = () => {
         "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/70f0e0e7-eda3-4e8e-b98a-012f3bb9ed9e/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png",
         "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/666c4985-5a55-4525-b128-ae5f76a617e3/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png",
       ],
+      size: 36,
     }));
 
   const itemsPerPage = isMobile ? 14 : 15;
@@ -76,7 +82,7 @@ const CategoryPage = () => {
   }, [currentPage]);
 
   const renderPageNumbers = () => {
-    const pageNumbers = [];
+    const pageNumbers: JSX.Element[] = [];
     pageNumbers.push(
       <button
         key={1}

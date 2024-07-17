@@ -28,7 +28,7 @@ const FilterSection: FC<FilterProps> = ({ filters, handleFilterChange }) => {
   };
 
   return (
-    <div className="absolute mt-2 h-full w-full bg-white p-6 md:top-0">
+    <div className="absolute h-full w-full bg-white p-5 md:top-0">
       <h2 className="mb-10 text-xl font-semibold">Filters</h2>
 
       <div className="mb-4">
