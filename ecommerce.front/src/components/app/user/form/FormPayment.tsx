@@ -15,7 +15,7 @@ interface Card {
   disabled: boolean;
 }
 
-type PaymentFormProps = {
+export type PaymentFormProps = {
   onClose: () => void;
   onSave: (card: Card) => void;
   initialCardData?: Card | null;
@@ -237,21 +237,21 @@ const FormPayment: React.FC<PaymentFormProps> = ({
             <div className="chip">
               <Image src="/sim.png" alt="Chip" fill />
             </div>
-            <div className="mb-2 mt-20 text-lg">
+            <div className="mb-2 mt-20 text-xs">
               {cardNumber ? cardNumber : "XXXX XXXX XXXX XXXX"}
             </div>
             <div className="card-info flex items-start justify-between">
               <div className="flex flex-1 flex-col">
-                <p className="text-xs text-gray-200">CARD HOLDER NAME</p>
-                <div className="card-name text-lg">
+                <p className="text-[10px] text-gray-300">CARD HOLDER NAME</p>
+                <div className="card-name text-xs">
                   {firstName || lastName
                     ? `${firstName} ${lastName}`
                     : "XXX XXX"}
                 </div>
               </div>
               <div className="flexflex-col pl-6 md:pl-0">
-                <p className="text-xs text-gray-200">VALID THRU</p>
-                <div className="text-lg">
+                <p className="text-[10px] text-gray-300">VALID THRU</p>
+                <div className="text-xs">
                   {expiryDate ? expiryDate : "MM/YY"}
                 </div>
               </div>

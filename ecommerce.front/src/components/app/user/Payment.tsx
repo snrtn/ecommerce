@@ -18,7 +18,11 @@ interface Card {
   disabled: boolean;
 }
 
-const Payment = () => {
+interface PaymentProps {
+  // Add props here if needed in the future
+}
+
+const Payment: React.FC<PaymentProps> = () => {
   const isMobile = useMediaQuery(768);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [savedCards, setSavedCards] = useState<Card[]>([]);
@@ -37,7 +41,7 @@ const Payment = () => {
   };
 
   const maskCardNumber = (cardNumber: string) => {
-    return "XXXX XXXX XXXX " + cardNumber.slice(-5);
+    return "XXXX XXXX XXXX " + cardNumber.slice(-4);
   };
 
   return (
@@ -54,27 +58,35 @@ const Payment = () => {
       )}
 
       {savedCards.length > 0 && (
-        <div className="grid grid-cols-1 gap-2 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-3">
           {savedCards.map((card, index) => (
             <div key={index} className="w-full">
               <div
-                className={`card relative rounded-md border ${card.disabled ? "opacity-50" : ""}`}
+                className={`card relative rounded-md border ${
+                  card.disabled ? "opacity-50" : ""
+                }`}
               >
                 <div className="chip">
                   <Image src="/sim.png" alt="Chip" fill />
                 </div>
-                <div className="mb-2 mt-20 text-lg">
+                <div className="md:text-md mb-2 mt-20 text-sm">
                   {maskCardNumber(card.cardNumber)}
                 </div>
                 <div className="card-info flex items-start justify-between">
                   <div className="flex flex-1 flex-col">
-                    <p className="text-xs text-gray-200">CARD HOLDER NAME</p>
-                    <div className="card-name text-lg">{`${card.firstName} ${card.lastName}`}</div>
+                    <p className="text-[10px] text-gray-300">
+                      CARD HOLDER NAME
+                    </p>
+                    <div className="card-name md:text-md text-sm">
+                      {`${card.firstName} ${card.lastName}`}
+                    </div>
                   </div>
                   <div className="flex flex-col">
-                    <p className="text-xs text-gray-200">VALID THRU</p>
+                    <p className="text-[10px] text-gray-300">VALID THRU</p>
                     <div
-                      className={`mr-3 text-lg ${card.disabled ? "text-red-500" : ""}`}
+                      className={`md:text-md mr-3 text-sm ${
+                        card.disabled ? "text-red-500" : ""
+                      }`}
                     >
                       {card.expiryDate}
                     </div>
