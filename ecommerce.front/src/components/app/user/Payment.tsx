@@ -100,10 +100,16 @@ const Payment = () => {
         </div>
       )}
 
-      {isModalOpen && (
-        <div className="relative mb-4 rounded-md bg-white">
+      {isMobile ? (
+        isModalOpen && (
+          <div className="relative mb-4 rounded-md bg-white">
+            <PaymentForm onClose={closeModal} onSave={handleSaveCard} />
+          </div>
+        )
+      ) : (
+        <Modal isOpen={isModalOpen} onClose={closeModal}>
           <PaymentForm onClose={closeModal} onSave={handleSaveCard} />
-        </div>
+        </Modal>
       )}
     </div>
   );

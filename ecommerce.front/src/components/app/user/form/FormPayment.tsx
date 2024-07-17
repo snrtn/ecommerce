@@ -232,7 +232,7 @@ const FormPayment: React.FC<PaymentFormProps> = ({
             </div>
           </div>
         </div>
-        <div className="w-full md:w-1/2">
+        <div className="w-full md:h-full md:w-1/2">
           <div className="card bordertext-white relative rounded-md">
             <div className="chip">
               <Image src="/sim.png" alt="Chip" fill />
@@ -249,7 +249,7 @@ const FormPayment: React.FC<PaymentFormProps> = ({
                     : "XXX XXX"}
                 </div>
               </div>
-              <div className="flex flex-1 flex-col pl-6 md:pl-0">
+              <div className="flexflex-col pl-6 md:pl-0">
                 <p className="text-xs text-gray-200">VALID THRU</p>
                 <div className="text-lg">
                   {expiryDate ? expiryDate : "MM/YY"}
