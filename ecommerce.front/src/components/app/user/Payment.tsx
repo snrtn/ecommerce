@@ -37,7 +37,7 @@ const Payment = () => {
   };
 
   const maskCardNumber = (cardNumber: string) => {
-    return "XXXX XXXX XXXX " + cardNumber.slice(-4);
+    return "XXXX XXXX XXXX " + cardNumber.slice(-5);
   };
 
   return (
