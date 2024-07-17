@@ -8,7 +8,7 @@ interface Product {
   name: string;
   colors: string[];
   sizes: string[];
-  price: string;
+  price: number;
   images: string[];
 }
 
@@ -39,7 +39,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    setMainImage(product.images[0]); // 마우스 오버가 끝나면 원래 이미지로 돌아옴
+    setMainImage(product.images[0]);
   };
 
   return (
@@ -73,7 +73,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                 </div>
               ))}
             </div>
-            <p className="mt-4 text-sm font-medium">{product.price}</p>
+            <p className="mt-4 text-sm font-medium">${product.price}</p>
           </div>
         ) : (
           <div className="p-2 md:p-4">
@@ -81,7 +81,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             <p className="mt-1 text-xs text-gray-500">
               {product.colors.length} colors
             </p>
-            <p className="mt-6 text-sm font-medium">{product.price}</p>
+            <p className="mt-6 text-sm font-medium">${product.price}</p>
           </div>
         )}
       </div>
