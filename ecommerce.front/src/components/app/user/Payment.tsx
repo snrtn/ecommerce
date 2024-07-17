@@ -71,7 +71,7 @@ const Payment = () => {
                     <p className="text-xs text-gray-200">CARD HOLDER NAME</p>
                     <div className="card-name text-lg">{`${card.firstName} ${card.lastName}`}</div>
                   </div>
-                  <div className="flex flex-1 flex-col">
+                  <div className="flex flex-col">
                     <p className="text-xs text-gray-200">VALID THRU</p>
                     <div
                       className={`mr-3 text-lg ${card.disabled ? "text-red-500" : ""}`}
