@@ -37,7 +37,7 @@ const OrderDetail: React.FC<OrderDetailProps> = ({ order, onClose }) => {
         <strong>Date:</strong> {order.date}
       </p>
       <p className="mb-4">
-        <strong>Address:</strong> 19 Rés la Courtillière,
+        <strong>Address:</strong> 19 ABCDEFG,
       </p>
       <p className="mb-4">
         <strong>Status:</strong> {order.status}
