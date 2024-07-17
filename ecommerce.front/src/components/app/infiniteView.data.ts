@@ -1,14 +1,4 @@
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-  color: string;
-  category: string;
-  colors: string[];
-  images: string[];
-  sizes: number[];
-}
+import { Product } from "./cart/types";
 
 const initialProducts: Product[] = Array(100)
   .fill(null)
@@ -30,6 +20,7 @@ const initialProducts: Product[] = Array(100)
       "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/70f0e0e7-eda3-4e8e-b98a-012f3bb9ed9e/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png",
       "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/666c4985-5a55-4525-b128-ae5f76a617e3/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png",
     ],
+    size: 36,
   }));
 
 export { initialProducts };
