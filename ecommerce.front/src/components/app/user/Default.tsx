@@ -31,41 +31,37 @@ const Default: React.FC = () => {
 
   return (
     <div className="min-h-[70vh] px-8 md:px-0">
-      <div className="mb-6 rounded-md bg-purple-100 p-10 shadow-md">
-        <h1 className="text-2xl font-bold">Salut, {userName}!</h1>
+      <div className="mb-6 flex flex-col items-center justify-center rounded-md bg-gray-100 p-10">
+        <h1 className="text-md font-bold">Hello, {userName}!</h1>
         <div className="mt-2">
-          <h2 className="mb-4 flex items-center text-xl font-semibold">
-            <span className="inline-flex items-center rounded bg-blue-600 px-2 py-1 text-sm font-medium text-white">
+          <h2 className="flex items-center text-xl font-semibold">
+            <span className="inline-flex items-center rounded bg-gray-100 px-2 py-1 text-xs font-medium text-black">
               <FaMedal className="mr-1" /> {userRank}
             </span>
           </h2>
         </div>
       </div>
 
-      <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-3">
-        <div className="flex items-center justify-center rounded-md bg-yellow-100 p-6">
+      <div className="mb-6 grid grid-cols-2 gap-4 md:grid-cols-3">
+        <div className="flex items-center justify-center rounded-md bg-gray-100 p-6">
           <FaGift className="mr-2 text-2xl text-yellow-600" />
           <div className="flex items-center gap-2">
-            <p className="text-xl font-bold">3</p>
-            <p className="text-sm text-gray-600">
-              Offres spéciales disponibles
-            </p>
+            <p className="text-md font-bold">3</p>
+            <p className="text-xs text-gray-600">Offres spéciales</p>
           </div>
         </div>
-        <div className="flex items-center justify-center rounded-md bg-blue-100 p-6">
+        <div className="flex items-center justify-center rounded-md bg-gray-100 p-6">
           <FaRegClock className="mr-2 text-2xl text-blue-600" />
           <div className="flex items-center gap-2">
-            <p className="text-xl font-bold">2</p>
-            <p className="text-sm text-gray-600">Livraisons en attente</p>
+            <p className="text-md font-bold">2</p>
+            <p className="text-xs text-gray-600">Livraisons en attente</p>
           </div>
         </div>
-        <div className="flex items-center justify-center rounded-md bg-pink-100 p-6">
+        <div className="flex items-center justify-center rounded-md bg-gray-100 p-6">
           <FaHeart className="mr-2 text-2xl text-pink-600" />
           <div className="flex items-center gap-2">
-            <p className="text-xl font-bold">10</p>
-            <p className="text-sm text-gray-600">
-              Articles dans votre liste de souhaits
-            </p>
+            <p className="text-md font-bold">10</p>
+            <p className="text-xs text-gray-600">Liste de souhaits</p>
           </div>
         </div>
       </div>

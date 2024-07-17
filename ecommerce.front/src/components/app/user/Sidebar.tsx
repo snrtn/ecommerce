@@ -36,7 +36,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           }
         >
           <FaUser className="mb-2 mr-2 hidden text-lg md:inline-block" />
-          <p className="text-md mr-2 font-medium">Profiles</p>
+          <p className="mr-2 text-sm font-medium">Profiles</p>
         </button>
       </div>
       <ul
