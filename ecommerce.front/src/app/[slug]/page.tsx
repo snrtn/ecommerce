@@ -180,7 +180,7 @@ const SinglePage = () => {
           <div className={`${isMobile ? "mt-6 w-full" : "w-1/3 pl-6"}`}>
             <div className="flex flex-col">
               <h1 className="text-xl font-medium">
-                Nike Air Force 1 '07 Next Nature 3
+                Nike Air Force 1 07 Next Nature 3
               </h1>
               <p className="text-md mt-2 text-gray-700">$60.00</p>
               <span className="text-md mt-6 font-medium">Color</span>
