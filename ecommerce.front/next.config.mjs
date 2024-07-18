@@ -42,6 +42,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "www.dior.com",
       },
+      {
+        protocol: "https",
+        hostname: "via.placeholder.com",
+      },
     ],
   },
 };
