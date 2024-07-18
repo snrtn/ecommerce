@@ -1,37 +1,34 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import ProductCard from "./category/ProductCard";
+import useMediaQuery from "@/hooks/useMediaQuery";
+import ProductCard from "@/components/app/category/ProductCard";
 import infiniteView from "./infiniteView.styles";
-
-// test data
 import { initialProducts } from "./infiniteView.data";
 
 const InfiniteView: React.FC = () => {
   const loader = useRef<HTMLDivElement | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useMediaQuery(768);
+  const initialItemsToLoad = isMobile ? 14 : 15;
+  const [itemsToLoad, setItemsToLoad] = useState(initialItemsToLoad);
+
   const [items, setItems] = useState(
-    isMobile ? initialProducts.slice(0, 14) : initialProducts.slice(0, 15),
+    initialProducts.slice(0, initialItemsToLoad),
   );
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsMobile(window.innerWidth <= 768);
+    setItemsToLoad(isMobile ? 14 : 15);
+  }, [isMobile]);
 
-      const handleResize = () => {
-        setIsMobile(window.innerWidth <= 768);
-      };
-
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }
-  }, []);
+  useEffect(() => {
+    setItems(initialProducts.slice(0, itemsToLoad));
+  }, [itemsToLoad]);
 
   const loadMore = () => {
-    const itemsToLoad = isMobile ? 14 : 15;
+    const additionalItems = isMobile ? 14 : 15;
     setItems((prev) => [
       ...prev,
-      ...initialProducts.slice(prev.length, prev.length + itemsToLoad),
+      ...initialProducts.slice(prev.length, prev.length + additionalItems),
     ]);
   };
 
