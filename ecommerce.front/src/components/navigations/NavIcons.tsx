@@ -1,25 +1,43 @@
 "use client";
 
-import { FaUser, FaShoppingCart, FaHeart } from "react-icons/fa";
-import NavMenu from "./NavMenu";
+import { useState } from "react";
+import { FaUser, FaShoppingCart } from "react-icons/fa";
+import { IoTime } from "react-icons/io5";
+import { FaTruckFast } from "react-icons/fa6";
 import Link from "next/link";
 import navIcons from "./navIcons.styles";
+import SideMenu from "./SideMenu";
 
 const NavIcons = () => {
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+
+  const openSideMenu = () => {
+    setIsSideMenuOpen(true);
+  };
+
+  const closeSideMenu = () => {
+    setIsSideMenuOpen(false);
+  };
+
   return (
     <div className={navIcons.container}>
       <Link href={"/user"}>
         <FaUser className={navIcons.icon} />
       </Link>
-      <div className={navIcons.iconContainer}>
-        <FaHeart className={navIcons.icon} />
-        <span className={navIcons.text}>5</span>
-      </div>
+
+      <Link href={"/"} className={navIcons.iconContainer}>
+        <FaTruckFast className={`${navIcons.icon} text-xl md:!text-3xl`} />
+      </Link>
 
       <Link href={"/cart"} className={navIcons.iconContainer}>
         <FaShoppingCart className={navIcons.icon} />
-        <span className={navIcons.text}>3</span>
       </Link>
+
+      <button onClick={openSideMenu} className={navIcons.iconContainer}>
+        <IoTime className={`${navIcons.icon} text-xl md:!text-3xl`} />
+      </button>
+
+      <SideMenu isOpen={isSideMenuOpen} onClose={closeSideMenu} />
     </div>
   );
 };
