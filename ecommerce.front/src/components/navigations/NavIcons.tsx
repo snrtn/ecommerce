@@ -29,7 +29,7 @@ const NavIcons = () => {
         <CiUser className={navIcons.icon} />
       </Link>
 
-      <Link href={"/"} className={navIcons.iconContainer}>
+      <Link href={"/shipping"} className={navIcons.iconContainer}>
         <CiDeliveryTruck className={navIcons.icon} />
       </Link>
 
