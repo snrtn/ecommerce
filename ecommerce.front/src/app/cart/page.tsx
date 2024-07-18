@@ -126,17 +126,17 @@ const CartPage = () => {
   };
 
   return (
-    <div className="xl:px-34 relative left-0 top-0 z-50 min-h-screen bg-white px-4 md:px-8 lg:px-24 2xl:px-64">
+    <div className="xl:px-34 relative left-0 top-0 z-50 min-h-screen bg-white px-4 pb-40 md:px-8 lg:px-24 2xl:px-36">
       <div className="container py-5">
         <div className="mb-8 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <div className="text-2xl font-semibold">ecommerce</div>
           </Link>
         </div>
-        <h1 className="mx-auto mb-10 w-full text-center text-2xl font-semibold">
+        <h1 className="mx-auto my-20 w-full text-center text-2xl font-semibold">
           Shopping Cart
         </h1>
-        <div className="flex flex-col gap-2 md:flex-row md:justify-between">
+        <div className="flex flex-col gap-8 md:flex-row md:justify-between">
           <div className="md:w-3/4">
             {cartItems.length === 0 ? (
               <p className="md:text-md py-20 text-center text-xs">

@@ -58,7 +58,7 @@ const SimilarProducts: React.FC<SimilarProductsProps> = ({
         ))}
       </div>
       {itemsToShow < recommendations.length && (
-        <div className="mt-4 text-center">
+        <div className="mt-20 text-center">
           <button className="text-gray-500" onClick={loadMore}>
             See More
           </button>

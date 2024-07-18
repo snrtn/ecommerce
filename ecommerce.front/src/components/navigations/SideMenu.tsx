@@ -114,7 +114,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ isOpen, onClose }) => {
                         className="absolute right-2 top-2 text-gray-600 opacity-0 group-hover:opacity-100"
                         onClick={() => handleRemove(product.id)}
                       >
-                        <IoMdClose size={16} />
+                        <IoMdClose size={24} />
                       </button>
                     </div>
                   ))}
