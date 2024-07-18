@@ -7,8 +7,8 @@ import RootLayoutClient from "./RootLayoutClient";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "E-Commerce",
-  description: "A complete e-commerce application with Next.js and Wix",
+  title: "Hanjun Kim",
+  description: "Je suis à la recherche d'une opportunité de CDI ou CDD",
 };
 
 export default function RootLayout({
