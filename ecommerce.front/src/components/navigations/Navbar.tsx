@@ -28,7 +28,7 @@ const Navbar = () => {
         <div className="flex items-center justify-center">
           <NavMenu />
           <Link href="/" className={navbar.logoLink}>
-            <div className={navbar.logoText}>Hanjun Kim</div>
+            <div className={navbar.logoText}>KIM</div>
           </Link>
         </div>
         <NavIcons />
@@ -39,7 +39,7 @@ const Navbar = () => {
       <div className={navbar.desktopNav}>
         <div className={navbar.desktopLeft}>
           <Link href="/" className="flex items-center gap-3">
-            <div className={navbar.logoText}>Hanjun Kim</div>
+            <div className={navbar.logoText}>KIM</div>
           </Link>
         </div>
         <div className={navbar.desktopCenter}>

@@ -11,10 +11,10 @@ interface StepperProps {
 
 const Stepper: React.FC<StepperProps> = ({ status, currentLocation }) => {
   const steps = [
-    { label: "Shipped", icon: <FaBoxOpen size={40} /> },
-    { label: "In Transit", icon: <MdLocalShipping size={40} /> },
-    { label: "Out for Delivery", icon: <FaTruck size={40} /> },
-    { label: "Delivered", icon: <FaCheckCircle size={40} /> },
+    { label: "Shipped", icon: <FaBoxOpen size={30} /> },
+    { label: "In Transit", icon: <MdLocalShipping size={30} /> },
+    { label: "Out for Delivery", icon: <FaTruck size={30} /> },
+    { label: "Delivered", icon: <FaCheckCircle size={30} /> },
   ];
 
   const currentStep = steps.findIndex((step) => step.label === status);
@@ -30,9 +30,11 @@ const Stepper: React.FC<StepperProps> = ({ status, currentLocation }) => {
           >
             {step.icon}
           </div>
-          <p className="mt-2 text-xs">{step.label}</p>
+          <p className="mt-2 text-[10px] md:text-xs">{step.label}</p>
           {step.label === "In Transit" && currentLocation && (
-            <p className="mt-1 text-xs text-gray-500">{currentLocation}</p>
+            <p className="mt-1 text-[10px] text-gray-500 md:text-xs">
+              {currentLocation}
+            </p>
           )}
         </div>
       ))}

@@ -101,9 +101,9 @@ const ShippingStatusPage: React.FC = () => {
         <h1 className="mx-auto mb-10 w-full text-center text-2xl font-semibold">
           Shipping Status
         </h1>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-8">
           {orders.map((order) => (
-            <div key={order.id} className="rounded-lg border py-20 shadow-sm">
+            <div key={order.id} className="rounded-lg border py-10 shadow-sm">
               <Stepper
                 status={order.status}
                 currentLocation={order.currentLocation}
@@ -122,25 +122,39 @@ const ShippingStatusPage: React.FC = () => {
                     />
                     <p className="text-xs text-gray-500">3 more</p>
                   </div>
-                  <p className="mt-4">Status: {order.status}</p>
-                  <p>Estimated Delivery: {order.estimatedDelivery}</p>
-                  <p>Tracking Number: {order.trackingNumber}</p>
+                  <p className="md:text-md mt-4 text-sm">
+                    Status: {order.status}
+                  </p>
+                  <p className="md:text-md text-sm">
+                    Estimated Delivery: {order.estimatedDelivery}
+                  </p>
+                  <p className="md:text-md text-sm">
+                    Tracking Number: {order.trackingNumber}
+                  </p>
                   <div className="mt-2">
-                    <button className="text-blue-500">Order Detail</button>
+                    <button className="md:text-md text-sm text-blue-500">
+                      Order Detail
+                    </button>
                   </div>
                 </div>
 
                 <div className="flex flex-1 flex-col">
-                  <h3 className="text-md font-semibold">Tracking History</h3>
+                  <h3 className="md:text-md text-sm font-semibold">
+                    Tracking History
+                  </h3>
                   <ul className="mt-2 h-60 overflow-y-auto">
                     {sortByDateDescending(order.locations).map(
                       (location, index) => (
                         <li
                           key={index}
-                          className="justify-left mb-2 mt-4 flex border-b py-2 text-sm"
+                          className="jtext-sm md:text-md ustify-left mb-2 mt-4 flex border-b py-2"
                         >
-                          <span>{location.date}: </span>
-                          <span className="ml-4">{location.location}</span>
+                          <span className="md:text-md text-sm">
+                            {location.date}:{" "}
+                          </span>
+                          <span className="md:text-md ml-4 text-sm">
+                            {location.location}
+                          </span>
                         </li>
                       ),
                     )}
@@ -155,13 +169,13 @@ const ShippingStatusPage: React.FC = () => {
         </h2>
         <div className="mt-10 flex flex-col rounded-lg border px-8 py-20 shadow-sm md:flex-row md:px-16 lg:px-24 xl:px-32">
           <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-            <button className="w-full rounded-lg bg-gray-100 py-28 text-xs font-medium text-black">
+            <button className="w-full rounded-lg bg-gray-100 py-28 text-xs font-medium text-black hover:bg-red-500 hover:text-white">
               Report Lost Package
             </button>
-            <button className="w-full rounded-lg bg-gray-100 py-28 text-xs font-medium text-black">
+            <button className="w-full rounded-lg bg-gray-100 py-28 text-xs font-medium text-black hover:bg-yellow-500 hover:text-white">
               Request Compensation
             </button>
-            <button className="w-full rounded-lg bg-gray-100 py-28 text-xs font-medium text-black">
+            <button className="w-full rounded-lg bg-gray-100 py-28 text-xs font-medium text-black hover:bg-blue-500 hover:text-white">
               Contact Support
             </button>
           </div>
