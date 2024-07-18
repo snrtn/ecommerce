@@ -155,13 +155,13 @@ const ShippingStatusPage: React.FC = () => {
         </h2>
         <div className="mt-10 flex flex-col rounded-lg border px-8 py-20 shadow-sm md:flex-row md:px-16 lg:px-24 xl:px-32">
           <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-            <button className="w-full rounded bg-red-500 py-28 text-white">
+            <button className="w-full rounded-lg bg-gray-100 py-28 text-xs font-medium text-black">
               Report Lost Package
             </button>
-            <button className="w-full rounded bg-yellow-500 py-28 text-white">
+            <button className="w-full rounded-lg bg-gray-100 py-28 text-xs font-medium text-black">
               Request Compensation
             </button>
-            <button className="w-full rounded bg-blue-500 py-28 text-white">
+            <button className="w-full rounded-lg bg-gray-100 py-28 text-xs font-medium text-black">
               Contact Support
             </button>
           </div>
