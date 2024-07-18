@@ -76,10 +76,10 @@ const SideMenu: React.FC<SideMenuProps> = ({ isOpen, onClose }) => {
         className="absolute left-[-15px] h-full w-full bg-gray-800 bg-opacity-10"
         onClick={onClose}
       />
-      <div className="absolute right-0 h-full w-96 bg-white shadow-lg">
+      <div className="absolute right-0 h-full w-80 bg-white shadow-lg md:w-96">
         <nav className="flex items-center justify-between border-b p-4 py-10">
           <div className="flex items-center gap-4">
-            <h2 className="text-lg font-semibold">Recently Viewed</h2>
+            <h2 className="text-md font-medium md:text-lg">Recently Viewed</h2>
 
             <Link
               href="/wishlist"

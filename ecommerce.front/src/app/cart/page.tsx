@@ -133,7 +133,7 @@ const CartPage = () => {
             <div className="text-xl font-semibold">KIM</div>
           </Link>
         </div>
-        <h1 className="text-md mx-auto my-20 w-full text-center font-semibold md:text-xl">
+        <h1 className="text-md mx-auto my-20 w-full text-center font-medium md:text-xl">
           Shopping Cart
         </h1>
         <div className="flex flex-col gap-8 md:flex-row md:justify-between">

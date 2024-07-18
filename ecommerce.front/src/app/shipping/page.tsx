@@ -96,9 +96,9 @@ const ShippingStatusPage: React.FC = () => {
   };
 
   return (
-    <div className="xl:px-34 relative left-0 top-0 mt-20 min-h-screen bg-white px-4 md:mt-24 md:px-8 lg:px-24 2xl:px-64">
+    <div className="xl:px-34 relative left-0 top-0 mt-14 min-h-screen bg-white px-4 md:mt-24 md:px-8 lg:px-24 2xl:px-64">
       <div className="container py-5">
-        <h1 className="text-md mx-auto mb-10 w-full text-center font-semibold md:text-xl">
+        <h1 className="text-md mx-auto mb-10 w-full text-center font-medium md:text-xl">
           Shipping Status
         </h1>
         <div className="flex flex-col gap-8">
