@@ -32,7 +32,7 @@ const Stepper: React.FC<StepperProps> = ({ status, currentLocation }) => {
           </div>
           <p className="mt-2 text-[10px] md:text-xs">{step.label}</p>
           {step.label === "In Transit" && currentLocation && (
-            <p className="mt-1 text-[10px] text-gray-500 md:text-xs">
+            <p className="mt-1 text-center text-[10px] text-gray-500 md:text-xs">
               {currentLocation}
             </p>
           )}
