@@ -17,30 +17,35 @@ interface SideMenuProps {
 }
 
 const getRandomDate = () => {
-  const start = new Date(2023, 0, 1);
-  const end = new Date();
-  const date = new Date(
-    start.getTime() + Math.random() * (end.getTime() - start.getTime()),
-  );
-  return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
+  const dates = [
+    "1.1.2024",
+    "15.2.2024",
+    "3.3.2024",
+    "10.4.2024",
+    "20.5.2024",
+    "5.6.2024",
+    "18.6.2024",
+    "29.6.2024",
+  ];
+  return dates[Math.floor(Math.random() * dates.length)];
 };
 
-const initialProducts: Product[] = [
-  { id: 1, name: "Product 1", image: "/product1.jpg", date: getRandomDate() },
-  { id: 2, name: "Product 2", image: "/product2.jpg", date: getRandomDate() },
-  { id: 3, name: "Product 3", image: "/product3.jpg", date: getRandomDate() },
-  { id: 4, name: "Product 4", image: "/product4.jpg", date: getRandomDate() },
-  { id: 5, name: "Product 5", image: "/product5.jpg", date: getRandomDate() },
-  { id: 6, name: "Product 6", image: "/product6.jpg", date: getRandomDate() },
-  { id: 7, name: "Product 7", image: "/product7.jpg", date: getRandomDate() },
-  { id: 8, name: "Product 8", image: "/product8.jpg", date: getRandomDate() },
-];
+const generateProducts = (count: number): Product[] =>
+  Array(count)
+    .fill(null)
+    .map((_, index) => ({
+      id: index + 1,
+      name: `Product ${index + 1}`,
+      image: `https://via.placeholder.com/150?text=Product+${index + 1}`,
+      date: getRandomDate(),
+    }));
+
+const initialProducts = generateProducts(50);
 
 const SideMenu: React.FC<SideMenuProps> = ({ isOpen, onClose }) => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    // 클라이언트에서만 초기 데이터를 설정
     setProducts(initialProducts);
   }, []);
 
@@ -90,24 +95,29 @@ const SideMenu: React.FC<SideMenuProps> = ({ isOpen, onClose }) => {
                 {date}
               </h3>
               <div className="grid grid-cols-3 gap-4">
-                {groupedProducts[date].map((product) => (
-                  <div
-                    key={product.id}
-                    className="h-30 w-30 relative flex cursor-pointer flex-col items-center justify-between border p-2 hover:border-black"
-                  >
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="h-20 w-20 object-cover"
-                    />
-                    <button
-                      className="absolute right-2 top-2 text-gray-600"
-                      onClick={() => handleRemove(product.id)}
+                {groupedProducts[date]
+                  .slice(0, Math.random() < 0.5 ? 10 : 16)
+                  .map((product) => (
+                    <div
+                      key={product.id}
+                      className="h-30 w-30 group relative flex cursor-pointer flex-col items-center justify-between border hover:border-black"
                     >
-                      <IoMdClose size={16} />
-                    </button>
-                  </div>
-                ))}
+                      <Link href={"/slug"}>
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="object-cover"
+                          onClick={onClose}
+                        />
+                      </Link>
+                      <button
+                        className="absolute right-2 top-2 text-gray-600 opacity-0 group-hover:opacity-100"
+                        onClick={() => handleRemove(product.id)}
+                      >
+                        <IoMdClose size={16} />
+                      </button>
+                    </div>
+                  ))}
               </div>
             </div>
           ))}
