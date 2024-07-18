@@ -64,6 +64,12 @@ const SideMenu: React.FC<SideMenuProps> = ({ isOpen, onClose }) => {
     {} as { [date: string]: Product[] },
   );
 
+  const sortedDates = Object.keys(groupedProducts).sort((a, b) => {
+    const dateA = new Date(a.split(".").reverse().join("-")).getTime();
+    const dateB = new Date(b.split(".").reverse().join("-")).getTime();
+    return dateB - dateA;
+  });
+
   return (
     <div className={`fixed inset-0 z-50 ${isOpen ? "block" : "hidden"}`}>
       <div
@@ -89,7 +95,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ isOpen, onClose }) => {
           </button>
         </nav>
         <div className="h-[85vh] overflow-y-auto p-4">
-          {Object.keys(groupedProducts).map((date) => (
+          {sortedDates.map((date) => (
             <div key={date} className="mb-6">
               <h3 className="mb-2 text-sm font-semibold text-gray-700">
                 {date}
