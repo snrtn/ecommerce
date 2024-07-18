@@ -2,7 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
-import { FaArrowLeft, FaArrowRight, FaCheck } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Product } from "./types";
 import { button } from "@/components/common/styles";
 
@@ -63,8 +64,8 @@ const ProductModal: React.FC<ProductModalProps> = ({
                     src={src}
                     alt={`Product Image ${index + 1}`}
                     className="object-cover"
-                    width={350}
-                    height={500}
+                    width={400}
+                    height={600}
                   />
                 </div>
               ))}
@@ -72,15 +73,15 @@ const ProductModal: React.FC<ProductModalProps> = ({
             <div className="absolute left-0 top-1/2 flex h-full w-full -translate-y-1/2 transform items-center justify-between">
               <button
                 onClick={handlePrevSlide}
-                className="text-gray absolute left-0 h-full w-1/2 p-2"
+                className="text-gray absolute left-0 h-full w-1/2 cursor-pointer p-2"
               >
-                <FaArrowLeft size={16} />
+                <IoIosArrowBack size={16} />
               </button>
               <button
                 onClick={handleNextSlide}
-                className="absolute right-0 h-full w-1/2 p-2 text-black"
+                className="absolute right-0 h-full w-1/2 cursor-pointer p-2 text-black"
               >
-                <FaArrowRight
+                <IoIosArrowForward
                   size={16}
                   className="absolute right-2 top-1/2 -translate-y-1/2 transform"
                 />
@@ -102,46 +103,51 @@ const ProductModal: React.FC<ProductModalProps> = ({
           </h1>
 
           <p className="mt-2 text-sm text-gray-700">${selectedProduct.price}</p>
-          <span className="mt-4 text-sm font-medium">Color</span>
-          <div className="mt-2 grid grid-cols-8 gap-2">
-            {selectedProduct.colors.map((colorObj, index) => (
-              <div
-                key={index}
-                className={
-                  "relative h-8 w-8 cursor-pointer rounded-full border-2 border-gray-200"
-                }
-                style={{ backgroundColor: colorObj }}
-                onClick={() => handleColorClick(colorObj)}
-              >
-                {selectedColor === colorObj && (
-                  <span
-                    className="absolute inset-0 flex items-center justify-center"
-                    style={{ color: "black" }}
+          <div>
+            <div className="mt-4 flex items-center gap-4">
+              <span className="text-sm font-medium">Color :</span>
+              <div className="grid grid-cols-8 gap-2">
+                {selectedProduct.colors.map((colorObj, index) => (
+                  <div
+                    key={index}
+                    className={
+                      "relative h-6 w-6 cursor-pointer rounded-full border-2 border-gray-200"
+                    }
+                    style={{ backgroundColor: colorObj }}
+                    onClick={() => handleColorClick(colorObj)}
                   >
-                    <FaCheck size={16} />
-                  </span>
-                )}
+                    {selectedColor === colorObj && (
+                      <span
+                        className="absolute inset-0 flex items-center justify-center"
+                        style={{ color: "black" }}
+                      >
+                        <FaCheck size={10} />
+                      </span>
+                    )}
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-          <span className="mt-4 text-sm font-medium">Sizes</span>
-          <div className="mt-2 grid grid-cols-6 gap-2">
-            {selectedProduct.sizes.map((size) => (
-              <button
-                key={size}
-                className={`border p-2 text-xs ${
-                  selectedSize === size ? "bg-black text-white" : ""
-                }`}
-                onClick={() => handleSizeClick(size)}
-              >
-                {size}
-              </button>
-            ))}
+            </div>
+            <div className="mt-2 flex flex-col">
+              <span className="text-sm font-medium">Sizes</span>
+              <div className="mt-2 grid grid-cols-6 gap-2">
+                {selectedProduct.sizes.map((size) => (
+                  <button
+                    key={size}
+                    className={`border p-2 text-xs ${
+                      selectedSize === size ? "bg-black text-white" : ""
+                    }`}
+                    onClick={() => handleSizeClick(size)}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <div className="flex items-center justify-between py-2">
-            <span></span>
-            <div className="flex items-center gap-4">
+          <div className="flex items-center justify-between pt-4">
+            <div className="flex items-center gap-2">
               <button
                 onClick={handleDecreaseQuantity}
                 className="flex h-10 w-10 items-center justify-center text-xl font-bold"
@@ -156,15 +162,13 @@ const ProductModal: React.FC<ProductModalProps> = ({
                 +
               </button>
             </div>
+            <button
+              onClick={() => handleAddToCart(selectedProduct)}
+              className={button.save}
+            >
+              Add to Cart
+            </button>
           </div>
-        </div>
-        <div className="mt-4 flex justify-end">
-          <button
-            onClick={() => handleAddToCart(selectedProduct)}
-            className={button.save}
-          >
-            Add to Cart
-          </button>
         </div>
       </div>
     </div>
