@@ -165,12 +165,12 @@ const CartPage = () => {
           </div>
           <div className="mt-4 md:mt-0 md:w-1/4">
             <OrderSummary totalPrice={getTotalPrice()} />
-            <div className="mt-4 rounded-lg border bg-white p-2 shadow-md">
+            <div className="mt-4 flex flex-col items-center rounded-lg border bg-white p-2 px-8 py-8 text-center shadow-md md:px-8">
               <h2 className="mb-2 text-lg font-semibold">Need Assistance?</h2>
               <p className="text-sm">
                 Contact our support team for help with your order.
               </p>
-              <button className="mt-2 rounded bg-green-500 px-2 py-1 text-sm text-white">
+              <button className="mt-2 rounded bg-black px-2 py-1 text-sm text-white">
                 Contact Support
               </button>
             </div>

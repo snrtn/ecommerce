@@ -10,12 +10,15 @@ interface OrderSummaryProps {
 
 const OrderSummary: React.FC<OrderSummaryProps> = ({ totalPrice }) => {
   return (
-    <div className="rounded-lg border bg-white p-2 shadow-md">
+    <div className="mt-10 rounded-lg border bg-white p-2 px-8 py-6 shadow-md md:mt-0 md:px-4">
       <h2 className="mb-2 text-lg font-semibold">Order Summary</h2>
-      <p className="text-sm">Total Price: ${totalPrice}</p>
+      <div className="text-md flex items-center justify-between border-t py-4 font-medium">
+        <p>Total TTC:</p>
+        <p>${totalPrice}</p>
+      </div>
       <Link
         href="/checkout"
-        className="mt-2 block w-full rounded bg-blue-500 py-2 text-center text-white"
+        className="mt-2 block w-full rounded bg-black py-2 text-center text-white"
       >
         Proceed to Checkout
       </Link>

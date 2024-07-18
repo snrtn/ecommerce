@@ -47,7 +47,7 @@ const CartCard: FC<ProductCardProps> = ({
       onMouseLeave={handleMouseLeave}
       onClick={() => setSelectedProduct(product)}
     >
-      <div className="relative mb-4 h-60 w-full md:h-96">
+      <div className="relative mb-4 h-60 w-full md:h-80">
         <Image
           src={mainImage}
           alt={product.name}
@@ -56,7 +56,7 @@ const CartCard: FC<ProductCardProps> = ({
         />
       </div>
       {isHovered && isLargeScreen ? (
-        <div className="bg-white p-4">
+        <div className="bg-white">
           <div className="no-scrollbar mb-2 flex gap-2 overflow-x-auto">
             {product.images.slice(1, 5).map((image, idx) => (
               <div key={idx} className="relative h-12 w-12">
@@ -74,7 +74,7 @@ const CartCard: FC<ProductCardProps> = ({
           <p className="mt-4 text-sm font-medium">${product.price}</p>
         </div>
       ) : (
-        <div className="p-2 md:p-4">
+        <div>
           <p className="truncate overflow-ellipsis whitespace-nowrap text-sm font-medium">
             {product.name}
           </p>
