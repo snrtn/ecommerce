@@ -12,7 +12,8 @@ const footer = {
   linkSectionTitle: "text-lg font-medium",
   linkList: "flex flex-col gap-3",
   contactContainer: "flex w-full flex-col gap-6 md:w-1/2 lg:w-1/4",
-  contactButton: "w-3/4 rounded-md bg-black py-3 text-white",
+  contactButton:
+    "w-3/4 rounded-md bg-black py-3 text-white flex justify-center",
   socialIcons: "flex gap-6",
   footerBottom:
     "mt-16 flex flex-col items-start justify-between gap-8 md:flex-row md:items-center",

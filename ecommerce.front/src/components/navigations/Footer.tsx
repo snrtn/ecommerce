@@ -35,7 +35,12 @@ const Footer = () => {
 
         <div className={footer.contactContainer}>
           <div className="flex">
-            <button className={footer.contactButton}>Contact</button>
+            <Link
+              href={"https://portfront-six.vercel.app/"}
+              className={footer.contactButton}
+            >
+              Contact
+            </Link>
           </div>
           <div className={footer.socialIcons}>
             <FaFacebookF size={20} />
