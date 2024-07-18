@@ -59,7 +59,7 @@ const WishlistPage: React.FC = () => {
   };
 
   return (
-    <div className="xl:px-34 relative left-0 top-0 z-30 mt-10 min-h-screen bg-white px-4 md:mt-24 md:px-8 lg:px-24 2xl:px-64">
+    <div className="xl:px-34 relative left-0 top-0 mt-10 min-h-screen bg-white px-4 md:mt-24 md:px-8 lg:px-24 2xl:px-64">
       <div className="container py-5">
         <h1 className="mx-auto mb-10 w-full text-center text-2xl font-semibold">
           Wishlist
