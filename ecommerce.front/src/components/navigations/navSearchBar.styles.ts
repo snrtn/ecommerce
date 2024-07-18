@@ -1,6 +1,6 @@
 const navSearchBar = {
   container: "w-full flex justify-center",
-  form: "flex items-center justify-center gap-0 md:gap-4 bg-gray-100 py-2 px-4 rounded-md w-full max-w-50 sm:max-w-sm md:max-w-md lg:max-w-lg",
+  form: "flex items-center justify-center gap-0 md:gap-4 bg-gray-100 py-3 px-4 rounded-md w-full max-w-50 sm:max-w-sm md:max-w-md lg:max-w-lg",
   input: "flex w-full bg-transparent outline-none text-sm md:text-md",
   clearButton: "cursor-pointer",
   searchButton: "cursor-pointer",
