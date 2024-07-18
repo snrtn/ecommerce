@@ -1,9 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { FaUser, FaShoppingCart } from "react-icons/fa";
-import { IoTime } from "react-icons/io5";
-import { FaTruckFast } from "react-icons/fa6";
+import {
+  CiUser,
+  CiTimer,
+  CiShoppingCart,
+  CiDeliveryTruck,
+} from "react-icons/ci";
+
 import Link from "next/link";
 import navIcons from "./navIcons.styles";
 import SideMenu from "./SideMenu";
@@ -22,19 +26,19 @@ const NavIcons = () => {
   return (
     <div className={navIcons.container}>
       <Link href={"/user"}>
-        <FaUser className={navIcons.icon} />
+        <CiUser className={navIcons.icon} />
       </Link>
 
       <Link href={"/"} className={navIcons.iconContainer}>
-        <FaTruckFast className={`${navIcons.icon} text-xl md:!text-3xl`} />
+        <CiDeliveryTruck className={navIcons.icon} />
       </Link>
 
       <Link href={"/cart"} className={navIcons.iconContainer}>
-        <FaShoppingCart className={navIcons.icon} />
+        <CiShoppingCart className={navIcons.icon} />
       </Link>
 
       <button onClick={openSideMenu} className={navIcons.iconContainer}>
-        <IoTime className={`${navIcons.icon} text-xl md:!text-3xl`} />
+        <CiTimer className={navIcons.icon} />
       </button>
 
       <SideMenu isOpen={isSideMenuOpen} onClose={closeSideMenu} />

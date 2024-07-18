@@ -4,7 +4,7 @@ const navMenu = {
   menuOpen:
     "fixed inset-0 z-10 flex items-center justify-center bg-white bg-opacity-70",
   overlay: "absolute inset-0 flex justify-end items-start ",
-  closeButton: "cursor-pointer text-4xl m-4",
+  closeButton: "cursor-pointer m-4",
   menuContent:
     "absolute z-20 left-0 flex h-full w-[80%] flex-col items-left bg-white p-6 shadow-md",
   menuButton:

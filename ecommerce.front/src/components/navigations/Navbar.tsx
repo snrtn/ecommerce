@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import NavMenu from "./NavMenu";
-import Image from "next/image";
 import NavSearchBar from "./NavSearchBar";
 import dynamic from "next/dynamic";
 import { useState } from "react";
@@ -29,7 +28,7 @@ const Navbar = () => {
         <div className="flex items-center justify-center">
           <NavMenu />
           <Link href="/" className={navbar.logoLink}>
-            <div className={navbar.logoText}>KIM</div>
+            <div className={navbar.logoText}>ecommerce</div>
           </Link>
         </div>
         <NavIcons />
@@ -40,8 +39,7 @@ const Navbar = () => {
       <div className={navbar.desktopNav}>
         <div className={navbar.desktopLeft}>
           <Link href="/" className="flex items-center gap-3">
-            <Image src="/logo.png" alt="" width={36} height={36} />
-            <div className={navbar.logoText}>KIM</div>
+            <div className={navbar.logoText}>ecommerce</div>
           </Link>
         </div>
         <div className={navbar.desktopCenter}>

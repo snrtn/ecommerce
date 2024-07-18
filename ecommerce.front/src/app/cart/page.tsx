@@ -130,8 +130,7 @@ const CartPage = () => {
       <div className="container py-5">
         <div className="mb-8 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <Image src="/logo.png" alt="Logo" width={36} height={36} />
-            <div className="text-xl font-semibold">KIM</div>
+            <div className="text-2xl font-semibold">ecommerce</div>
           </Link>
         </div>
         <h1 className="mx-auto mb-10 w-full text-center text-2xl font-semibold">

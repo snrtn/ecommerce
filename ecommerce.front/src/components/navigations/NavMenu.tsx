@@ -27,7 +27,7 @@ const Menu = () => {
         <div className={navMenu.menuOpen}>
           <div className={navMenu.overlay} onClick={() => setOpen(false)}>
             <div className={navMenu.closeButton}>
-              <IoMdClose />
+              <IoMdClose size={24} />
             </div>
           </div>
           <div className={navMenu.menuContent}>
