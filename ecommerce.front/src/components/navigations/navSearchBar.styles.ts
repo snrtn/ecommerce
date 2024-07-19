@@ -1,11 +1,11 @@
 const navSearchBar = {
-  container: "w-full flex justify-center",
-  form: "flex items-center justify-center gap-0 md:gap-4 bg-gray-100 py-3 px-4 rounded-md w-full max-w-50 sm:max-w-sm md:max-w-md lg:max-w-lg",
-  input: "flex w-full bg-transparent outline-none text-sm md:text-md",
+  container: "w-full flex justify-center box-sizing",
+  form: "flex items-center justify-center gap-0 md:gap-4 bg-gray-100 py-3 px-4 rounded-md w-full",
+  input: "flex w-96 bg-transparent outline-none text-sm md:text-md !box-border",
   clearButton: "cursor-pointer",
   searchButton: "cursor-pointer",
   dropdown:
-    "absolute left-0 right-0 top-32  md:top-20 py-4 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 bg-white text-sm z-20 shadow-lg",
+    "absolute left-0 right-0 top-28 md:top-20 py-4 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 bg-white text-sm z-20 shadow-lg",
   suggestionsContainer: "my-2",
   categoryTitle: "font-semibold text-lg py-4 px-5",
   categoryLink: "hover:underline",

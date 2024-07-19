@@ -126,17 +126,17 @@ const CartPage = () => {
   };
 
   return (
-    <div className="xl:px-34 z-50min-h-screen relative left-0 top-0 bg-white px-4 py-2 pb-40 md:px-8 lg:px-24 2xl:px-64">
+    <div className="xl:px-34 relative left-0 top-0 z-50 min-h-screen bg-white px-4 py-2 pb-40 md:px-8 lg:px-24 2xl:px-64">
       <div className="container py-5">
         <div className="mb-8 flex items-center justify-between">
           <Link href="/" className="ml-4 flex items-center">
             <div className="text-xl font-semibold">KIM</div>
           </Link>
         </div>
-        <h1 className="text-md mx-auto my-20 w-full text-center font-medium md:text-xl">
+        <h1 className="text-md mx-auto w-full pb-8 text-center font-medium md:text-xl">
           Shopping Cart
         </h1>
-        <div className="flex flex-col gap-8 md:flex-row md:justify-between">
+        <div className="flex flex-col gap-8 border-t md:flex-row md:justify-between md:border-none">
           <div className="md:w-3/4">
             {cartItems.length === 0 ? (
               <p className="md:text-md py-20 text-center text-xs">

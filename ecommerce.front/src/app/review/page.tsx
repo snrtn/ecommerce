@@ -58,9 +58,9 @@ const ReviewPage = () => {
   };
 
   return (
-    <div className="mt-24 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
+    <div className="md:px-8 lg:px-16 xl:px-32 2xl:px-64">
       <div className="flex flex-col justify-between px-4 md:flex-row md:px-0">
-        <div className="grid h-full w-full grid-cols-2 gap-2 md:w-2/3">
+        <div className="mt-40 grid h-full w-full grid-cols-2 gap-2 md:mt-32 md:w-2/3">
           {photos.slice(0, 4).map((photo, index) => (
             <div key={index} className="relative h-60 w-full md:h-96">
               <Image
@@ -94,7 +94,7 @@ const ReviewPage = () => {
           )}
         </div>
 
-        <div className="ml-0 mt-20 flex w-full flex-col md:ml-6 md:mt-0 md:w-1/2">
+        <div className="ml-0 mt-10 flex w-full flex-col md:ml-6 md:mt-32 md:w-1/2">
           <p className="text-xl font-medium">By User48</p>
           {items.map((item, index) => (
             <div key={index}>

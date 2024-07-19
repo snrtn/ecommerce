@@ -25,19 +25,22 @@ const Navbar = () => {
   return (
     <div className={navbar.container}>
       <div className={navbar.mobileNav}>
-        <div className="flex items-center justify-center">
-          <NavMenu />
-          <Link href="/" className={navbar.logoLink}>
-            <div className={navbar.logoText}>KIM</div>
-          </Link>
+        <div className="flex w-full justify-between">
+          <div className="flex items-center justify-center">
+            <NavMenu />
+            <Link href="/">
+              <div className={navbar.logoText}>KIM</div>
+            </Link>
+          </div>
+          <NavIcons />
         </div>
-        <NavIcons />
-      </div>
-      <div className="md:hidden">
-        <NavSearchBar />
+        <div className="md:hidden">
+          <NavSearchBar />
+        </div>
       </div>
       <div className={navbar.desktopNav}>
         <div className={navbar.desktopLeft}>
+          <NavMenu />
           <Link href="/" className="flex items-center gap-3">
             <div className={navbar.logoText}>KIM</div>
           </Link>
@@ -49,7 +52,7 @@ const Navbar = () => {
           <NavIcons />
         </div>
       </div>
-      <div className={navbar.menuContainer}>
+      {/* <div className={navbar.menuContainer}>
         <div className={navbar.menu}>
           <div
             onMouseEnter={() => handleMouseEnter("hommes")}
@@ -91,7 +94,7 @@ const Navbar = () => {
             )}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

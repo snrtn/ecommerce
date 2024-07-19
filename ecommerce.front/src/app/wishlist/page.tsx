@@ -66,9 +66,9 @@ const WishlistPage: React.FC = () => {
   }, [showMoreRecommendations]);
 
   return (
-    <div className="xl:px-34 relative left-0 top-0 mt-14 min-h-screen bg-white px-4 md:mt-24 md:px-8 lg:px-24 2xl:px-64">
+    <div className="xl:px-34 relative left-0 top-0 min-h-screen bg-white px-4 md:mt-0 md:px-8 lg:px-24 2xl:px-64">
       <div className="container py-5">
-        <h1 className="text-md mx-auto mb-10 w-full text-center font-medium md:text-xl">
+        <h1 className="text-md mx-auto mb-10 mt-36 w-full text-center font-medium md:mt-20 md:text-xl">
           Wishlist
         </h1>
         <div className="flex flex-col gap-2 md:flex-row md:justify-between">

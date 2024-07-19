@@ -7,8 +7,10 @@ import Review from "@/components/app/Review";
 
 export default function Home() {
   return (
-    <div className="mt-10 md:mt-24">
-      <SlideView />
+    <>
+      <div className="">
+        <SlideView />
+      </div>
       <ItemView />
       <GroupView />
       <div className="hidden md:flex">
@@ -16,6 +18,6 @@ export default function Home() {
       </div>
       <InfiniteView />
       <Review />
-    </div>
+    </>
   );
 }

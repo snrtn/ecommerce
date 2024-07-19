@@ -76,13 +76,13 @@ const SinglePage = () => {
 
   return (
     <div>
-      <div className="mt-24 px-8 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
+      <div className="px-8 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
         <nav className="breadcrumb flex items-center">
-          <div className="mr-6 flex cursor-pointer items-center">
+          <div className="mr-6 mt-36 flex cursor-pointer items-center md:mt-24">
             <IoIosArrowBack size={18} className="mr-1" />{" "}
             <span className="text-xs">Return</span>
           </div>
-          <div className="flex gap-2 text-xs text-gray-500">
+          <div className="mt-36 flex gap-2 text-xs text-gray-500 md:mt-24">
             <a href="/" className="ml-4">
               Accueil
             </a>{" "}

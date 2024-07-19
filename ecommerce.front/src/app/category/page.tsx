@@ -139,7 +139,7 @@ const CategoryPage = () => {
   };
 
   return (
-    <div className="mt-20 flex flex-col-reverse xl:flex-row">
+    <div className="flex flex-col-reverse xl:flex-row">
       <div
         className={`xl:block ${showFilters ? "block" : "hidden"} sticky top-20 xl:w-1/6`}
       >
@@ -148,7 +148,7 @@ const CategoryPage = () => {
           handleFilterChange={handleFilterChange}
         />
       </div>
-      <div className="xl:w-4/4 w-full p-4">
+      <div className="xl:w-4/4 mt-36 w-full p-4 md:mt-20">
         <div className="mb-6 flex items-center justify-between">
           <h2 className="text-2xl font-bold">Chaussures Air Force 1 (98)</h2>
           <div className="xl:hidden">

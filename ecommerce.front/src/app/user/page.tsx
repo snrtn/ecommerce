@@ -18,14 +18,14 @@ const UserPage = () => {
   };
 
   return (
-    <div className="mt-10 flex flex-col md:mt-24 md:flex-row md:px-8 lg:px-16 xl:px-32 2xl:px-48">
-      <div className="w-full md:w-1/6">
+    <div className="flex flex-col md:flex-row md:px-8 lg:px-16 xl:px-32 2xl:px-48">
+      <div className="mt-36 w-full md:mt-24 md:w-1/6">
         <Sidebar
           setActiveSection={handleSectionClick}
           activeSection={activeSection}
         />
       </div>
-      <div className="h-full w-full md:w-5/6">
+      <div className="h-full w-full md:mt-24 md:w-5/6">
         {activeSection === "default" && (
           <section id="default">
             <Default />
