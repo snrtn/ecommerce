@@ -28,15 +28,15 @@ const FilterSection: FC<FilterProps> = ({ filters, handleFilterChange }) => {
   };
 
   return (
-    <div className="absolute h-full w-full bg-white px-6 py-5 md:top-0">
-      <h2 className="mb-10 mt-20 text-xl font-semibold">Filters</h2>
+    <div className="absolute h-full w-full bg-white px-6">
+      <h2 className="text-md mb-10 mt-10 font-medium md:text-lg">Filters</h2>
 
       <div className="mb-4">
         <button
           onClick={toggleSortExpand}
           className="mb-2 flex w-full items-center justify-between text-gray-700 focus:outline-none"
         >
-          <label htmlFor="sort" className="text-sm font-medium text-gray-700">
+          <label htmlFor="sort" className="text-xs font-medium text-gray-700">
             Sort By
           </label>
           {isSortExpanded ? <FaChevronUp /> : <FaChevronDown />}
@@ -49,7 +49,7 @@ const FilterSection: FC<FilterProps> = ({ filters, handleFilterChange }) => {
           <select
             id="sort"
             name="sort"
-            className="w-full rounded-md border p-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-md border p-2 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
             onChange={handleFilterChange}
             value={filters.sort}
           >
@@ -67,7 +67,7 @@ const FilterSection: FC<FilterProps> = ({ filters, handleFilterChange }) => {
         >
           <label
             htmlFor="minPrice"
-            className="text-sm font-medium text-gray-700"
+            className="text-xs font-medium text-gray-700"
           >
             Min Price
           </label>
@@ -97,7 +97,7 @@ const FilterSection: FC<FilterProps> = ({ filters, handleFilterChange }) => {
         >
           <label
             htmlFor="maxPrice"
-            className="text-sm font-medium text-gray-700"
+            className="text-xs font-medium text-gray-700"
           >
             Max Price
           </label>

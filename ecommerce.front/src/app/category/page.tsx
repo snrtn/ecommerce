@@ -139,18 +139,20 @@ const CategoryPage = () => {
   };
 
   return (
-    <div className="flex flex-col-reverse xl:flex-row">
+    <div className="flex flex-col-reverse pl-0 lg:pr-0 xl:flex-row xl:pl-0 xl:pr-20">
       <div
-        className={`xl:block ${showFilters ? "block" : "hidden"} sticky top-20 xl:w-1/6`}
+        className={`xl:block ${showFilters ? "block" : "hidden"} sticky xl:w-1/6`}
       >
         <FilterSection
           filters={filters}
           handleFilterChange={handleFilterChange}
         />
       </div>
-      <div className="xl:w-4/4 mt-36 w-full p-4 md:mt-20">
+      <div className="xl:w-4/4 mt-10 w-full px-4">
         <div className="mb-6 flex items-center justify-between">
-          <h2 className="text-2xl font-bold">Chaussures Air Force 1 (98)</h2>
+          <h2 className="text-md font-medium md:text-xl">
+            Chaussures Air Force 1 (98)
+          </h2>
           <div className="xl:hidden">
             {showFilters === false ? (
               <button onClick={toggleFilters} className="p-2">
@@ -164,7 +166,7 @@ const CategoryPage = () => {
           </div>
         </div>
         {showFilters && isMobile && (
-          <div className="fixed inset-0 top-36 z-50 overflow-y-auto bg-white">
+          <div className="fixed inset-0 top-40 z-50 overflow-y-auto bg-white">
             <FilterSection
               filters={filters}
               handleFilterChange={handleFilterChange}

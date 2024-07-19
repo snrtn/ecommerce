@@ -27,7 +27,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   const SideInactiveBtn = "text-black hover:bg-gray-100";
 
   return (
-    <div className="h-full w-full px-4 py-4 md:p-2">
+    <div className="h-full w-full px-4 md:p-2">
       <div className="mb-6 flex w-full flex-col items-start justify-center px-3 md:items-center md:px-0">
         <button
           onClick={() => setActiveSection("default")}

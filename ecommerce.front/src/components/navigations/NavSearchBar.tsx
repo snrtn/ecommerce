@@ -139,7 +139,7 @@ const NavSearchBar = () => {
           </button>
         )}
         <button className={navSearchBar.searchButton}>
-          <CiSearch className="hidden text-2xl text-gray-400 md:flex" />
+          <CiSearch className="text-xl text-gray-400" />
         </button>
       </form>
       {showDropdown && (

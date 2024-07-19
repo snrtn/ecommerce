@@ -130,7 +130,7 @@ const CartPage = () => {
       <div className="container py-5">
         <div className="mb-8 flex items-center justify-between">
           <Link href="/" className="ml-4 flex items-center">
-            <div className="text-xl font-semibold">KIM</div>
+            <div className="text-md font-medium md:text-xl">KIM</div>
           </Link>
         </div>
         <h1 className="text-md mx-auto w-full pb-8 text-center font-medium md:text-xl">
