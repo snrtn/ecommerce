@@ -135,7 +135,7 @@ const NavSearchBar = () => {
             className={navSearchBar.clearButton}
             onClick={handleClear}
           >
-            <RiDeleteBack2Fill className="mr-2 text-xl text-black md:mr-0" />
+            <RiDeleteBack2Fill className="mr-2 text-xl text-black md:mr-4" />
           </button>
         )}
         <button className={navSearchBar.searchButton}>

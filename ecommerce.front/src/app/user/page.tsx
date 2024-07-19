@@ -28,7 +28,7 @@ const UserPage = () => {
       <div className="mt-10 h-full w-full md:w-5/6">
         {activeSection === "default" && (
           <section id="default">
-            <Default />
+            <Default setActiveSection={setActiveSection} />
           </section>
         )}
         {activeSection === "personal-info" && (
