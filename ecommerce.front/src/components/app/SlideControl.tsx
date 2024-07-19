@@ -56,13 +56,11 @@ const SlideControl: React.FC<SlideControlProps> = ({
       <div className={slideControl.controlWrapper}>
         <div className={slideControl.controlGroup}>
           <div className={slideControl.slideInfo}>
-            <span className={slideControl.slideNumber}>
-              0{currentSlide + 1}
-            </span>
+            <span className={slideControl.slideNumber}>{currentSlide + 1}</span>
             <span>
               <RxSlash className={slideControl.slashIcon} />
             </span>
-            0{totalSlides}
+            {totalSlides}
           </div>
           <button onClick={prevSlide} className={slideControl.controlButton}>
             <FaChevronLeft className={slideControl.chevronIcon} />

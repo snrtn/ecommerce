@@ -7,6 +7,12 @@ import {
   FaHistory,
   FaImages,
   FaCreditCard,
+  FaBell,
+  FaCogs,
+  FaShieldAlt,
+  FaEnvelope,
+  FaQuestionCircle,
+  FaSignOutAlt,
 } from "react-icons/fa";
 import useMediaQuery from "@/hooks/useMediaQuery";
 
@@ -42,6 +48,32 @@ const Sidebar: React.FC<SidebarProps> = ({
       >
         <li>
           <button
+            onClick={() => setActiveSection("account-settings")}
+            className={`${SideBaseBtn} ${
+              activeSection === "account-settings"
+                ? SideActiveBtn
+                : !isMobile && SideInactiveBtn
+            }`}
+          >
+            <FaCogs className="mb-2 mr-2 inline-block text-lg" />
+            <p className="text-xs">Account Settings</p>
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => setActiveSection("security-settings")}
+            className={`${SideBaseBtn} ${
+              activeSection === "security-settings"
+                ? SideActiveBtn
+                : !isMobile && SideInactiveBtn
+            }`}
+          >
+            <FaShieldAlt className="mb-2 mr-2 inline-block text-lg" />
+            <p className="text-xs">Security Settings</p>
+          </button>
+        </li>
+        <li>
+          <button
             onClick={() => setActiveSection("personal-info")}
             className={`${SideBaseBtn} ${
               activeSection === "personal-info"
@@ -68,6 +100,45 @@ const Sidebar: React.FC<SidebarProps> = ({
         </li>
         <li>
           <button
+            onClick={() => setActiveSection("payment-info")}
+            className={`${SideBaseBtn} ${
+              activeSection === "payment-info"
+                ? SideActiveBtn
+                : !isMobile && SideInactiveBtn
+            }`}
+          >
+            <FaCreditCard className="mb-2 mr-2 inline-block text-lg" />
+            <p className="text-xs">My Payment</p>
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => setActiveSection("notifications")}
+            className={`${SideBaseBtn} ${
+              activeSection === "notifications"
+                ? SideActiveBtn
+                : !isMobile && SideInactiveBtn
+            }`}
+          >
+            <FaBell className="mb-2 mr-2 inline-block text-lg" />
+            <p className="text-xs">Notifications</p>
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => setActiveSection("subscriptions")}
+            className={`${SideBaseBtn} ${
+              activeSection === "subscriptions"
+                ? SideActiveBtn
+                : !isMobile && SideInactiveBtn
+            }`}
+          >
+            <FaEnvelope className="mb-2 mr-2 inline-block text-lg" />
+            <p className="text-xs">Subscriptions</p>
+          </button>
+        </li>
+        <li>
+          <button
             onClick={() => setActiveSection("reviews-ratings")}
             className={`${SideBaseBtn} ${
               activeSection === "reviews-ratings"
@@ -81,15 +152,28 @@ const Sidebar: React.FC<SidebarProps> = ({
         </li>
         <li>
           <button
-            onClick={() => setActiveSection("payment-info")}
+            onClick={() => setActiveSection("help-support")}
             className={`${SideBaseBtn} ${
-              activeSection === "payment-info"
+              activeSection === "help-support"
                 ? SideActiveBtn
                 : !isMobile && SideInactiveBtn
             }`}
           >
-            <FaCreditCard className="mb-2 mr-2 inline-block text-lg" />
-            <p className="text-xs">My Payment</p>
+            <FaQuestionCircle className="mb-2 mr-2 inline-block text-lg" />
+            <p className="text-xs">Help & Support</p>
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => setActiveSection("logout")}
+            className={`${SideBaseBtn} ${
+              activeSection === "logout"
+                ? SideActiveBtn
+                : !isMobile && SideInactiveBtn
+            }`}
+          >
+            <FaSignOutAlt className="mb-2 mr-2 inline-block text-lg" />
+            <p className="text-xs">Logout</p>
           </button>
         </li>
       </ul>
