@@ -31,9 +31,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <div className="mb-6 flex w-full flex-col items-start justify-center px-3 md:items-center md:px-0">
         <button
           onClick={() => setActiveSection("default")}
-          className={
-            "w-full flex-col items-start justify-center px-3 md:items-center md:px-0"
-          }
+          className={"w-full flex-col items-center justify-center px-3 md:px-0"}
         >
           <FaUser className="mb-2 mr-2 hidden text-lg md:inline-block" />
           <p className="text-md mr-2 font-medium md:text-sm">Profiles</p>

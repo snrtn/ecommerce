@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { FaSearch } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
 import { RiDeleteBack2Fill } from "react-icons/ri";
 import navSearchBar from "./navSearchBar.styles";
 import { fetchedSuggestions } from "./navSearchBar.data";
@@ -135,11 +135,11 @@ const NavSearchBar = () => {
             className={navSearchBar.clearButton}
             onClick={handleClear}
           >
-            <RiDeleteBack2Fill className="mr-3 text-2xl text-black" />
+            <RiDeleteBack2Fill className="mr-3 text-xl text-black" />
           </button>
         )}
         <button className={navSearchBar.searchButton}>
-          <FaSearch className="text-lg text-gray-400" />
+          <CiSearch className="hidden text-2xl text-gray-400 md:flex" />
         </button>
       </form>
       {showDropdown && (
