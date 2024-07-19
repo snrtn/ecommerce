@@ -127,7 +127,7 @@ const NavSearchBar = () => {
           value={searchTerm}
           onChange={handleChange}
           placeholder="Search"
-          className={navSearchBar.input}
+          className={`${navSearchBar.input}`}
         />
         {searchTerm && (
           <button
@@ -135,7 +135,7 @@ const NavSearchBar = () => {
             className={navSearchBar.clearButton}
             onClick={handleClear}
           >
-            <RiDeleteBack2Fill className="mr-3 text-xl text-black" />
+            <RiDeleteBack2Fill className="mr-2 text-xl text-black md:mr-0" />
           </button>
         )}
         <button className={navSearchBar.searchButton}>
