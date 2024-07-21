@@ -100,7 +100,9 @@ const GroupView: FC = () => {
           <div
             key={index}
             className={`${group.slide} ${
-              index === 0 ? group.invisibleSlide : ""
+              index === 0 || index === slides.length - 1
+                ? group.invisibleSlide
+                : ""
             }`}
           >
             <div className={group.mainImageContainer}>

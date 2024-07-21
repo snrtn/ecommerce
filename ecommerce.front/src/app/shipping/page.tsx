@@ -11,6 +11,7 @@ import Link from "next/link";
 const ShippingStatusPage: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>([]);
   const [activeButton, setActiveButton] = useState<string | null>(null);
+  const [showAddress, setShowAddress] = useState<string | null>(null);
 
   useEffect(() => {
     setOrders(generateOrders());
@@ -26,6 +27,46 @@ const ShippingStatusPage: React.FC = () => {
 
   const handleButtonClick = (button: string) => {
     setActiveButton(activeButton === button ? null : button);
+  };
+
+  const handleAddressClick = (orderId: string) => {
+    setShowAddress(showAddress === orderId ? null : orderId);
+  };
+
+  const formatDate = (dateStr: string) => {
+    if (!dateStr) return "Invalid Date";
+    const [day, month, year] = dateStr.split(".");
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    return `${parseInt(day)} ${monthNames[parseInt(month) - 1]} ${year}`;
+  };
+
+  const formatEstimatedDelivery = (dateStr: string) => {
+    const [day, month, year] = dateStr.split(".");
+    const dayNames = [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ];
+    return `${dayNames[new Date(`${year}-${month}-${day}`).getDay()]} ${parseInt(
+      day,
+    )}`;
   };
 
   return (
@@ -57,40 +98,77 @@ const ShippingStatusPage: React.FC = () => {
                 />
                 <div className="mt-10 flex flex-col gap-8 px-8 sm:px-10 md:flex-row md:px-16 lg:px-24 xl:px-32">
                   <div className="flex flex-1 flex-col">
-                    <div className="flex items-end gap-2">
-                      <Image
-                        src={
-                          "https://images.unsplash.com/photo-1678801868975-32786ae5aeeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHdvbWFuJTIwZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D"
-                        }
-                        alt={""}
-                        className="h-16 w-16 object-cover"
-                        width={200}
-                        height={200}
-                      />
-                      <p className="text-xs text-gray-500">3 more</p>
+                    <p className="md:text-md text-sm">
+                      Order Number: {order.orderNumber}
+                    </p>
+                    <p className="md:text-md text-md font-medium">
+                      Estimated Delivery:{" "}
+                      {formatEstimatedDelivery(order.estimatedDelivery)}
+                    </p>
+                    <p className="md:text-md text-sm">
+                      Order Date: {formatDate(order.orderDate)}
+                    </p>
+                    <div className="mt-2 flex h-20 w-full flex-wrap gap-1 overflow-y-auto">
+                      {order.product.split(",").map((product, index) => (
+                        <Image
+                          key={index}
+                          src={
+                            "https://images.unsplash.com/photo-1678801868975-32786ae5aeeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHdvbWFuJTIwZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D"
+                          }
+                          alt={product}
+                          className="h-16 w-16 object-cover"
+                          width={200}
+                          height={200}
+                        />
+                      ))}
                     </div>
-                    <p className="md:text-md mt-4 text-sm">
-                      Status: {order.status}
-                    </p>
-                    <p className="md:text-md text-sm">
-                      Estimated Delivery: {order.estimatedDelivery}
-                    </p>
-                    <p className="md:text-md text-sm">
-                      Tracking Number: {order.trackingNumber}
-                    </p>
-                    <p className="md:text-md text-sm">
-                      Latest Shipment Date: {order.locations[0].date}
-                    </p>
-                    <div className="mt-2">
-                      <button className="md:text-md text-sm text-blue-500">
-                        Order Detail
+                    <div className="flex items-center justify-between">
+                      <div className="flex flex-1 flex-col">
+                        <p className="md:text-md mt-2 text-sm">
+                          Status: {order.status}
+                        </p>
+                        {order.paidPrice !== undefined && (
+                          <p className="md:text-md text-sm">
+                            Paid Price: ${order.paidPrice.toFixed(2)}
+                          </p>
+                        )}
+                      </div>
+                      <button className="md:text-md flex flex-1 text-sm text-blue-500">
+                        Order Details
                       </button>
                     </div>
+                    <div className="mt-2">
+                      <span className="mr-2">
+                        {order.deliveryAddress.split(",")[0]},
+                      </span>
+                      <button
+                        className="md:text-md text-sm text-blue-500"
+                        onClick={() => handleAddressClick(order.id.toString())}
+                        onMouseEnter={() =>
+                          handleAddressClick(order.id.toString())
+                        }
+                        onMouseLeave={() =>
+                          handleAddressClick(order.id.toString())
+                        }
+                      >
+                        Delivery Address
+                      </button>
+                      {showAddress === order.id.toString() && (
+                        <div className="mt-2 text-sm text-gray-600">
+                          <p>
+                            {order.deliveryAddress.split(",")[0]},
+                            {order.deliveryAddress
+                              .split(",")
+                              .slice(1)
+                              .join(",")}
+                          </p>
+                        </div>
+                      )}
+                    </div>
                   </div>
-
                   <div className="flex flex-1 flex-col">
-                    <h3 className="md:text-md text-sm font-semibold">
-                      Tracking History
+                    <h3 className="md:text-md text-md font-semibold">
+                      Tracking Number: {order.trackingNumber}
                     </h3>
                     <ul className="mt-2 h-60 overflow-y-auto">
                       {order.locations.map((location, index) => (

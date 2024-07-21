@@ -46,7 +46,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       icon: <FaShieldAlt />,
     },
     { id: "reviews-ratings", title: "Gallery", icon: <FaImages /> },
-    { id: "subscriptions", title: "Subscriptions", icon: <FaEnvelope /> },
+    { id: "consulting", title: "Consulting", icon: <FaEnvelope /> },
     { id: "notifications", title: "Notifications", icon: <FaBell /> },
     { id: "help-support", title: "Support", icon: <FaQuestionCircle /> },
     { id: "logout", title: "Logout", icon: <FaSignOutAlt /> },

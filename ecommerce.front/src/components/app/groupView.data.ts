@@ -27,6 +27,10 @@ const slides = [
       "https://i.pinimg.com/736x/09/d4/b2/09d4b2cf05232b0c82600d736c921fac.jpg",
     ],
   },
+  {
+    image: "",
+    images: ["", ""],
+  },
 ];
 
 export default slides;

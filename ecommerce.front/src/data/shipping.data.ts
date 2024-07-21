@@ -1,9 +1,12 @@
 import { Order, IssueButton } from "@/types/shipping.type";
+import { nanoid } from "nanoid"; // nanoid 라이브러리 사용
 
 export const generateOrders = (): Order[] => [
   {
     id: 1,
-    product: "Product 1",
+    orderNumber: nanoid(28),
+    product:
+      "Product 1, Product 2, Product 3, Product 3, Product 3, Product 3, Product 3, Product 3",
     status: "Shipped",
     estimatedDelivery: "20.7.2024",
     trackingNumber: "1234567890",
@@ -24,10 +27,14 @@ export const generateOrders = (): Order[] => [
       { date: "15.7.2024", location: "Warehouse A" },
       { date: "16.7.2024", location: "Distribution Center" },
     ],
+    paidPrice: 129.99,
+    orderDate: "12.7.2024",
+    deliveryAddress: "123 Main St, Springfield, IL 62701, USA",
   },
   {
     id: 2,
-    product: "Product 2",
+    orderNumber: nanoid(28),
+    product: "Product 4, Product 5",
     status: "In Transit",
     estimatedDelivery: "22.7.2024",
     trackingNumber: "0987654321",
@@ -36,10 +43,14 @@ export const generateOrders = (): Order[] => [
       { date: "16.7.2024", location: "Warehouse B" },
       { date: "18.7.2024", location: "Distribution Center" },
     ],
+    paidPrice: 79.99,
+    orderDate: "10.7.2024",
+    deliveryAddress: "456 Oak St, Metropolis, IL 62960, USA",
   },
   {
     id: 3,
-    product: "Product 3",
+    orderNumber: nanoid(28),
+    product: "Product 6, Product 7, Product 8",
     status: "Out for Delivery",
     estimatedDelivery: "23.7.2024",
     trackingNumber: "1122334455",
@@ -47,10 +58,14 @@ export const generateOrders = (): Order[] => [
       { date: "17.7.2024", location: "Warehouse C" },
       { date: "20.7.2024", location: "Local Delivery Hub" },
     ],
+    paidPrice: 59.99,
+    orderDate: "8.7.2024",
+    deliveryAddress: "789 Pine St, Gotham, NY 10001, USA",
   },
   {
     id: 4,
-    product: "Product 4",
+    orderNumber: nanoid(28),
+    product: "Product 9",
     status: "Delivered",
     estimatedDelivery: "18.7.2024",
     trackingNumber: "5566778899",
@@ -58,6 +73,9 @@ export const generateOrders = (): Order[] => [
       { date: "14.7.2024", location: "Warehouse D" },
       { date: "17.7.2024", location: "Customer's Address" },
     ],
+    paidPrice: 49.99,
+    orderDate: "6.7.2024",
+    deliveryAddress: "1010 Maple St, Star City, TX 75001, USA",
   },
 ];
 

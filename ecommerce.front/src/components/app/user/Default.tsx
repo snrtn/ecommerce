@@ -65,11 +65,11 @@ const Default: React.FC<DefaultProps> = ({ setActiveSection }) => {
       { title: "App Update Available", date: "2024-06-20" },
       { title: "New Feature Announcement", date: "2024-06-15" },
     ],
-    subscriptions: [
-      { title: "Subscribed to Newsletter", date: "2024-07-02" },
-      { title: "Unsubscribed from Promotions", date: "2024-06-28" },
-      { title: "Renewed Subscription", date: "2024-06-25" },
-      { title: "Cancelled Subscription", date: "2024-06-20" },
+    consulting: [
+      { title: "Consulted about order issue", date: "2024-07-03" },
+      { title: "Discussed product return", date: "2024-06-29" },
+      { title: "Inquired about shipping", date: "2024-06-25" },
+      { title: "Asked about product details", date: "2024-06-20" },
     ],
     "reviews-ratings": [
       { title: "Reviewed Product 1", date: "2024-07-03" },
@@ -87,7 +87,12 @@ const Default: React.FC<DefaultProps> = ({ setActiveSection }) => {
       { title: "Logged Out", date: "2024-07-09" },
       { title: "Logged In", date: "2024-06-30" },
       { title: "Session Expired", date: "2024-06-25" },
+    ],
+    "security-settings": [
       { title: "Password Changed", date: "2024-06-20" },
+      { title: "Enabled Two-Factor Authentication", date: "2024-06-15" },
+      { title: "Updated Security Questions", date: "2024-06-10" },
+      { title: "Reviewed Security Logs", date: "2024-06-05" },
     ],
   };
 
@@ -107,7 +112,7 @@ const Default: React.FC<DefaultProps> = ({ setActiveSection }) => {
       icon: <FaShieldAlt />,
     },
     { id: "reviews-ratings", title: "Gallery", icon: <FaImages /> },
-    { id: "subscriptions", title: "Subscriptions", icon: <FaEnvelope /> },
+    { id: "consulting", title: "Consulting", icon: <FaEnvelope /> },
     { id: "notifications", title: "Notifications", icon: <FaBell /> },
     { id: "help-support", title: "Support", icon: <FaQuestionCircle /> },
     { id: "logout", title: "Logout", icon: <FaSignOutAlt /> },
@@ -119,7 +124,7 @@ const Default: React.FC<DefaultProps> = ({ setActiveSection }) => {
         {items.map((item) => (
           <div
             key={item.id}
-            className="mb-6 flex-1 gap-4 rounded-md border p-4"
+            className="mb-6 h-56 flex-1 gap-4 rounded-md border p-4"
           >
             <div className="items-left flex w-full flex-col">
               <div className="flex items-center">
@@ -129,7 +134,7 @@ const Default: React.FC<DefaultProps> = ({ setActiveSection }) => {
                   onClick={() => setActiveSection(item.id)}
                   className="ml-auto text-blue-500"
                 >
-                  Go to Menu
+                  See more
                 </button>
               </div>
               <div className="mt-6 grid w-full gap-4 md:grid-cols-1">
