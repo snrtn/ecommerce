@@ -264,19 +264,27 @@ const ShippingStatusPage: React.FC = () => {
                     <FaChevronDown />
                   )}
                 </button>
-                {activeButton === button.id && (
-                  <div className="px-8 py-4 md:px-12 md:py-8">
-                    <p className="mt-4 text-sm text-gray-600">
-                      {button.description}
-                    </p>
-                    <Link
-                      href={button.link}
-                      className="mt-2 inline-block text-sm text-blue-500"
-                    >
-                      {button.title}
-                    </Link>
-                  </div>
-                )}
+                <div
+                  className={`${
+                    activeButton === button.id
+                      ? "ease-out-in max-h-96 opacity-100 transition-all duration-1000"
+                      : "max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out"
+                  }`}
+                >
+                  {activeButton === button.id && (
+                    <div className="px-8 py-4 md:px-12 md:py-8">
+                      <p className="mt-4 text-sm text-gray-600">
+                        {button.description}
+                      </p>
+                      <Link
+                        href={button.link}
+                        className="mt-2 inline-block text-sm text-blue-500"
+                      >
+                        {button.title}
+                      </Link>
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>

@@ -5,7 +5,7 @@ const navSearchBar = {
   clearButton: "cursor-pointer flex items-center",
   searchButton: "cursor-pointer flex items-center",
   dropdown:
-    "absolute pb-16 md:pb-10 left-0 right-0 top-32 md:top-20 py-4 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 bg-white text-sm z-20 shadow-lg",
+    "absolute pb-16 md:pb-10 left-0 right-0 top-28 md:top-20 py-4 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 bg-white text-sm z-20 shadow-lg",
   suggestionsContainer: "pb-4",
   categoryTitle: "font-semibold text-lg py-4 px-5",
   categoryLink: "hover:underline",
