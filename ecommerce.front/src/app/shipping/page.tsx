@@ -98,6 +98,27 @@ const ShippingStatusPage: React.FC = () => {
     return Array.from(new Set(years));
   };
 
+  const getStatusText = (status: string, estimatedDelivery: string) => {
+    switch (status) {
+      case "Delivered":
+        return "Delivered";
+      case "Refund Requested":
+        return "Refund Requested";
+      case "Refund Completed":
+        return "Refund Completed";
+      case "Return Requested":
+        return "Return Requested";
+      case "Return Completed":
+        return "Return Completed";
+      case "Compensation Requested":
+        return "Compensation Requested";
+      case "Compensation Completed":
+        return "Compensation Completed";
+      default:
+        return `Estimated Delivery: ${formatEstimatedDelivery(estimatedDelivery)}`;
+    }
+  };
+
   return (
     <div className="xl:px-34 relative left-0 top-0 min-h-screen bg-white px-4 md:px-8 lg:px-24 2xl:px-64">
       <div className="container">
@@ -153,10 +174,7 @@ const ShippingStatusPage: React.FC = () => {
 
                     <div className="mt-4 flex flex-col">
                       <p className="flex flex-col text-lg font-semibold md:flex-row">
-                        Estimated Delivery :
-                        <p className="md:ml-1">
-                          {formatEstimatedDelivery(order.estimatedDelivery)}
-                        </p>
+                        {getStatusText(order.status, order.estimatedDelivery)}
                       </p>
                       <p className="mt-4 text-sm md:mt-0">
                         Order Date: {formatDate(order.orderDate)}
@@ -170,9 +188,7 @@ const ShippingStatusPage: React.FC = () => {
                       {order.products.map((product, index) => (
                         <div key={index}>
                           <Image
-                            src={
-                              "https://images.unsplash.com/photo-1678801868975-32786ae5aeeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHdvbWFuJTIwZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D"
-                            }
+                            src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/846d5a72-a372-425f-9cb3-f5e8051e4c2e/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png"
                             alt={product.title}
                             className="relative h-16 w-16 object-cover"
                             width={200}
@@ -182,8 +198,7 @@ const ShippingStatusPage: React.FC = () => {
                       ))}
                     </div>
 
-                    <div className="mt-4 flex flex-col">
-                      <p className="text-sm">Status: {order.status}</p>
+                    <div className="flex flex-col">
                       {order.paidPrice !== undefined && (
                         <p className="text-md font-medium">
                           Total Price: ${order.paidPrice.toFixed(2)}
