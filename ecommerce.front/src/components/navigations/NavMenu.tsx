@@ -62,7 +62,7 @@ const Menu = () => {
                 <IoMdClose size={24} />
               </div>
             </div>
-            <div className="w-full">
+            <div className="mt-6 w-full">
               {Object.keys(menus).map((menuKey) => {
                 const Icon = menus[menuKey].icon;
                 return (

@@ -10,12 +10,18 @@ import Link from "next/link";
 
 const ShippingStatusPage: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>([]);
+  const [filteredOrders, setFilteredOrders] = useState<Order[]>([]);
   const [activeButton, setActiveButton] = useState<string | null>(null);
   const [showAddress, setShowAddress] = useState<string | null>(null);
+  const [selectedYear, setSelectedYear] = useState<string>("2024");
 
   useEffect(() => {
-    setOrders(generateOrders());
-  }, []);
+    const orders = generateOrders();
+    setOrders(orders);
+    setFilteredOrders(
+      orders.filter((order) => order.orderDate.split(".")[2] === selectedYear),
+    );
+  }, [selectedYear]);
 
   const sortByDateDescending = (locations: Location[]) => {
     return locations.sort((a, b) => {
@@ -31,6 +37,10 @@ const ShippingStatusPage: React.FC = () => {
 
   const handleAddressClick = (orderId: string) => {
     setShowAddress(showAddress === orderId ? null : orderId);
+  };
+
+  const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedYear(event.target.value);
   };
 
   const formatDate = (dateStr: string) => {
@@ -64,19 +74,49 @@ const ShippingStatusPage: React.FC = () => {
       "Saturday",
       "Sunday",
     ];
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
     return `${dayNames[new Date(`${year}-${month}-${day}`).getDay()]} ${parseInt(
       day,
-    )}`;
+    )} ${monthNames[parseInt(month) - 1]}`;
+  };
+
+  const getUniqueYears = () => {
+    const years = orders.map((order) => order.orderDate.split(".")[2]);
+    return Array.from(new Set(years));
   };
 
   return (
     <div className="xl:px-34 relative left-0 top-0 min-h-screen bg-white px-4 md:px-8 lg:px-24 2xl:px-64">
       <div className="container">
-        <h1 className="text-md mx-auto mb-10 mt-10 w-full text-center font-medium md:text-xl">
-          Shipping Status
-        </h1>
+        <div className="mb-10 mt-10 flex items-center justify-center gap-10">
+          <h1 className="text-md font-medium md:text-xl">Shipping Status</h1>
+          <select
+            value={selectedYear}
+            onChange={handleYearChange}
+            className="rounded border p-2"
+          >
+            {getUniqueYears().map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className="flex flex-col gap-8">
-          {orders
+          {filteredOrders
             .map((order) => ({
               ...order,
               locations: sortByDateDescending(order.locations),
@@ -91,58 +131,72 @@ const ShippingStatusPage: React.FC = () => {
               return latestDateB - latestDateA;
             })
             .map((order) => (
-              <div key={order.id} className="rounded-lg border py-10 shadow-sm">
+              <div
+                key={order.id}
+                className="relative rounded-lg border py-10 shadow-sm"
+              >
                 <Stepper
                   status={order.status}
                   currentLocation={order.currentLocation}
                 />
                 <div className="mt-10 flex flex-col gap-8 px-8 sm:px-10 md:flex-row md:px-16 lg:px-24 xl:px-32">
                   <div className="flex flex-1 flex-col">
-                    <p className="md:text-md text-sm">
-                      Order Number: {order.orderNumber}
-                    </p>
-                    <p className="md:text-md text-md font-medium">
-                      Estimated Delivery:{" "}
-                      {formatEstimatedDelivery(order.estimatedDelivery)}
-                    </p>
-                    <p className="md:text-md text-sm">
-                      Order Date: {formatDate(order.orderDate)}
-                    </p>
-                    <div className="mt-2 flex h-20 w-full flex-wrap gap-1 overflow-y-auto">
-                      {order.product.split(",").map((product, index) => (
-                        <Image
-                          key={index}
-                          src={
-                            "https://images.unsplash.com/photo-1678801868975-32786ae5aeeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHdvbWFuJTIwZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D"
-                          }
-                          alt={product}
-                          className="h-16 w-16 object-cover"
-                          width={200}
-                          height={200}
-                        />
-                      ))}
+                    <div className="flex flex-col justify-between">
+                      <p className="text-sm">
+                        Order Number: {order.orderNumber}
+                      </p>
+                      <button className="flex py-2 text-sm text-blue-500">
+                        Consultation
+                      </button>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex flex-1 flex-col">
-                        <p className="md:text-md mt-2 text-sm">
-                          Status: {order.status}
-                        </p>
-                        {order.paidPrice !== undefined && (
-                          <p className="md:text-md text-sm">
-                            Paid Price: ${order.paidPrice.toFixed(2)}
-                          </p>
-                        )}
-                      </div>
-                      <button className="md:text-md flex flex-1 text-sm text-blue-500">
+
+                    <div className="mt-4 flex flex-col">
+                      <p className="text-md font-medium">
+                        Estimated Delivery:{" "}
+                        {formatEstimatedDelivery(order.estimatedDelivery)}
+                      </p>
+                      <p className="text-sm">
+                        Order Date: {formatDate(order.orderDate)}
+                      </p>
+                      <button className="flex py-2 text-sm text-blue-500">
                         Order Details
                       </button>
                     </div>
-                    <div className="mt-2">
-                      <span className="mr-2">
+
+                    <div className="mt-2 flex h-20 w-full flex-wrap gap-1 overflow-y-auto">
+                      {order.products.map((product, index) => (
+                        <div key={index}>
+                          <Image
+                            src={
+                              "https://images.unsplash.com/photo-1678801868975-32786ae5aeeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHdvbWFuJTIwZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D"
+                            }
+                            alt={product.title}
+                            className="relative h-16 w-16 object-cover"
+                            width={200}
+                            height={200}
+                          />
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="mt-4 flex flex-col">
+                      <p className="text-sm">Status: {order.status}</p>
+                      {order.paidPrice !== undefined && (
+                        <p className="text-md font-medium">
+                          Total Price: ${order.paidPrice.toFixed(2)}
+                        </p>
+                      )}
+                      <button className="flex py-2 text-sm text-blue-500">
+                        Refund
+                      </button>
+                    </div>
+
+                    <div className="mt-4 h-10">
+                      <span className="text-md mr-2 font-medium">
                         {order.deliveryAddress.split(",")[0]},
                       </span>
                       <button
-                        className="md:text-md text-sm text-blue-500"
+                        className="text-sm text-blue-500"
                         onClick={() => handleAddressClick(order.id.toString())}
                         onMouseEnter={() =>
                           handleAddressClick(order.id.toString())
@@ -167,10 +221,10 @@ const ShippingStatusPage: React.FC = () => {
                     </div>
                   </div>
                   <div className="flex flex-1 flex-col">
-                    <h3 className="md:text-md text-md font-semibold">
+                    <h3 className="text-md">
                       Tracking Number: {order.trackingNumber}
                     </h3>
-                    <ul className="mt-2 h-60 overflow-y-auto">
+                    <ul className="h-72 overflow-y-auto">
                       {order.locations.map((location, index) => (
                         <li
                           key={index}

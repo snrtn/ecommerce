@@ -1,12 +1,11 @@
 import { Order, IssueButton } from "@/types/shipping.type";
-import { nanoid } from "nanoid"; // nanoid 라이브러리 사용
+import { nanoid } from "nanoid";
 
 export const generateOrders = (): Order[] => [
   {
     id: 1,
     orderNumber: nanoid(28),
-    product:
-      "Product 1, Product 2, Product 3, Product 3, Product 3, Product 3, Product 3, Product 3",
+    product: "Product 1, Product 2, Product 3",
     status: "Shipped",
     estimatedDelivery: "20.7.2024",
     trackingNumber: "1234567890",
@@ -30,6 +29,11 @@ export const generateOrders = (): Order[] => [
     paidPrice: 129.99,
     orderDate: "12.7.2024",
     deliveryAddress: "123 Main St, Springfield, IL 62701, USA",
+    products: [
+      { title: "Product 1", size: "M", quantity: 2, price: 29.99 },
+      { title: "Product 2", size: "L", quantity: 1, price: 49.99 },
+      { title: "Product 3", size: "S", quantity: 3, price: 19.99 },
+    ],
   },
   {
     id: 2,
@@ -46,6 +50,10 @@ export const generateOrders = (): Order[] => [
     paidPrice: 79.99,
     orderDate: "10.7.2024",
     deliveryAddress: "456 Oak St, Metropolis, IL 62960, USA",
+    products: [
+      { title: "Product 4", size: "XL", quantity: 1, price: 39.99 },
+      { title: "Product 5", size: "M", quantity: 2, price: 19.99 },
+    ],
   },
   {
     id: 3,
@@ -61,6 +69,11 @@ export const generateOrders = (): Order[] => [
     paidPrice: 59.99,
     orderDate: "8.7.2024",
     deliveryAddress: "789 Pine St, Gotham, NY 10001, USA",
+    products: [
+      { title: "Product 6", size: "S", quantity: 1, price: 24.99 },
+      { title: "Product 7", size: "M", quantity: 1, price: 19.99 },
+      { title: "Product 8", size: "L", quantity: 1, price: 14.99 },
+    ],
   },
   {
     id: 4,
@@ -76,6 +89,117 @@ export const generateOrders = (): Order[] => [
     paidPrice: 49.99,
     orderDate: "6.7.2024",
     deliveryAddress: "1010 Maple St, Star City, TX 75001, USA",
+    products: [{ title: "Product 9", size: "M", quantity: 1, price: 49.99 }],
+  },
+  {
+    id: 5,
+    orderNumber: nanoid(28),
+    product: "Product 10, Product 11",
+    status: "Pending",
+    estimatedDelivery: "25.7.2024",
+    trackingNumber: "6677889900",
+    currentLocation: "Warehouse E",
+    locations: [{ date: "20.7.2024", location: "Warehouse E" }],
+    paidPrice: 89.99,
+    orderDate: "15.7.2024",
+    deliveryAddress: "202 Elm St, Smallville, KS 66002, USA",
+    products: [
+      { title: "Product 10", size: "L", quantity: 1, price: 59.99 },
+      { title: "Product 11", size: "XL", quantity: 1, price: 29.99 },
+    ],
+  },
+  {
+    id: 6,
+    orderNumber: nanoid(28),
+    product: "Product 12, Product 13, Product 14",
+    status: "Shipped",
+    estimatedDelivery: "27.7.2024",
+    trackingNumber: "4455667788",
+    currentLocation: "Warehouse F",
+    locations: [
+      { date: "22.7.2024", location: "Warehouse F" },
+      { date: "23.7.2024", location: "Distribution Center" },
+    ],
+    paidPrice: 109.99,
+    orderDate: "18.7.2024",
+    deliveryAddress: "303 Birch St, Central City, CA 90210, USA",
+    products: [
+      { title: "Product 12", size: "S", quantity: 1, price: 29.99 },
+      { title: "Product 13", size: "M", quantity: 1, price: 39.99 },
+      { title: "Product 14", size: "L", quantity: 1, price: 39.99 },
+    ],
+  },
+  {
+    id: 7,
+    orderNumber: nanoid(28),
+    product: "Product 15",
+    status: "In Transit",
+    estimatedDelivery: "28.7.2024",
+    trackingNumber: "2233445566",
+    currentLocation: "Warehouse G",
+    locations: [
+      { date: "24.7.2024", location: "Warehouse G" },
+      { date: "25.7.2024", location: "Distribution Center" },
+    ],
+    paidPrice: 59.99,
+    orderDate: "19.7.2024",
+    deliveryAddress: "404 Cedar St, Riverdale, NY 10463, USA",
+    products: [{ title: "Product 15", size: "M", quantity: 1, price: 59.99 }],
+  },
+  {
+    id: 8,
+    orderNumber: nanoid(28),
+    product: "Product 16, Product 17",
+    status: "Out for Delivery",
+    estimatedDelivery: "29.7.2024",
+    trackingNumber: "9988776655",
+    locations: [
+      { date: "25.7.2024", location: "Warehouse H" },
+      { date: "26.7.2024", location: "Local Delivery Hub" },
+    ],
+    paidPrice: 119.99,
+    orderDate: "20.7.2024",
+    deliveryAddress: "505 Maple St, Springfield, IL 62702, USA",
+    products: [
+      { title: "Product 16", size: "S", quantity: 1, price: 39.99 },
+      { title: "Product 17", size: "L", quantity: 2, price: 39.99 },
+    ],
+  },
+  {
+    id: 9,
+    orderNumber: nanoid(28),
+    product: "Product 18",
+    status: "Delivered",
+    estimatedDelivery: "30.7.2024",
+    trackingNumber: "7766554433",
+    locations: [
+      { date: "26.7.2024", location: "Warehouse I" },
+      { date: "27.7.2024", location: "Customer's Address" },
+    ],
+    paidPrice: 69.99,
+    orderDate: "21.7.2024",
+    deliveryAddress: "606 Birch St, Central City, CA 90210, USA",
+    products: [{ title: "Product 18", size: "M", quantity: 1, price: 69.99 }],
+  },
+  {
+    id: 10,
+    orderNumber: nanoid(28),
+    product: "Product 19, Product 20",
+    status: "Shipped",
+    estimatedDelivery: "31.7.2024",
+    trackingNumber: "3344556677",
+    currentLocation: "Warehouse J",
+    locations: [
+      { date: "27.7.2024", location: "Warehouse J" },
+      { date: "28.7.2024", location: "Distribution Center" },
+    ],
+    paidPrice: 99.99,
+    orderDate: "22.7.2024",
+    deliveryAddress: "707 Pine St, Gotham, NY 10001, USA",
+    products: [
+      { title: "Product 19", size: "L", quantity: 1, price: 59.99 },
+      { title: "Product 20", size: "S", quantity: 2, price: 19.99 },
+    ],
   },
 ];
 

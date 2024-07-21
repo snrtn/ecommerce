@@ -3,6 +3,13 @@ export interface Location {
   location: string;
 }
 
+export interface Product {
+  title: string;
+  size: string;
+  quantity: number;
+  price: number;
+}
+
 export interface Order {
   id: number;
   orderNumber: string;
@@ -15,6 +22,7 @@ export interface Order {
   paidPrice: number;
   orderDate: string;
   deliveryAddress: string;
+  products: Product[];
 }
 
 export interface IssueButton {
