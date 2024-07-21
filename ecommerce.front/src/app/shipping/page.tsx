@@ -188,7 +188,9 @@ const ShippingStatusPage: React.FC = () => {
                       {order.products.map((product, index) => (
                         <div key={index}>
                           <Image
-                            src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/846d5a72-a372-425f-9cb3-f5e8051e4c2e/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png"
+                            src={
+                              "https://images.unsplash.com/photo-1678801868975-32786ae5aeeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHdvbWFuJTIwZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D"
+                            }
                             alt={product.title}
                             className="relative h-16 w-16 object-cover"
                             width={200}
@@ -209,7 +211,7 @@ const ShippingStatusPage: React.FC = () => {
                       </button>
                     </div>
 
-                    <div className="mt-4 h-10 py-2">
+                    <div className="mt-2 h-10 py-2">
                       <button
                         className="text-sm font-medium text-blue-500"
                         onClick={() => handleAddressClick(order.id.toString())}
@@ -252,7 +254,9 @@ const ShippingStatusPage: React.FC = () => {
                             {location.date}:{" "}
                           </span>
                           <span className="md:text-md ml-4 text-sm">
-                            {location.location}
+                            {location.location
+                              ? location.location
+                              : location.status}
                           </span>
                         </li>
                       ))}

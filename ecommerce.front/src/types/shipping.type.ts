@@ -1,6 +1,7 @@
 export interface Location {
   date: string;
-  location: string;
+  location?: string;
+  status?: string;
 }
 
 export interface Product {

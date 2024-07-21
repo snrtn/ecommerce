@@ -72,24 +72,26 @@ const Stepper: React.FC<StepperProps> = ({ status, currentLocation }) => {
   return (
     <div className="flex items-center justify-between">
       {!isRequestStatus ? (
-        steps.slice(0, 4).map((step, index) => {
-          const isActive = index <= currentStep;
-          return (
-            <div key={index} className="flex flex-1 flex-col items-center">
-              <div
-                className={`${isActive ? "text-blue-600" : "text-gray-300"}`}
-              >
-                {step.icon}
+        steps
+          .filter((step) => !step.isRequest)
+          .map((step, index) => {
+            const isActive = index <= currentStep;
+            return (
+              <div key={index} className="flex flex-1 flex-col items-center">
+                <div
+                  className={`${isActive ? "text-blue-600" : "text-gray-300"}`}
+                >
+                  {step.icon}
+                </div>
+                <p className="mt-2 text-[10px] md:text-xs">{step.label}</p>
+                {step.label === "In Transit" && currentLocation && (
+                  <p className="mt-1 text-center text-[10px] text-gray-500 md:text-xs">
+                    {currentLocation}
+                  </p>
+                )}
               </div>
-              <p className="mt-2 text-[10px] md:text-xs">{step.label}</p>
-              {step.label === "In Transit" && currentLocation && (
-                <p className="mt-1 text-center text-[10px] text-gray-500 md:text-xs">
-                  {currentLocation}
-                </p>
-              )}
-            </div>
-          );
-        })
+            );
+          })
       ) : (
         <div className="flex flex-1 flex-col items-center">
           <div className={steps[currentStep].color}>
