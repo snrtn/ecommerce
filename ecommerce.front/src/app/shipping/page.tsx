@@ -142,8 +142,9 @@ const ShippingStatusPage: React.FC = () => {
                 <div className="mt-10 flex flex-col gap-8 px-8 sm:px-10 md:flex-row md:px-16 lg:px-24 xl:px-32">
                   <div className="flex flex-1 flex-col">
                     <div className="flex flex-col justify-between">
-                      <p className="text-sm">
-                        Order Number: {order.orderNumber}
+                      <p className="flex flex-col text-sm md:flex-row">
+                        Order Number :
+                        <p className="md:ml-1">{order.orderNumber}</p>
                       </p>
                       <button className="flex py-2 text-sm text-blue-500">
                         Consultation
@@ -151,14 +152,16 @@ const ShippingStatusPage: React.FC = () => {
                     </div>
 
                     <div className="mt-4 flex flex-col">
-                      <p className="text-md font-medium">
-                        Estimated Delivery:{" "}
-                        {formatEstimatedDelivery(order.estimatedDelivery)}
+                      <p className="flex flex-col text-lg font-semibold md:flex-row">
+                        Estimated Delivery :
+                        <p className="md:ml-1">
+                          {formatEstimatedDelivery(order.estimatedDelivery)}
+                        </p>
                       </p>
-                      <p className="text-sm">
+                      <p className="mt-4 text-sm md:mt-0">
                         Order Date: {formatDate(order.orderDate)}
                       </p>
-                      <button className="flex py-2 text-sm text-blue-500">
+                      <button className="flex py-2 text-sm font-medium text-blue-500">
                         Order Details
                       </button>
                     </div>
@@ -191,12 +194,9 @@ const ShippingStatusPage: React.FC = () => {
                       </button>
                     </div>
 
-                    <div className="mt-4 h-10">
-                      <span className="text-md mr-2 font-medium">
-                        {order.deliveryAddress.split(",")[0]},
-                      </span>
+                    <div className="mt-4 h-10 py-2">
                       <button
-                        className="text-sm text-blue-500"
+                        className="text-sm font-medium text-blue-500"
                         onClick={() => handleAddressClick(order.id.toString())}
                         onMouseEnter={() =>
                           handleAddressClick(order.id.toString())
@@ -205,10 +205,13 @@ const ShippingStatusPage: React.FC = () => {
                           handleAddressClick(order.id.toString())
                         }
                       >
-                        Delivery Address
+                        Delivery Address :
                       </button>
+                      <span className="ml-2 text-sm">
+                        {order.deliveryAddress.split(",")[0]},
+                      </span>
                       {showAddress === order.id.toString() && (
-                        <div className="mt-2 text-sm text-gray-600">
+                        <div className="mt-2 text-sm font-medium text-gray-600">
                           <p>
                             {order.deliveryAddress.split(",")[0]},
                             {order.deliveryAddress
@@ -224,7 +227,7 @@ const ShippingStatusPage: React.FC = () => {
                     <h3 className="text-md">
                       Tracking Number: {order.trackingNumber}
                     </h3>
-                    <ul className="h-72 overflow-y-auto">
+                    <ul className="max-h-72 overflow-y-auto">
                       {order.locations.map((location, index) => (
                         <li
                           key={index}
