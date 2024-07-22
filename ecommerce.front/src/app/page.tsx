@@ -1,9 +1,9 @@
-import GroupView from "@/components/app/GroupView";
-import BannerView from "@/components/app/BannerView";
-import ItemView from "@/components/app/ItemView";
-import SlideView from "@/components/app/SlideView";
-import InfiniteView from "@/components/app/InfiniteView";
-import Review from "@/components/app/Review";
+import GroupView from "@/components/app/home/GroupView";
+import BannerView from "@/components/app/home/BannerView";
+import ItemView from "@/components/app/home/ItemView";
+import SlideView from "@/components/app/home/SlideView";
+import InfiniteView from "@/components/app/home/InfiniteView";
+import Review from "@/components/app/home/Review";
 
 export default function Home() {
   return (

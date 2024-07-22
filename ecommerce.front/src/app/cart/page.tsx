@@ -7,7 +7,7 @@ import CartItem from "@/components/app/cart/CartItem";
 import OrderSummary from "@/components/app/cart/OrderSummary";
 import SimilarProducts from "@/components/app/cart/SimilarProducts";
 import ProductModal from "@/components/app/cart/ProductModal";
-import { initialProducts } from "@/components/app/infiniteView.data";
+import { initialProducts } from "@/components/app/home/infiniteView.data";
 import { Product } from "@/components/app/cart/types";
 
 const CartPage = () => {

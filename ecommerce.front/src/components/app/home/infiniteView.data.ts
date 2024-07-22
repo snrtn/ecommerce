@@ -1,4 +1,4 @@
-import { Product } from "./cart/types";
+import { Product } from "../cart/types";
 
 const initialProducts: Product[] = Array(100)
   .fill(null)

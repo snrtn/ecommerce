@@ -6,6 +6,7 @@ import {
   FaTruck,
   FaBoxOpen,
   FaExclamationCircle,
+  FaTimesCircle,
 } from "react-icons/fa";
 import { MdLocalShipping } from "react-icons/md";
 
@@ -41,6 +42,12 @@ const Stepper: React.FC<StepperProps> = ({ status, currentLocation }) => {
       isRequest: true,
     },
     {
+      label: "Refund Rejected",
+      icon: <FaTimesCircle size={30} />,
+      color: "text-red-500",
+      isRequest: true,
+    },
+    {
       label: "Return Requested",
       icon: <FaExclamationCircle size={30} />,
       color: "text-yellow-500",
@@ -53,15 +60,9 @@ const Stepper: React.FC<StepperProps> = ({ status, currentLocation }) => {
       isRequest: true,
     },
     {
-      label: "Compensation Requested",
-      icon: <FaExclamationCircle size={30} />,
-      color: "text-yellow-500",
-      isRequest: true,
-    },
-    {
-      label: "Compensation Completed",
-      icon: <FaCheckCircle size={30} />,
-      color: "text-green-500",
+      label: "Return Rejected",
+      icon: <FaTimesCircle size={30} />,
+      color: "text-red-500",
       isRequest: true,
     },
   ];
