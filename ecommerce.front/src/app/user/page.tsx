@@ -66,8 +66,8 @@ const UserPage = () => {
         {activeSection === "default" && (
           <>
             <div className="px-4 md:px-0">
-              <div className="mb-6 flex flex-col items-center justify-between rounded-md bg-gray-50 px-10 py-12 md:flex-row">
-                <div className="flex flex-col items-center justify-center md:items-start">
+              <div className="mb-6 flex flex-col items-center justify-between rounded-md bg-gray-50 px-10 py-12 md:flex-row md:px-12">
+                <div className="flex flex-col items-center justify-center md:items-start md:gap-2">
                   <p className="text-md font-medium md:text-lg">
                     Hello, Naoya Fujita
                   </p>
@@ -102,7 +102,7 @@ const UserPage = () => {
               </div>
             </div>
 
-            <h1 className="mb-10 mt-0 w-full text-center text-xl font-semibold md:mt-20">
+            <h1 className="mb-10 mt-16 w-full text-center text-xl font-semibold md:mt-20">
               Coupons
             </h1>
             <div className="mb-6 grid grid-cols-2 gap-4 px-4 md:grid-cols-3 md:px-0">

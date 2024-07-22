@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
+import { TiArrowSortedDown } from "react-icons/ti";
 import {
   FaUser,
-  FaBars,
   FaAddressCard,
   FaHistory,
   FaImages,
@@ -62,7 +62,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <div className="mb-6 flex w-full flex-row items-center justify-center px-3 md:flex-col md:px-0">
         <button
           onClick={() => setActiveSection("default")}
-          className="flex w-full flex-1 flex-row items-center justify-end px-3 md:flex-col md:px-0"
+          className="flex w-full flex-1 flex-row items-center px-3 md:flex-col md:px-0"
         >
           <FaUser className="mb-2 mr-2 hidden text-lg md:inline-block" />
           <p className="text-md mr-2 font-medium md:text-sm">Profile</p>
@@ -70,15 +70,15 @@ const Sidebar: React.FC<SidebarProps> = ({
         {isMobile && (
           <button
             onClick={handleMenuToggle}
-            className="flex w-full flex-1 items-center justify-start text-lg"
+            className="box-border flex w-full items-center justify-start text-lg"
           >
-            <FaBars />
+            <TiArrowSortedDown />
           </button>
         )}
       </div>
       {(!isMobile || showMenu) && (
         <ul
-          className={`grid gap-2 ${isMobile ? "absolute z-50 w-full grid-cols-4 bg-white px-4 py-10 shadow-sm" : "md:grid-cols-1"}`}
+          className={`grid gap-2 ${isMobile ? "absolute left-0 z-50 w-full grid-cols-4 bg-white px-1 py-8 shadow-sm" : "md:grid-cols-1"}`}
         >
           {items.map((item) => (
             <SidebarItem
