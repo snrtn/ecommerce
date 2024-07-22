@@ -143,7 +143,7 @@ const Default: React.FC<DefaultProps> = ({ setActiveSection }) => {
   ];
 
   return (
-    <div className="min-h-[70vh] px-8 md:px-0">
+    <div className="min-h-[70vh] px-4 md:px-0">
       <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
         {items.map((item) => (
           <div

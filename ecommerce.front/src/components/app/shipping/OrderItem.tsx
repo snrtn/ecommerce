@@ -71,16 +71,7 @@ const OrderItem: React.FC<OrderItemProps> = ({ order }) => {
       <Stepper status={order.status} currentLocation={order.currentLocation} />
       <div className="mt-10 flex flex-col gap-8 px-8 sm:px-10 md:flex-row md:px-16 lg:px-24 xl:px-32">
         <div className="flex flex-1 flex-col">
-          <div className="flex flex-col justify-between">
-            <p className="flex flex-col text-sm md:flex-row">
-              Order Number :<p className="md:ml-1">{order.orderNumber}</p>
-            </p>
-            <button className="flex py-2 text-sm text-blue-500">
-              Consultation
-            </button>
-          </div>
-
-          <div className="mt-4 flex flex-col">
+          <div className="flex flex-col">
             <p className="flex flex-col text-lg font-semibold md:flex-row">
               {getStatusText(order.status, order.estimatedDelivery)}
             </p>
@@ -166,15 +157,15 @@ const OrderItem: React.FC<OrderItemProps> = ({ order }) => {
           </div>
         </div>
         <div className="flex flex-1 flex-col">
-          <h3 className="text-md">Tracking Number: {order.trackingNumber}</h3>
+          <h3 className="text-md">Tracking history</h3>
           <ul className="max-h-72 overflow-y-auto">
             {order.locations.map((location, index) => (
               <li
                 key={index}
-                className="jtext-sm md:text-md ustify-left mb-2 mt-4 flex border-b py-2"
+                className="jtext-sm ustify-left my-4 flex border-b py-2"
               >
-                <span className="md:text-md text-sm">{location.date}: </span>
-                <span className="md:text-md ml-4 text-sm">
+                <span className="text-sm">{location.date}: </span>
+                <span className="ml-4 text-sm">
                   {location.location ? location.location : location.status}
                 </span>
               </li>
