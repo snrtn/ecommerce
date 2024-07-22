@@ -5,6 +5,8 @@ import { Order } from "@/types/shipping.type";
 import { generateOrders } from "@/data/shipping.data";
 import OrderList from "@/components/app/shipping/OrderList";
 import IssueButtons from "@/components/app/shipping/IssueButtons";
+import { RiDeleteBack2Fill } from "react-icons/ri";
+import { CiSearch } from "react-icons/ci";
 
 const ShippingStatusPage: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>([]);
@@ -28,6 +30,10 @@ const ShippingStatusPage: React.FC = () => {
     setSearchTerm(event.target.value);
   };
 
+  const handleClear = () => {
+    setSearchTerm("");
+  };
+
   const getUniqueYears = () => {
     const years = orders.map((order) => order.orderDate.split(".")[2]);
     return Array.from(new Set(years));
@@ -40,13 +46,33 @@ const ShippingStatusPage: React.FC = () => {
           <h1 className="text-md font-medium md:text-xl">Shipping Status</h1>
         </div>
         <div className="mb-10 mt-10 flex items-center justify-center gap-10">
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={handleSearchChange}
-            placeholder="Search Products"
-            className="w-40 rounded-md border p-2 md:w-60"
-          />
+          <form
+            className="flex w-60 items-center justify-between rounded-md border border-transparent bg-gray-100 px-4 py-2 transition-colors focus-within:border-black md:w-96"
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
+          >
+            <input
+              type="text"
+              name="name"
+              value={searchTerm}
+              onChange={handleSearchChange}
+              placeholder="Product"
+              className="md:text-md flex-1 bg-transparent text-sm outline-none"
+            />
+            {searchTerm && (
+              <button
+                type="button"
+                className="flex cursor-pointer items-center"
+                onClick={handleClear}
+              >
+                <RiDeleteBack2Fill className="mr-2 text-xl text-black md:mr-4" />
+              </button>
+            )}
+            <button type="submit" className="flex cursor-pointer items-center">
+              <CiSearch className="text-xl text-gray-400" />
+            </button>
+          </form>
           <select
             value={selectedYear}
             onChange={handleYearChange}

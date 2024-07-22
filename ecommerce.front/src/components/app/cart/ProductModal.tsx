@@ -45,7 +45,7 @@ const ProductModal: React.FC<ProductModalProps> = ({
         onClick={() => setSelectedProduct(null)}
       />
       <div className="z-50 max-h-screen max-w-2xl overflow-auto rounded-md bg-white p-4 shadow-lg">
-        <div className="flex w-80 flex-col">
+        <div className="flex w-80 flex-col md:w-96">
           <div className="relative w-full">
             <div className="overflow-hidden">
               {selectedProduct.images.map((src, index) => (

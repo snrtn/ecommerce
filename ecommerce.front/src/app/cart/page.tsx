@@ -129,7 +129,7 @@ const CartPage = () => {
     <div className="xl:px-34 relative left-0 top-0 z-50 min-h-screen bg-white px-4 py-2 pb-40 md:px-8 lg:px-24 2xl:px-64">
       <div className="container py-5">
         <div className="mb-8 flex items-center justify-between">
-          <Link href="/" className="ml-4 flex items-center">
+          <Link href="/" className="flex items-center">
             <div className="text-md font-medium md:text-xl">KIM</div>
           </Link>
         </div>
