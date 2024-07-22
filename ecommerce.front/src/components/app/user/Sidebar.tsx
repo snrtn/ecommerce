@@ -60,22 +60,26 @@ const Sidebar: React.FC<SidebarProps> = ({
           className={"w-full flex-col items-center justify-center px-3 md:px-0"}
         >
           <FaUser className="mb-2 mr-2 hidden text-lg md:inline-block" />
-          <p className="text-md mr-2 font-medium md:text-sm">Profiles</p>
+          <p className="text-md mr-2 font-medium md:text-sm">
+            {!isMobile || activeSection === "default" ? "Profiles" : "Back"}
+          </p>
         </button>
       </div>
-      <ul
-        className={`grid gap-2 ${isVerySmallScreen ? "grid-cols-2" : isMobile ? "grid-cols-4" : "md:grid-cols-1"} `}
-      >
-        {items.map((item) => (
-          <SidebarItem
-            key={item.id}
-            title={item.title}
-            icon={item.icon}
-            isActive={activeSection === item.id}
-            onClick={() => setActiveSection(item.id)}
-          />
-        ))}
-      </ul>
+      {(!isMobile || activeSection === "default") && (
+        <ul
+          className={`grid gap-2 ${isVerySmallScreen ? "grid-cols-2" : isMobile ? "grid-cols-4" : "md:grid-cols-1"} `}
+        >
+          {items.map((item) => (
+            <SidebarItem
+              key={item.id}
+              title={item.title}
+              icon={item.icon}
+              isActive={activeSection === item.id}
+              onClick={() => setActiveSection(item.id)}
+            />
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
