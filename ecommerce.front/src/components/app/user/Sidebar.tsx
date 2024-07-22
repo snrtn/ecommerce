@@ -28,7 +28,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   setActiveSection,
   activeSection,
 }) => {
-  const isMobile = useMediaQuery(486);
+  const isMobile = useMediaQuery(546);
   const [showMenu, setShowMenu] = useState(false);
 
   const handleMenuToggle = () => {
