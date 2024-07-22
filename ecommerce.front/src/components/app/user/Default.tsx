@@ -40,18 +40,42 @@ const Default: React.FC<DefaultProps> = ({ setActiveSection }) => {
       { title: "Received New Coupon", date: "2024-06-28" },
       { title: "Expired Coupon", date: "2024-06-25" },
       { title: "Discount Applied", date: "2024-06-20" },
+      { title: "Applied Coupon", date: "2024-07-02" },
+      { title: "Received New Coupon", date: "2024-06-28" },
+      { title: "Expired Coupon", date: "2024-06-25" },
+      { title: "Discount Applied", date: "2024-06-20" },
+      { title: "Applied Coupon", date: "2024-07-02" },
+      { title: "Received New Coupon", date: "2024-06-28" },
+      { title: "Expired Coupon", date: "2024-06-25" },
+      { title: "Discount Applied", date: "2024-06-20" },
     ],
     "order-history": [
       { title: "Ordered Product 1", date: "2024-07-01" },
       { title: "Ordered Product 2", date: "2024-06-15" },
       { title: "Cancelled Order", date: "2024-06-10" },
       { title: "Reviewed Order", date: "2024-06-05" },
+      { title: "Applied Coupon", date: "2024-07-02" },
+      { title: "Received New Coupon", date: "2024-06-28" },
+      { title: "Expired Coupon", date: "2024-06-25" },
+      { title: "Discount Applied", date: "2024-06-20" },
+      { title: "Applied Coupon", date: "2024-07-02" },
+      { title: "Received New Coupon", date: "2024-06-28" },
+      { title: "Expired Coupon", date: "2024-06-25" },
+      { title: "Discount Applied", date: "2024-06-20" },
     ],
     "documents-receipts": [
       { title: "Uploaded Document", date: "2024-07-04" },
       { title: "Downloaded Receipt", date: "2024-06-29" },
       { title: "Reviewed Document", date: "2024-06-26" },
       { title: "Updated Receipt Info", date: "2024-06-21" },
+      { title: "Applied Coupon", date: "2024-07-02" },
+      { title: "Received New Coupon", date: "2024-06-28" },
+      { title: "Expired Coupon", date: "2024-06-25" },
+      { title: "Discount Applied", date: "2024-06-20" },
+      { title: "Applied Coupon", date: "2024-07-02" },
+      { title: "Received New Coupon", date: "2024-06-28" },
+      { title: "Expired Coupon", date: "2024-06-25" },
+      { title: "Discount Applied", date: "2024-06-20" },
     ],
     "payment-info": [
       { title: "Updated Credit Card Info", date: "2024-07-05" },
@@ -137,7 +161,7 @@ const Default: React.FC<DefaultProps> = ({ setActiveSection }) => {
                   See more
                 </button>
               </div>
-              <div className="mt-6 grid w-full gap-4 md:grid-cols-1">
+              <div className="mt-6 grid h-36 w-full gap-4 overflow-y-auto md:grid-cols-1">
                 {recentData[item.id]?.map((recentItem, index) => (
                   <div
                     key={index}

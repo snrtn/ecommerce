@@ -24,11 +24,9 @@ import Notifications from "@/components/app/user/Notifications";
 import Support from "@/components/app/user/Support";
 import Logout from "@/components/app/user/Logout";
 import Sidebar from "@/components/app/user/Sidebar";
-import useMediaQuery from "@/hooks/useMediaQuery";
 import Default from "@/components/app/user/Default";
 
 const UserPage = () => {
-  const isMobile = useMediaQuery(768);
   const [activeSection, setActiveSection] = useState("default");
   const [selectedYear, setSelectedYear] = useState("2024");
 
@@ -42,7 +40,7 @@ const UserPage = () => {
 
   const activeCoupons = 5; // Example data
   const expiringCoupons = 2; // Example data
-  const defaultAddress = "123 Main St, Springfield, IL 62701, USA"; // Example data
+  const defaultAddress = "123 Main St,"; // Example data
 
   const orderStatusCounts = {
     inTransit: 2,
@@ -68,7 +66,13 @@ const UserPage = () => {
         {activeSection === "default" && (
           <>
             <div className="mb-6 flex items-center justify-between px-8 md:px-0">
-              <p className="text-lg font-medium">Hello, Name</p>
+              <div className="flex flex-col">
+                <p className="text-lg font-medium">Hello, Naoya Fujita</p>
+                <span className="flex items-center gap-1 text-xs">
+                  <FaHome size={12} />
+                  Default Address : {defaultAddress}
+                </span>
+              </div>
               <div className="flex items-center">
                 <label htmlFor="year-select" className="mr-2 text-xs">
                   Select Year :
@@ -88,20 +92,23 @@ const UserPage = () => {
               </div>
             </div>
 
-            <div className="mb-6 grid grid-cols-2 gap-4 px-8 md:px-0">
-              <div className="flex flex-col items-center justify-center gap-2 border py-10 md:flex-row md:gap-4">
-                <div className="flex flex-col items-center gap-0 md:flex-row md:gap-2">
-                  <FaGift size={20} />
-                  <p className="md:text-md text-sm font-medium">
+            <h1 className="mb-10 mt-20 w-full text-center text-xl font-semibold">
+              Coupons
+            </h1>
+            <div className="mb-6 grid grid-cols-2 gap-4 px-8 md:grid-cols-3 md:px-0">
+              <div className="flex cursor-pointer flex-col items-center justify-center gap-4 rounded-md border py-20 transition-colors duration-500 hover:bg-gray-200 hover:font-medium hover:text-black">
+                <div className="flex flex-col items-center gap-2">
+                  <FaGift size={30} className="transition-colors" />
+                  <p className="md:text-md text-sm transition-colors">
                     Active Coupons
                   </p>
                 </div>
                 <p className="md:text-md text-sm">{activeCoupons}</p>
               </div>
-              <div className="flex flex-col items-center justify-center gap-2 border py-10 md:flex-row md:gap-4">
-                <div className="flex flex-col items-center gap-0 md:flex-row md:gap-2">
-                  <FaClock size={20} />
-                  <p className="md:text-md text-sm font-medium">
+              <div className="flex cursor-pointer flex-col items-center justify-center gap-4 rounded-md border py-20 transition-colors duration-500 hover:bg-gray-200 hover:font-medium hover:text-black">
+                <div className="flex flex-col items-center gap-2">
+                  <FaClock size={30} className="transition-colors" />
+                  <p className="md:text-md text-sm transition-colors">
                     Expiring Soon Coupons
                   </p>
                 </div>
@@ -109,41 +116,42 @@ const UserPage = () => {
               </div>
             </div>
 
-            <div className="px-8 md:px-0">
-              <div className="mb-6 flex flex-col items-center justify-center gap-2 border py-10 md:flex-row md:gap-4">
-                <div className="flex flex-col items-center gap-0 md:flex-row md:gap-2">
-                  <FaHome size={20} />
-                  <p className="md:text-md text-sm font-medium">
-                    Default Address
+            <h1 className="mb-10 mt-20 w-full text-center text-xl font-semibold">
+              Shipping
+            </h1>
+            <div className="mb-6 grid grid-cols-2 gap-4 px-8 md:grid-cols-3 md:px-0">
+              <div className="flex cursor-pointer flex-col items-center justify-center gap-4 rounded-md border py-20 transition-colors duration-500 hover:bg-gray-200 hover:font-medium hover:text-black">
+                <div className="flex flex-col items-center gap-2">
+                  <FaTruck size={30} className="transition-colors" />
+                  <p className="md:text-md text-sm transition-colors">
+                    In Transit
                   </p>
-                </div>
-                <p className="md:text-md text-sm">{defaultAddress}</p>
-              </div>
-            </div>
-
-            <div className="mb-6 grid grid-cols-2 gap-4 px-8 md:px-0">
-              <div className="flex flex-col items-center justify-center gap-2 border py-10 md:flex-row md:gap-4">
-                <div className="flex flex-col items-center gap-0 md:flex-row md:gap-2">
-                  <FaTruck size={20} />
-                  <p className="md:text-md text-sm font-medium">In Transit</p>
                 </div>
                 <p className="md:text-md text-sm">
                   {orderStatusCounts.inTransit}
                 </p>
               </div>
-              <div className="flex flex-col items-center justify-center gap-2 border py-10 md:flex-row md:gap-4">
-                <div className="flex flex-col items-center gap-0 md:flex-row md:gap-2">
-                  <FaCheck size={20} />
-                  <p className="md:text-md text-sm font-medium">Delivered</p>
+              <div className="flex cursor-pointer flex-col items-center justify-center gap-4 rounded-md border py-20 transition-colors duration-500 hover:bg-gray-200 hover:font-medium hover:text-black">
+                <div className="flex flex-col items-center gap-2">
+                  <FaCheck size={30} className="transition-colors" />
+                  <p className="md:text-md text-sm transition-colors">
+                    Delivered
+                  </p>
                 </div>
                 <p className="md:text-md text-sm">
                   {orderStatusCounts.delivered}
                 </p>
               </div>
-              <div className="flex flex-col items-center justify-center gap-2 border py-10 md:flex-row md:gap-4">
-                <div className="flex flex-col items-center gap-0 md:flex-row md:gap-2">
-                  <FaExchangeAlt size={20} />
-                  <p className="md:text-md text-sm font-medium">
+            </div>
+
+            <h1 className="mb-10 mt-20 w-full text-center text-xl font-semibold">
+              Return & Refund
+            </h1>
+            <div className="mb-6 grid grid-cols-2 gap-4 px-8 md:grid-cols-4 md:px-0">
+              <div className="flex cursor-pointer flex-col items-center justify-center gap-4 rounded-md border py-20 transition-colors duration-500 hover:bg-gray-200 hover:font-medium hover:text-black">
+                <div className="flex flex-col items-center gap-2">
+                  <FaExchangeAlt size={30} className="transition-colors" />
+                  <p className="md:text-md text-sm transition-colors">
                     Return Requested
                   </p>
                 </div>
@@ -151,10 +159,10 @@ const UserPage = () => {
                   {orderStatusCounts.returnRequested}
                 </p>
               </div>
-              <div className="flex flex-col items-center justify-center gap-2 border py-10 md:flex-row md:gap-4">
-                <div className="flex flex-col items-center gap-0 md:flex-row md:gap-2">
-                  <FaUndoAlt size={20} />
-                  <p className="md:text-md text-sm font-medium">
+              <div className="flex cursor-pointer flex-col items-center justify-center gap-4 rounded-md border py-20 transition-colors duration-500 hover:bg-gray-200 hover:font-medium hover:text-black">
+                <div className="flex flex-col items-center gap-2">
+                  <FaUndoAlt size={30} className="transition-colors" />
+                  <p className="md:text-md text-sm transition-colors">
                     Return Completed
                   </p>
                 </div>
@@ -162,10 +170,10 @@ const UserPage = () => {
                   {orderStatusCounts.returnCompleted}
                 </p>
               </div>
-              <div className="flex flex-col items-center justify-center gap-2 border py-10 md:flex-row md:gap-4">
-                <div className="flex flex-col items-center gap-0 md:flex-row md:gap-2">
-                  <FaRegMoneyBillAlt size={20} />
-                  <p className="md:text-md text-sm font-medium">
+              <div className="flex cursor-pointer flex-col items-center justify-center gap-4 rounded-md border py-20 transition-colors duration-500 hover:bg-gray-200 hover:font-medium hover:text-black">
+                <div className="flex flex-col items-center gap-2">
+                  <FaRegMoneyBillAlt size={30} className="transition-colors" />
+                  <p className="md:text-md text-sm transition-colors">
                     Refund Requested
                   </p>
                 </div>
@@ -173,10 +181,10 @@ const UserPage = () => {
                   {orderStatusCounts.refundRequested}
                 </p>
               </div>
-              <div className="flex flex-col items-center justify-center gap-2 border py-10 md:flex-row md:gap-4">
-                <div className="flex flex-col items-center gap-0 md:flex-row md:gap-2">
-                  <FaDollarSign size={20} />
-                  <p className="md:text-md text-sm font-medium">
+              <div className="flex cursor-pointer flex-col items-center justify-center gap-4 rounded-md border py-20 transition-colors duration-500 hover:bg-gray-200 hover:font-medium hover:text-black">
+                <div className="flex flex-col items-center gap-2">
+                  <FaDollarSign size={30} className="transition-colors" />
+                  <p className="md:text-md text-sm transition-colors">
                     Refund Completed
                   </p>
                 </div>
@@ -185,6 +193,9 @@ const UserPage = () => {
                 </p>
               </div>
             </div>
+            <h1 className="mb-10 mt-20 w-full text-center text-xl font-semibold">
+              User Log
+            </h1>
           </>
         )}
 
