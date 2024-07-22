@@ -153,7 +153,9 @@ const Default: React.FC<DefaultProps> = ({ setActiveSection }) => {
             <div className="items-left flex w-full flex-col">
               <div className="flex items-center">
                 {item.icon}
-                <h2 className="ml-2 text-lg font-semibold">{item.title}</h2>
+                <h2 className="ml-2 text-lg font-semibold">
+                  {item.title} ({recentData[item.id]?.length || 0})
+                </h2>
                 <button
                   onClick={() => setActiveSection(item.id)}
                   className="ml-auto text-blue-500"
