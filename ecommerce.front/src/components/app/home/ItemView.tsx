@@ -79,7 +79,9 @@ const ItemView: React.FC = () => {
                   src={slide.image}
                   alt={slide.title}
                   className={itemView.image}
-                  fill
+                  priority
+                  width={400}
+                  height={600}
                 />
                 <div className={itemView.overlay}>
                   <h3 className={itemView.overlayText}>{slide.title}</h3>

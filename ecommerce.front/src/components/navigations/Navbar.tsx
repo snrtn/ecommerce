@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import NavMenu from "./NavMenu";
 import NavSearchBar from "./NavSearchBar";
@@ -52,49 +50,6 @@ const Navbar = () => {
           <NavIcons />
         </div>
       </div>
-      {/* <div className={navbar.menuContainer}>
-        <div className={navbar.menu}>
-          <div
-            onMouseEnter={() => handleMouseEnter("hommes")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <a
-              href="#"
-              className={`${navbar.menuItem} ${dropdown === "hommes" ? navbar.activeMenuItem : ""}`}
-              style={{ width: "120px", textAlign: "left" }}
-            >
-              Man
-            </a>
-
-            {dropdown === "hommes" && (
-              <NavMenuDrop
-                sections={menus.hommes.sections}
-                onMouseEnter={() => handleMouseEnter("hommes")}
-                onMouseLeave={handleMouseLeave}
-              />
-            )}
-          </div>
-          <div
-            onMouseEnter={() => handleMouseEnter("femmes")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <a
-              href="#"
-              className={`${navbar.menuItem} ${dropdown === "femmes" ? navbar.activeMenuItem : ""}`}
-              style={{ width: "120px", textAlign: "left" }}
-            >
-              Woman
-            </a>
-            {dropdown === "femmes" && (
-              <NavMenuDrop
-                sections={menus.femmes.sections}
-                onMouseEnter={() => handleMouseEnter("femmes")}
-                onMouseLeave={handleMouseLeave}
-              />
-            )}
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

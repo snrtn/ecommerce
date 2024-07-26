@@ -112,6 +112,7 @@ const SinglePage = () => {
                       className="object-cover"
                       width={500}
                       height={600}
+                      priority
                     />
                   </div>
                 ))}
@@ -152,6 +153,7 @@ const SinglePage = () => {
                     className="h-auto w-full"
                     width={300}
                     height={400}
+                    priority
                   />
                 </div>
               ))}
@@ -164,6 +166,7 @@ const SinglePage = () => {
                       className="h-auto w-full"
                       width={300}
                       height={400}
+                      priority
                     />
                   </div>
                 ))}

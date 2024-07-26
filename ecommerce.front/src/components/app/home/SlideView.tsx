@@ -55,6 +55,7 @@ const SlideView: React.FC = () => {
                 alt={slides[currentSlide].title}
                 className={slideView.slideImage}
                 fill
+                priority
               />
               <div className={slideView.darkOverlay}></div>
             </div>

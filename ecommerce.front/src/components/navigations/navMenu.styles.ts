@@ -1,15 +1,15 @@
 const navMenu = {
-  container: "relative ",
-  menuIcon: "cursor-pointer p-4 text-lg md:text-xl",
-  menuOpen: "fixed inset-0 z-50 flex",
+  container: "relative",
+  menuIcon: "p-4 text-lg md:text-xl cursor-pointer",
+  menuOpen: "flex fixed inset-0 z-50",
   overlay: "fixed inset-0 bg-black bg-opacity-50",
   closeButton: "absolute top-4 right-4 cursor-pointer",
   menuContent:
-    "relative z-10 flex flex-col bg-white w-[80%] md:w-[30%] h-full p-10 overflow-y-auto",
-  welcomeMessage: "flex justify-between items-center mb-4",
-  menuButton: "cursor-pointer flex justify-between items-center py-4",
+    "flex flex-col relative p-10 w-[80%] h-full z-10 bg-white md:w-[30%] overflow-y-auto",
+  welcomeMessage: "flex mb-4 justify-between items-center",
+  menuButton: "flex py-4 justify-between items-center cursor-pointer",
   chevronIcon: "ml-2",
-  subMenu: "p-4 ",
+  subMenu: "p-4",
   sectionItem: "block py-2",
 };
 

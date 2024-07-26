@@ -1,10 +1,10 @@
-const baseStyle = "rounded-md px-4 py-1 text-white";
+const baseStyle = "px-4 py-1 rounded-md text-white";
 
 const button = {
-  save: `${baseStyle} bg-green-500 hover:bg-green-400`,
-  cancel: `${baseStyle} !text-black hover:bg-gray-100`,
-  delete: `${baseStyle} bg-red-500 hover:bg-red-400`,
-  edit: `${baseStyle} bg-yellow-500 hover:bg-yellow-400`,
+  save: `bg-green-500 hover:bg-green-400 ${baseStyle}`,
+  cancel: `!text-black hover:bg-gray-100 ${baseStyle}`,
+  delete: `bg-red-500 hover:bg-red-400 ${baseStyle}`,
+  edit: `bg-yellow-500 hover:bg-yellow-400 ${baseStyle}`,
 };
 
 export default button;

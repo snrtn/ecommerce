@@ -11,7 +11,7 @@ interface CartItemProps {
     id: number,
     amount: number,
     size: number,
-    color: string,
+    color: string
   ) => void;
   handleRemoveItem: (id: number, size: number, color: string) => void;
 }

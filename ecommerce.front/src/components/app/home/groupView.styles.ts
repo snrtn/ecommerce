@@ -15,6 +15,8 @@ const group = {
   mainImageContainer: "group relative h-[50vh] w-[50vh] p-4 md:h-[70vh]",
   mainImage:
     "h-full w-full rounded-lg object-cover transition duration-300 group-hover:opacity-70",
+  evenSlide: "",
+  oddSlide: "",
   overlay:
     "absolute inset-0 flex cursor-pointer items-center justify-center bg-white bg-opacity-10 opacity-0 transition duration-300 group-hover:opacity-100",
   overlayIcon: "text-3xl text-black",

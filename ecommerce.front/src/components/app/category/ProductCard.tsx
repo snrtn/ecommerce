@@ -46,7 +46,9 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
           <Image
             src={mainImage}
             alt={product.name}
-            layout="fill"
+            width={400}
+            height={600}
+            priority
             className="object-cover"
           />
         </div>
@@ -58,7 +60,9 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                   <Image
                     src={image}
                     alt={`${product.name} ${idx}`}
-                    layout="fill"
+                    width={400}
+                    height={600}
+                    priority
                     objectFit="cover"
                     className="cursor-pointer"
                     onMouseOver={() => setMainImage(image)}

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   FaGift,
   FaClock,
@@ -11,24 +11,24 @@ import {
   FaUndoAlt,
   FaRegMoneyBillAlt,
   FaDollarSign,
-} from "react-icons/fa";
-import Addresse from "@/components/app/user/Addresse";
-import Coupons from "@/components/app/user/Coupons";
-import OrderHistory from "@/components/app/user/OrderHistory";
-import Receipts from "@/components/app/user/Receipts";
-import Payment from "@/components/app/user/Payment";
-import Security from "@/components/app/user/Security";
-import Gallery from "@/components/app/user/Gallery";
-import Consulting from "@/components/app/user/Consulting";
-import Notifications from "@/components/app/user/Notifications";
-import Support from "@/components/app/user/Support";
-import Logout from "@/components/app/user/Logout";
-import Sidebar from "@/components/app/user/Sidebar";
-import Default from "@/components/app/user/Default";
+} from 'react-icons/fa';
+import Addresse from '@/components/app/user/Addresse';
+import Coupons from '@/components/app/user/Coupons';
+import OrderHistory from '@/components/app/user/OrderHistory';
+import Receipts from '@/components/app/user/Receipts';
+import Payment from '@/components/app/user/Payment';
+import Security from '@/components/app/user/Security';
+import Gallery from '@/components/app/user/Gallery';
+import Consulting from '@/components/app/user/Consulting';
+import Notifications from '@/components/app/user/Notifications';
+import Support from '@/components/app/user/Support';
+import Logout from '@/components/app/user/Logout';
+import Sidebar from '@/components/app/user/Sidebar';
+import Default from '@/components/app/user/Default';
 
 const UserPage = () => {
-  const [activeSection, setActiveSection] = useState("default");
-  const [selectedYear, setSelectedYear] = useState("2024");
+  const [activeSection, setActiveSection] = useState('default');
+  const [selectedYear, setSelectedYear] = useState('2024');
 
   const handleSectionClick = (section: string) => {
     setActiveSection(section);
@@ -40,7 +40,7 @@ const UserPage = () => {
 
   const activeCoupons = 5;
   const expiringCoupons = 2;
-  const defaultAddress = "123 Main St 123 Main St,";
+  const defaultAddress = '123 Main St 123 Main St,';
 
   const orderStatusCounts = {
     inTransit: 2,
@@ -51,7 +51,7 @@ const UserPage = () => {
     refundCompleted: 1,
   };
 
-  const years = ["2022", "2023", "2024"];
+  const years = ['2022', '2023', '2024'];
 
   return (
     <div className="flex flex-col gap-4 md:flex-row md:px-8 lg:px-16 xl:px-32 2xl:px-48">
@@ -63,7 +63,7 @@ const UserPage = () => {
       </div>
 
       <div className="mt-0 h-full w-full md:mt-10 md:w-5/6">
-        {activeSection === "default" && (
+        {activeSection === 'default' && (
           <>
             <div className="px-4 md:px-0">
               <div className="mb-6 flex flex-col items-center justify-between rounded-md bg-gray-50 px-10 py-12 md:flex-row md:px-12">
@@ -75,7 +75,7 @@ const UserPage = () => {
                     <FaHome size={12} />
                     <span className="hidden md:flex">
                       Default Address :
-                    </span>{" "}
+                    </span>{' '}
                     <span>{defaultAddress}</span>
                   </span>
                 </div>
@@ -209,62 +209,62 @@ const UserPage = () => {
           </>
         )}
 
-        {activeSection === "default" && (
+        {activeSection === 'default' && (
           <section id="default">
             <Default setActiveSection={setActiveSection} />
           </section>
         )}
-        {activeSection === "personal-info" && (
+        {activeSection === 'personal-info' && (
           <section id="personal-info">
             <Addresse />
           </section>
         )}
-        {activeSection === "coupons" && (
+        {activeSection === 'coupons' && (
           <section id="coupons">
             <Coupons />
           </section>
         )}
-        {activeSection === "order-history" && (
+        {activeSection === 'order-history' && (
           <section id="order-history">
             <OrderHistory />
           </section>
         )}
-        {activeSection === "documents-receipts" && (
+        {activeSection === 'documents-receipts' && (
           <section id="documents-receipts">
             <Receipts />
           </section>
         )}
-        {activeSection === "payment-info" && (
+        {activeSection === 'payment-info' && (
           <section id="payment-info">
             <Payment />
           </section>
         )}
-        {activeSection === "security-settings" && (
+        {activeSection === 'security-settings' && (
           <section id="security-settings">
             <Security />
           </section>
         )}
-        {activeSection === "reviews-ratings" && (
+        {activeSection === 'reviews-ratings' && (
           <section id="reviews-ratings">
             <Gallery />
           </section>
         )}
-        {activeSection === "consulting" && (
+        {activeSection === 'consulting' && (
           <section id="consulting">
             <Consulting />
           </section>
         )}
-        {activeSection === "notifications" && (
+        {activeSection === 'notifications' && (
           <section id="notifications">
             <Notifications />
           </section>
         )}
-        {activeSection === "help-support" && (
+        {activeSection === 'help-support' && (
           <section id="help-support">
             <Support />
           </section>
         )}
-        {activeSection === "logout" && (
+        {activeSection === 'logout' && (
           <section id="logout">
             <Logout />
           </section>

@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect, ChangeEvent } from "react";
-import FilterSection from "@/components/app/category/FilterSection";
-import ProductCard from "@/components/app/category/ProductCard";
-import { FaFilter } from "react-icons/fa";
-import { AiOutlineClose } from "react-icons/ai";
-import { Product } from "@/components/app/cart/types";
+import React, { useState, useEffect, ChangeEvent } from 'react';
+import FilterSection from '@/components/app/category/FilterSection';
+import ProductCard from '@/components/app/category/ProductCard';
+import { FaFilter } from 'react-icons/fa';
+import { AiOutlineClose } from 'react-icons/ai';
+import { Product } from '@/components/app/cart/types';
 
 const CategoryPage = () => {
   const [filters, setFilters] = useState({
-    sort: "price_asc",
-    minPrice: "",
-    maxPrice: "",
+    sort: 'price_asc',
+    minPrice: '',
+    maxPrice: '',
   });
 
   const [showFilters, setShowFilters] = useState(false);
@@ -19,15 +19,15 @@ const CategoryPage = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       setIsMobile(window.innerWidth <= 884);
 
       const handleResize = () => {
         setIsMobile(window.innerWidth <= 884);
       };
 
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
     }
   }, []);
 
@@ -47,20 +47,20 @@ const CategoryPage = () => {
     .map((_, index) => ({
       id: index + 1,
       name: `Nike Air Force 1 '07 Next Nature ${index + 1}`,
-      color: "#75A69C", // 추가된 color 속성
-      colors: ["#75A69C", "#ffffff"],
+      color: '#75A69C', // 추가된 color 속성
+      colors: ['#75A69C', '#ffffff'],
       sizes: [36, 38, 40, 42, 44, 46, 48],
       price: 119.99,
       quantity: 1,
-      category: "shoes",
+      category: 'shoes',
       images: [
-        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/846d5a72-a372-425f-9cb3-f5e8051e4c2e/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png",
-        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/2191281b-f695-4c03-94a3-30bbf724633a/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png",
-        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/26a7739d-00c8-454b-bb86-2f2ff912d279/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png",
-        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/26e02a08-0b30-43ee-a8cf-b22cb459031f/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png",
-        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/60a58d15-6276-4a3b-995a-bb328f539dd8/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png",
-        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/70f0e0e7-eda3-4e8e-b98a-012f3bb9ed9e/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png",
-        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/666c4985-5a55-4525-b128-ae5f76a617e3/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png",
+        'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/846d5a72-a372-425f-9cb3-f5e8051e4c2e/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png',
+        'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/2191281b-f695-4c03-94a3-30bbf724633a/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png',
+        'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/26a7739d-00c8-454b-bb86-2f2ff912d279/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png',
+        'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/26e02a08-0b30-43ee-a8cf-b22cb459031f/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png',
+        'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/60a58d15-6276-4a3b-995a-bb328f539dd8/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png',
+        'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/70f0e0e7-eda3-4e8e-b98a-012f3bb9ed9e/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png',
+        'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/666c4985-5a55-4525-b128-ae5f76a617e3/sweat-ultra-oversize-a-col-ras-du-cou-sportswear-phoenix-fleece-pour-G0d3Rc.png',
       ],
       size: 36,
     }));
@@ -76,8 +76,8 @@ const CategoryPage = () => {
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [currentPage]);
 
@@ -87,7 +87,7 @@ const CategoryPage = () => {
       <button
         key={1}
         onClick={() => handlePageChange(1)}
-        className={`mx-4 px-2 py-1 ${currentPage === 1 ? "bg-gray-300" : ""}`}
+        className={`mx-4 px-2 py-1 ${currentPage === 1 ? 'bg-gray-300' : ''}`}
       >
         1
       </button>,
@@ -110,7 +110,7 @@ const CategoryPage = () => {
         <button
           key={i}
           onClick={() => handlePageChange(i)}
-          className={`mx-4 px-2 py-1 ${currentPage === i ? "bg-gray-300" : ""}`}
+          className={`mx-4 px-2 py-1 ${currentPage === i ? 'bg-gray-300' : ''}`}
         >
           {i}
         </button>,
@@ -129,7 +129,7 @@ const CategoryPage = () => {
       <button
         key={totalPages}
         onClick={() => handlePageChange(totalPages)}
-        className={`mx-4 px-2 py-1 ${currentPage === totalPages ? "bg-gray-300" : ""}`}
+        className={`mx-4 px-2 py-1 ${currentPage === totalPages ? 'bg-gray-300' : ''}`}
       >
         {totalPages}
       </button>,
@@ -141,7 +141,7 @@ const CategoryPage = () => {
   return (
     <div className="flex flex-col-reverse pl-0 lg:pr-0 xl:flex-row xl:pl-0 xl:pr-20">
       <div
-        className={`xl:block ${showFilters ? "block" : "hidden"} sticky xl:w-1/6`}
+        className={`xl:block ${showFilters ? 'block' : 'hidden'} sticky xl:w-1/6`}
       >
         <FilterSection
           filters={filters}

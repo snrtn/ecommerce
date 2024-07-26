@@ -10,17 +10,8 @@ import slides from "./groupView.data";
 
 const GroupView: FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [currentSlide, setCurrentSlide] = useState(1);
   const [isAtStart, setIsAtStart] = useState(true);
   const [isAtEnd, setIsAtEnd] = useState(false);
-
-  const updateSlideState = () => {
-    if (containerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
-      setIsAtStart(scrollLeft === 0);
-      setIsAtEnd(scrollLeft + clientWidth >= scrollWidth - 10);
-    }
-  };
 
   const nextSlide = () => {
     if (containerRef.current) {
@@ -28,7 +19,6 @@ const GroupView: FC = () => {
         left: containerRef.current.clientWidth / 3,
         behavior: "smooth",
       });
-      setCurrentSlide((prev) => (prev === slides.length - 1 ? 1 : prev + 1));
     }
   };
 
@@ -38,21 +28,26 @@ const GroupView: FC = () => {
         left: -containerRef.current.clientWidth / 3,
         behavior: "smooth",
       });
-      setCurrentSlide((prev) => (prev === 1 ? slides.length - 1 : prev - 1));
     }
   };
 
   useEffect(() => {
-    updateSlideState();
-  }, [currentSlide]);
+    const handleScroll = () => {
+      if (containerRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
+        setIsAtStart(scrollLeft === 0);
+        setIsAtEnd(scrollLeft + clientWidth >= scrollWidth - 1);
+      }
+    };
 
-  useEffect(() => {
     if (containerRef.current) {
-      containerRef.current.addEventListener("scroll", updateSlideState);
+      containerRef.current.addEventListener("scroll", handleScroll);
+      handleScroll();
     }
+
     return () => {
       if (containerRef.current) {
-        containerRef.current.removeEventListener("scroll", updateSlideState);
+        containerRef.current.removeEventListener("scroll", handleScroll);
       }
     };
   }, []);
@@ -71,9 +66,10 @@ const GroupView: FC = () => {
         <div className={group.fingerScroll}>
           <Image
             src="/fingerScroll.png"
+            alt="fingerScroll.png"
             width={30}
             height={30}
-            alt="fingerScroll.png"
+            priority
           />
         </div>
         <div className={group.buttonContainer}>
@@ -102,7 +98,9 @@ const GroupView: FC = () => {
             className={`${group.slide} ${
               index === 0 || index === slides.length - 1
                 ? group.invisibleSlide
-                : ""
+                : index % 2 === 0
+                  ? group.evenSlide
+                  : group.oddSlide
             }`}
           >
             <div className={group.mainImageContainer}>
@@ -111,7 +109,9 @@ const GroupView: FC = () => {
                   src={slide.image}
                   alt={slide.image}
                   className={group.mainImage}
-                  fill
+                  width={400}
+                  height={600}
+                  priority
                 />
                 <div className={group.overlay}>
                   <FaSearchPlus className={group.overlayIcon} />
@@ -125,7 +125,9 @@ const GroupView: FC = () => {
                     src={slide.images[0]}
                     alt={slide.image}
                     className={group.subImageContent}
-                    fill
+                    width={400}
+                    height={600}
+                    priority
                   />
                   <div className={group.overlay}>
                     <FaSearchPlus className={group.overlayIcon} />
@@ -138,7 +140,9 @@ const GroupView: FC = () => {
                     src={slide.images[1]}
                     alt={slide.image}
                     className={group.subImageContent}
-                    fill
+                    width={400}
+                    height={600}
+                    priority
                   />
                   <div className={group.overlay}>
                     <FaSearchPlus className={group.overlayIcon} />

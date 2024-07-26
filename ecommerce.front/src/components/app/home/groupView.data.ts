@@ -1,7 +1,11 @@
 const slides = [
   {
-    image: "",
-    images: ["", ""],
+    image:
+      "https://images.pexels.com/photos/27091197/pexels-photo-27091197/free-photo-of-a-woman-in-a-white-dress-holding-a-straw-bag.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    images: [
+      "https://i.pinimg.com/564x/5b/0e/51/5b0e51db0a4b144e37c7492a20722828.jpg",
+      "https://i.pinimg.com/564x/27/11/80/271180a422ae16bbe58801ff8795fe29.jpg",
+    ],
   },
   {
     image:
@@ -28,8 +32,12 @@ const slides = [
     ],
   },
   {
-    image: "",
-    images: ["", ""],
+    image:
+      "https://images.pexels.com/photos/27091197/pexels-photo-27091197/free-photo-of-a-woman-in-a-white-dress-holding-a-straw-bag.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    images: [
+      "https://i.pinimg.com/564x/5b/0e/51/5b0e51db0a4b144e37c7492a20722828.jpg",
+      "https://i.pinimg.com/564x/27/11/80/271180a422ae16bbe58801ff8795fe29.jpg",
+    ],
   },
 ];
 

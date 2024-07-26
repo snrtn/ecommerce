@@ -134,7 +134,9 @@ const CategorySlider = () => {
                 src={slide.image}
                 alt={slide.title}
                 className="h-full w-full"
-                fill
+                width={400}
+                height={600}
+                priority
               />
               <div className="w-full bg-white bg-opacity-75 p-2"></div>
             </div>

@@ -93,7 +93,9 @@ const Review: React.FC = () => {
                   src={slide.image}
                   alt={slide.image}
                   className={review.image}
-                  fill
+                  width={400}
+                  height={600}
+                  priority
                 />
                 <div className={review.overlay}>
                   <h3 className={review.overlayText}>

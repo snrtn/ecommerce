@@ -1,54 +1,54 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Image from "next/image";
+import { useState } from 'react';
+import Image from 'next/image';
 
 const ReviewPage = () => {
   const [showMore, setShowMore] = useState(false);
 
   const photos = [
-    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3e706398-df38-41dc-afa4-dd71c5ee87c8/sweat-a-capuche-oversize-sportswear-phoenix-fleece-pour-VsSlC5.png",
-    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/478c8151-ab7e-4251-8598-098a9ae52879/sweat-a-capuche-oversize-sportswear-phoenix-fleece-pour-VsSlC5.png",
-    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/842f465f-0030-445c-b45a-effbdeaed86e/sweat-a-capuche-oversize-sportswear-phoenix-fleece-pour-VsSlC5.png",
-    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/d24f102a-ed9b-46cb-9954-29d5956cfa16/sweat-a-capuche-oversize-sportswear-phoenix-fleece-pour-VsSlC5.png",
-    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/bc67c600-014b-4a1b-bc50-d0e6683faa14/sweat-a-capuche-oversize-sportswear-phoenix-fleece-pour-VsSlC5.png",
+    'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3e706398-df38-41dc-afa4-dd71c5ee87c8/sweat-a-capuche-oversize-sportswear-phoenix-fleece-pour-VsSlC5.png',
+    'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/478c8151-ab7e-4251-8598-098a9ae52879/sweat-a-capuche-oversize-sportswear-phoenix-fleece-pour-VsSlC5.png',
+    'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/842f465f-0030-445c-b45a-effbdeaed86e/sweat-a-capuche-oversize-sportswear-phoenix-fleece-pour-VsSlC5.png',
+    'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/d24f102a-ed9b-46cb-9954-29d5956cfa16/sweat-a-capuche-oversize-sportswear-phoenix-fleece-pour-VsSlC5.png',
+    'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/bc67c600-014b-4a1b-bc50-d0e6683faa14/sweat-a-capuche-oversize-sportswear-phoenix-fleece-pour-VsSlC5.png',
   ];
 
   const items = [
     {
       image:
-        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/842f465f-0030-445c-b45a-effbdeaed86e/sweat-a-capuche-oversize-sportswear-phoenix-fleece-pour-VsSlC5.png",
-      name: "Product 1",
+        'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/842f465f-0030-445c-b45a-effbdeaed86e/sweat-a-capuche-oversize-sportswear-phoenix-fleece-pour-VsSlC5.png',
+      name: 'Product 1',
       colorCount: 2,
       sizeCount: 3,
-      price: "$100",
+      price: '$100',
       disabled: false,
     },
     {
       image:
-        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a7feb95f-7095-4de5-9d06-65199705677f/survetement-taille-haute-sportswear-phoenix-fleece-pour-jlLXrP.png",
-      name: "Product 2",
+        'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a7feb95f-7095-4de5-9d06-65199705677f/survetement-taille-haute-sportswear-phoenix-fleece-pour-jlLXrP.png',
+      name: 'Product 2',
       colorCount: 1,
       sizeCount: 2,
-      price: "$120",
+      price: '$120',
       disabled: true,
     },
     {
       image:
-        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/f8be6eb3-a616-4dd1-b0b0-0538167576e0/casquette-featherlight-souple-dri-fit-club-srwpLb.png",
-      name: "Product 3",
+        'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/f8be6eb3-a616-4dd1-b0b0-0538167576e0/casquette-featherlight-souple-dri-fit-club-srwpLb.png',
+      name: 'Product 3',
       colorCount: 3,
       sizeCount: 4,
-      price: "$130",
+      price: '$130',
       disabled: false,
     },
     {
       image:
-        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/93a279d3-816c-4696-88a5-4e59891afae9/chaussures-air-force-1-07-next-nature-pour-f0Mwhp.png",
-      name: "Product 4",
+        'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/93a279d3-816c-4696-88a5-4e59891afae9/chaussures-air-force-1-07-next-nature-pour-f0Mwhp.png',
+      name: 'Product 4',
       colorCount: 2,
       sizeCount: 2,
-      price: "$140",
+      price: '$140',
       disabled: true,
     },
   ];
@@ -90,7 +90,7 @@ const ReviewPage = () => {
               See more
             </button>
           ) : (
-            ""
+            ''
           )}
         </div>
 
@@ -101,8 +101,8 @@ const ReviewPage = () => {
               <div
                 className={`mt-4 flex items-center justify-between p-2 ${
                   item.disabled
-                    ? "relative cursor-not-allowed"
-                    : "cursor-pointer"
+                    ? 'relative cursor-not-allowed'
+                    : 'cursor-pointer'
                 }`}
               >
                 <div className="relative h-24 w-24">

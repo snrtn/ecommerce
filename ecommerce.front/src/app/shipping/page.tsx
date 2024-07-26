@@ -1,24 +1,24 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import { Order } from "@/types/shipping.type";
-import { generateOrders } from "@/data/shipping.data";
-import OrderList from "@/components/app/shipping/OrderList";
-import IssueButtons from "@/components/app/shipping/IssueButtons";
-import { RiDeleteBack2Fill } from "react-icons/ri";
-import { CiSearch } from "react-icons/ci";
+import React, { useState, useEffect } from 'react';
+import { Order } from '@/types/shipping.type';
+import { generateOrders } from '@/data/shipping.data';
+import OrderList from '@/components/app/shipping/OrderList';
+import IssueButtons from '@/components/app/shipping/IssueButtons';
+import { RiDeleteBack2Fill } from 'react-icons/ri';
+import { CiSearch } from 'react-icons/ci';
 
 const ShippingStatusPage: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>([]);
   const [filteredOrders, setFilteredOrders] = useState<Order[]>([]);
-  const [selectedYear, setSelectedYear] = useState<string>("2024");
-  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedYear, setSelectedYear] = useState<string>('2024');
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const orders = generateOrders();
     setOrders(orders);
     setFilteredOrders(
-      orders.filter((order) => order.orderDate.split(".")[2] === selectedYear),
+      orders.filter((order) => order.orderDate.split('.')[2] === selectedYear),
     );
   }, [selectedYear]);
 
@@ -31,11 +31,11 @@ const ShippingStatusPage: React.FC = () => {
   };
 
   const handleClear = () => {
-    setSearchTerm("");
+    setSearchTerm('');
   };
 
   const getUniqueYears = () => {
-    const years = orders.map((order) => order.orderDate.split(".")[2]);
+    const years = orders.map((order) => order.orderDate.split('.')[2]);
     return Array.from(new Set(years));
   };
 

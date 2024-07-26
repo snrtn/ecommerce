@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import useMediaQuery from "@/hooks/useMediaQuery";
-import ProductCard from "@/components/app/category/ProductCard";
-import { Product } from "@/components/app/cart/types";
+import React, { useState, useEffect } from 'react';
+import useMediaQuery from '@/hooks/useMediaQuery';
+import ProductCard from '@/components/app/category/ProductCard';
+import { Product } from '@/components/app/cart/types';
 
 const generateProducts = (count: number, prefix: string): Product[] =>
   Array(count)
@@ -18,15 +18,15 @@ const generateProducts = (count: number, prefix: string): Product[] =>
       ],
       price: 100 + index,
       quantity: 1,
-      color: "#000",
-      category: "category",
-      colors: ["#000", "#FFF"],
+      color: '#000',
+      category: 'category',
+      colors: ['#000', '#FFF'],
       sizes: [36, 38, 40, 42],
       size: 36,
     }));
 
-const initialWishlistItems = generateProducts(50, "Wishlist");
-const initialRecommendations = generateProducts(50, "Recommended");
+const initialWishlistItems = generateProducts(50, 'Wishlist');
+const initialRecommendations = generateProducts(50, 'Recommended');
 
 const WishlistPage: React.FC = () => {
   const isMobile = useMediaQuery(768);
