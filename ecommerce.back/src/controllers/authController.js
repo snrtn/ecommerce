@@ -13,7 +13,7 @@ passport.use(
 			clientSecret: process.env.GOOGLE_CLIENT_SECRET,
 			callbackURL: 'http://localhost:3000/auth/google/callback',
 		},
-		async function (accessToken, refreshToken, profile, done) {
+		async (accessToken, refreshToken, profile, done) => {
 			try {
 				const { id: googleId, displayName, emails } = profile;
 				const email = emails[0].value;
