@@ -42,7 +42,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="relative mb-4 h-60 w-full md:h-[45vh]">
+        <div className="h-65 relative mb-4 w-full md:h-[40vh]">
           <Image
             src={mainImage}
             alt={product.name}
