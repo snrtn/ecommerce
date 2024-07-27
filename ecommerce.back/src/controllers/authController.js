@@ -54,7 +54,10 @@ export const authFailure = (req, res) => {
 };
 
 export const logout = (req, res) => {
-	req.logout(() => {
+	req.logout((err) => {
+		if (err) {
+			return next(err);
+		}
 		res.redirect('/');
 	});
 };
