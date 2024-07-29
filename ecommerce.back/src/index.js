@@ -3,6 +3,7 @@ import express from 'express';
 import session from 'express-session';
 import passport from 'passport';
 import authRoutes from './routes/authRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 import addressRoutes from './routes/mysql/addressRoutes.js';
 
 dotenv.config();
@@ -23,6 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', authRoutes);
+app.use('/api', userRoutes);
 app.use('/api', addressRoutes);
 
 app.get('/', (req, res) => {

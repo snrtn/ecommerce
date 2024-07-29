@@ -1,8 +1,7 @@
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import dotenv from 'dotenv';
-import { saveOrUpdateUser as saveOrUpdateUserMySQL } from '../models/mysql/userModel.js';
-import { saveOrUpdateUser as saveOrUpdateUserMongo } from '../models/mongo/userModel.js';
+import { saveOrUpdateUser } from '../services/authService.js';
 
 dotenv.config();
 
@@ -19,13 +18,10 @@ passport.use(
 				const email = emails[0].value;
 				const grade = 'user';
 
-				saveOrUpdateUserMySQL(googleId, displayName, email, grade, (err) => {
+				saveOrUpdateUser(googleId, displayName, email, grade, (err) => {
 					if (err) return done(err);
+					return done(null, profile);
 				});
-
-				await saveOrUpdateUserMongo(googleId, displayName, email, grade);
-
-				return done(null, profile);
 			} catch (err) {
 				return done(err);
 			}

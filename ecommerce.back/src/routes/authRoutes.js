@@ -4,7 +4,7 @@ import { googleAuth, googleAuthCallback, authSuccess, authFailure, logout } from
 const router = express.Router();
 
 router.get('/auth/google', googleAuth);
-router.get('/auth/google/callback', googleAuthCallback, authSuccess, authFailure);
+router.get('/auth/google/callback', googleAuthCallback, authSuccess);
 router.get('/logout', logout);
 
 export default router;

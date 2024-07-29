@@ -25,3 +25,22 @@ export const saveOrUpdateUser = async (googleId, displayName, email, grade) => {
 	const options = { upsert: true };
 	await usersCollection.updateOne({ google_id: googleId }, update, options);
 };
+
+export const getUser = async (googleId) => {
+	return await usersCollection.findOne({ google_id: googleId });
+};
+
+export const updateUser = async (googleId, displayName, email, grade) => {
+	const update = {
+		$set: {
+			name: displayName,
+			email: email,
+			grade: grade,
+		},
+	};
+	return await usersCollection.updateOne({ google_id: googleId }, update);
+};
+
+export const deleteUser = async (googleId) => {
+	return await usersCollection.deleteOne({ google_id: googleId });
+};
